@@ -1,17 +1,5 @@
-import type { Metadata } from "next";
-import localFont from "next/font/local";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
 
 export const metadata: Metadata = {
   title: "Reyhan Eren - Aile Danışmanı",
@@ -21,10 +9,14 @@ export const metadata: Metadata = {
   authors: { name: "Reyhan Eren", url: "https://www.reyhaneren.com/" },
   keywords:
     "İzmir aile danışmanlığı, online aile danışmanlığı, Türkiye Aile Danışmanlığı, Aile Danışmalığı",
-  viewport: { width: "device-width", initialScale: 1 },
   alternates: {
     canonical: "https://www.reyhaneren.com/",
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 const schema = {
@@ -55,7 +47,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="tr">
+    <html suppressHydrationWarning lang="en">
       <head>
         <script
           id=""
@@ -63,9 +55,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
