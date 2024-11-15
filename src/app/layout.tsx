@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import DesktopHeader from "./components/Header/Desktop Header";
 
 export const metadata: Metadata = {
   title: "Reyhan Eren - Aile Danışmanı",
@@ -55,7 +56,10 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <DesktopHeader />
+        <main>{children}</main>
+      </body>
     </html>
   );
 }
