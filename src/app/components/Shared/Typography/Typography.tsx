@@ -2,7 +2,6 @@ import React from "react";
 import styles from "./typography.module.scss";
 import { Noto_Sans, Saira } from 'next/font/google'
 
-
 type ITypography = {
     text: string;
     type?: TextType;
@@ -61,13 +60,13 @@ export enum TextAsTypes {
 }
 
 const noto_sans = Noto_Sans({
-    weight: ['100', '200', '300', '400', '500', '600', '700'],
+    weight: ['300', '400', '500', '600', '700'],
     style: ['normal', 'italic'],
     subsets: ['latin'],
 })
 
 const saira = Saira({
-    weight: ['100', '200', '300', '400', '500', '600', '700'],
+    weight: ['300', '400', '500', '600', '700'],
     style: ['normal', 'italic'],
     subsets: ['latin'],
 })

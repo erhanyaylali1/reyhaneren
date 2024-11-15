@@ -22,7 +22,7 @@ export enum ButtonVariants {
     "yellow" = "yellow",
 }
 
-const ButtonComponent = ({ title, ariaLabel, handleClick, variant = ButtonVariants.secondary, size = ButtonSizes.md, disabled = false }: IButtonProps): React.ReactNode => {
+const Button = ({ title, ariaLabel, handleClick, variant = ButtonVariants.yellow, size = ButtonSizes.md, disabled = false }: IButtonProps): React.ReactNode => {
     return (
         <button
             className={`${styles.button} ${styles["button__" + size]} ${styles["button__" + variant]}`}
@@ -35,4 +35,4 @@ const ButtonComponent = ({ title, ariaLabel, handleClick, variant = ButtonVarian
     )
 }
 
-export default ButtonComponent;
+export default Button;
