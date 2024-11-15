@@ -1,0 +1,36 @@
+@import "/src/app/shared/styles/variables.scss";
+
+.button {
+    border: none;
+    border-radius: $borderRadiusXs;
+}
+
+.button__sm {
+    font-size: $fontSizeXs;
+    padding: $spacingSm $spacingLg;
+}
+
+.button__md {
+    font-size: $fontSizeSm;
+    padding: $spacingSm $spacingXl;
+}
+
+.button__lg {
+    font-size: $fontSizeMd;
+    padding: $spacingMd $spacing3Xl;
+}
+
+.button__primary {
+    background-color: $colorPrimary;
+    color: $colorLight;
+}
+
+.button__secondary {
+    background-color: $colorSecondary;
+    color: $colorLight;
+}
+
+.button__yellow {
+    background-color: $colorYellow;
+    color: $colorDark;
+}
