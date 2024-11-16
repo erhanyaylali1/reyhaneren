@@ -6,7 +6,7 @@ import Typography, { TextColors, TextFontWeights } from "../../Shared/Typography
 
 const DesktopHeader = () => {
     return (
-        <div>
+        <div className="w-100 d-flex flex-align-center flex-justify-between ui-p-xl">
             <Link href="hizmetler">Hizmetler</Link>
             <Link href="blog">Blog</Link>
             <Link href="hakkimda">Hakkımda</Link>
