@@ -1,0 +1,50 @@
+@import "/src/shared/styles/variables.scss";
+
+.footerContent {
+    background-color: $colorNeutral;
+    padding: $spacing4Xl $spacing4Xl $spacing3Xl $spacing4Xl;
+
+    @media screen and (min-width: 752px) {
+        padding: $spacing4Xl $spacing4Xl $spacing3Xl $spacing4Xl;
+    }
+}
+
+.footerLogoWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: $spacingXl;
+
+    @media screen and (min-width: 752px) {
+        justify-content: flex-start;
+        padding: 0 60px;
+    }
+}
+
+.linkContainer {
+    display: flex;
+    flex-direction: column;
+
+    @media screen and (min-width: 752px) {
+        flex-direction: row;
+        padding: 0 $spacing4Xl;
+
+    }
+}
+
+.linksWrapper {
+    margin-top: $spacingLg;
+    padding: 0 $spacingLg;
+}
+
+.linkWrapper {
+    padding-block: $spacingMd;
+    display: block;
+}
+
+.copyRightText {
+    width: 100%;
+    background-color: $colorSecondary;
+    padding: $spacingMd;
+    text-align: center;
+}

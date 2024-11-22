@@ -1,0 +1,96 @@
+@import "/src/shared/styles/variables.scss";
+
+.headerWrapper {
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    background: $colorLight;
+    box-shadow: 0px 16px 20px -12px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    flex-direction: column;
+    padding: $spacingXl $spacing3Xl;
+    align-items: flex-start;
+
+    @media screen and (min-width: 752px) {
+        padding: $spacingXl $spacing4Xl;
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+.headerLogoLinkWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    @media screen and (min-width: 752px) {
+        justify-content: center;
+        width: initial;
+    }
+}
+
+.headerLogoLink {
+    display: contents;
+
+    img {
+        transition: margin-left .2s ease;
+        height: 40px;
+        width: auto;
+
+        &:hover {
+            margin-left: $spacingXs;
+        }
+
+        @media screen and (min-width: 752px) {
+            height: 50px;
+        }
+
+    }
+}
+
+.headerLinks {
+    text-align: left;
+    padding-block: $spacingMd;
+    width: 100%;
+
+    &:hover {
+        font-weight: $fontWeightSemiBold;
+    }
+
+    @media screen and (min-width: 752px) {
+        width: 100px;
+        text-align: center;
+    }
+}
+
+.desktopActionsWrappper {
+    @media screen and (max-width: 752px) {
+        display: none;
+    }
+}
+
+.mobileHambugerMenuWrapper {
+    img {
+        cursor: pointer;
+    }
+
+    @media screen and (min-width: 752px) {
+        display: none;
+    }
+}
+
+.mobileModalWrapper {
+    padding: $spacingXl $spacing4Xl;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 65px;
+    background: $colorLight;
+    box-shadow: 0px 16px 20px -12px rgba(0, 0, 0, 0.5);
+}

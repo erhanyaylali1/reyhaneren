@@ -1,6 +1,6 @@
 :root {
-    --background: #ffffff;
-    --foreground: #171717;
+    --background: #FDF9F6;
+    --foreground: #333333;
     --spacingXs: 4px;
     --spacingSm: 8px;
     --spacingMd: 12px;
@@ -20,6 +20,7 @@
 html,
 body {
     max-width: 100vw;
+    height: 100vh;
     overflow-x: hidden;
 }
 

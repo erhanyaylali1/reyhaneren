@@ -1,8 +1,9 @@
-@import "/src/app/shared/styles/variables.scss";
+@import "/src/shared/styles/variables.scss";
 
 .button {
     border: none;
     border-radius: $borderRadiusXs;
+    cursor: pointer;
 }
 
 .button__sm {
@@ -33,4 +34,8 @@
 .button__yellow {
     background-color: $colorYellow;
     color: $colorDark;
+
+    &:hover {
+        background-color: $colorYellowHover;
+    }
 }
