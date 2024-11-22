@@ -18,7 +18,7 @@ const Header = () => {
     };
 
     return (
-        <div className={styles.headerWrapper}>
+        <header className={styles.headerWrapper}>
             <div className={styles.headerLogoLinkWrapper}>
                 <Link href="/" className={styles.headerLogoLink}>
                     <Image
@@ -50,7 +50,7 @@ const Header = () => {
                 <Link onClick={() => setIsMobileMenuOpen(false)} href="hakkimda" className={styles.headerLinks}>Hakkımda</Link>
                 <Button className="ui-mt-md" title="Randevu Al" ariaLabel="Randevu Al" handleClick={() => null} />
             </div>
-        </div>
+        </header>
     );
 };
 

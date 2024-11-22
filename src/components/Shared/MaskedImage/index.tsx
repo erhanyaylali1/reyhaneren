@@ -9,14 +9,16 @@ export type MaskedImageInterface = {
     maskColor: string;
     opacity: string;
     imageClassName: string;
+    priority?: boolean;
 }
 
-const MaskedImage = ({ source, altText, maskColor, opacity, imageClassName }: MaskedImageInterface) => {
+const MaskedImage = ({ source, altText, maskColor, opacity, imageClassName, priority = false }: MaskedImageInterface) => {
     return (
         <div className={styles.wrapper}>
             <Image
                 src={source}
                 alt={altText}
+                priority={priority}
                 className={imageClassName}
             />
             <div className={styles.mask} style={{ backgroundColor: maskColor, opacity }} />

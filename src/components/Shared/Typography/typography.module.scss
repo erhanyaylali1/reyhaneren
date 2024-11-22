@@ -40,50 +40,146 @@
     font-weight: 700;
 }
 
-.text-12px {
-    font-size: 12px;
+.text-desktop-12px {
+    @media screen and (min-width: 768px) {
+        font-size: 12px;
+    }
 }
 
-.text-14px {
-    font-size: 14px;
+.text-desktop-14px {
+    @media screen and (min-width: 768px) {
+        font-size: 14px;
+    }
 }
 
-.text-16px {
-    font-size: 16px;
+.text-desktop-16px {
+    @media screen and (min-width: 768px) {
+        font-size: 16px;
+    }
 }
 
-.text-18px {
-    font-size: 18px;
+.text-desktop-18px {
+    @media screen and (min-width: 768px) {
+        font-size: 18px;
+    }
 }
 
-.text-20px {
-    font-size: 20px;
+.text-desktop-20px {
+    @media screen and (min-width: 768px) {
+        font-size: 20px;
+    }
 }
 
-.text-22px {
-    font-size: 22px;
+.text-desktop-22px {
+    @media screen and (min-width: 768px) {
+        font-size: 22px;
+    }
 }
 
-.text-24px {
-    font-size: 24px;
+.text-desktop-24px {
+    @media screen and (min-width: 768px) {
+        font-size: 24px;
+    }
 }
 
-.text-28px {
-    font-size: 28px;
+.text-desktop-28px {
+    @media screen and (min-width: 768px) {
+        font-size: 28px;
+    }
 }
 
-.text-30px {
-    font-size: 30px;
+.text-desktop-30px {
+    @media screen and (min-width: 768px) {
+        font-size: 30px;
+    }
 }
 
-.text-32px {
-    font-size: 32px;
+.text-desktop-32px {
+    @media screen and (min-width: 768px) {
+        font-size: 32px;
+    }
 }
 
-.text-48px {
-    font-size: 48px;
+.text-desktop-48px {
+    @media screen and (min-width: 768px) {
+        font-size: 48px;
+    }
 }
 
-.text-64px {
-    font-size: 64px;
+.text-desktop-64px {
+    @media screen and (min-width: 768px) {
+        font-size: 64px;
+    }
+}
+
+.text-mobile-12px {
+    @media screen and (max-width: 768px) {
+        font-size: 12px;
+    }
+}
+
+.text-mobile-14px {
+    @media screen and (max-width: 768px) {
+        font-size: 14px;
+    }
+}
+
+.text-mobile-16px {
+    @media screen and (max-width: 768px) {
+        font-size: 16px;
+    }
+}
+
+.text-mobile-18px {
+    @media screen and (max-width: 768px) {
+        font-size: 18px;
+    }
+}
+
+.text-mobile-20px {
+    @media screen and (max-width: 768px) {
+        font-size: 20px;
+    }
+}
+
+.text-mobile-22px {
+    @media screen and (max-width: 768px) {
+        font-size: 22px;
+    }
+}
+
+.text-mobile-24px {
+    @media screen and (max-width: 768px) {
+        font-size: 24px;
+    }
+}
+
+.text-mobile-28px {
+    @media screen and (max-width: 768px) {
+        font-size: 28px;
+    }
+}
+
+.text-mobile-30px {
+    @media screen and (max-width: 768px) {
+        font-size: 30px;
+    }
+}
+
+.text-mobile-32px {
+    @media screen and (max-width: 768px) {
+        font-size: 32px;
+    }
+}
+
+.text-mobile-48px {
+    @media screen and (max-width: 768px) {
+        font-size: 48px;
+    }
+}
+
+.text-mobile-64px {
+    @media screen and (max-width: 768px) {
+        font-size: 64px;
+    }
 }

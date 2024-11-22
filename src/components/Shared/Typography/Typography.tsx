@@ -7,6 +7,7 @@ type ITypography = {
     type?: TextType;
     as?: TextAsTypes;
     color?: TextColors;
+    textClassName?: string;
     fontWeight?: TextFontWeights;
     fontSizeDesktop?: TextFontSizes;
     fontSizeMobile?: TextFontSizes;
@@ -71,12 +72,17 @@ const saira = Saira({
     subsets: ['latin'],
 })
 
-const Typography = ({ text, type = TextType.body, as = TextAsTypes.p, color = TextColors.dark, fontWeight = TextFontWeights.regular, fontSizeDesktop = TextFontSizes["18px"], fontSizeMobile = TextFontSizes["16px"] }: ITypography): React.ReactNode => {
+const Typography = ({ text, textClassName, type = TextType.body, as = TextAsTypes.p, color = TextColors.dark, fontWeight = TextFontWeights.regular, fontSizeDesktop = TextFontSizes["18px"], fontSizeMobile = TextFontSizes["16px"] }: ITypography): React.ReactNode => {
 
     const TextComponent = as;
 
     return (
-        <TextComponent className={`${styles["text-" + color]} ${styles["text-" + fontWeight]} ${type === TextType.body ? noto_sans.className : saira.className}`}>
+        <TextComponent
+            className={`${styles["text-" + color]} ${styles["text-" + fontWeight]} 
+                        ${styles["text-desktop-" + fontSizeDesktop]} ${styles["text-mobile-" + fontSizeMobile]}
+                        ${type === TextType.body ? noto_sans.className : saira.className}
+                        ${textClassName}
+        `}>
             {text}
         </TextComponent>
     )
