@@ -43,6 +43,11 @@ a {
     text-decoration: none;
 }
 
+.container {
+    width: 80%;
+    margin-inline: auto;
+}
+
 /* Width Classes */
 
 .w-100 {

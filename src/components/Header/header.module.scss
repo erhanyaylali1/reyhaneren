@@ -12,7 +12,7 @@
     padding: $spacingXl $spacing3Xl;
     align-items: flex-start;
 
-    @media screen and (min-width: 752px) {
+    @media screen and (min-width: 768px) {
         padding: $spacingXl $spacing4Xl;
         flex-direction: row;
         align-items: center;
@@ -25,7 +25,7 @@
     justify-content: space-between;
     width: 100%;
 
-    @media screen and (min-width: 752px) {
+    @media screen and (min-width: 768px) {
         justify-content: center;
         width: initial;
     }
@@ -43,7 +43,7 @@
             margin-left: $spacingXs;
         }
 
-        @media screen and (min-width: 752px) {
+        @media screen and (min-width: 768px) {
             height: 50px;
         }
 
@@ -59,14 +59,14 @@
         font-weight: $fontWeightSemiBold;
     }
 
-    @media screen and (min-width: 752px) {
+    @media screen and (min-width: 768px) {
         width: 100px;
         text-align: center;
     }
 }
 
 .desktopActionsWrappper {
-    @media screen and (max-width: 752px) {
+    @media screen and (max-width: 768px) {
         display: none;
     }
 }
@@ -76,7 +76,7 @@
         cursor: pointer;
     }
 
-    @media screen and (min-width: 752px) {
+    @media screen and (min-width: 768px) {
         display: none;
     }
 }

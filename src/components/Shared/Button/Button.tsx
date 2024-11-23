@@ -8,7 +8,7 @@ export type IButtonProps = {
     variant?: ButtonVariants;
     size?: ButtonSizes;
     disabled?: boolean;
-    handleClick: () => void;
+    handleClick?: () => void;
 }
 
 export enum ButtonSizes {

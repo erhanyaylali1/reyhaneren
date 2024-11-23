@@ -6,16 +6,17 @@ import MaskedImage from "@/components/Shared/MaskedImage";
 import Colors from "@/shared/enum/colors";
 import Typography, { TextAsTypes, TextColors, TextFontSizes } from "@/components/Shared/Typography/Typography";
 import Button, { ButtonSizes } from "@/components/Shared/Button/Button";
+import Services from "@/components/HomePage/Services";
 
 export default function Home() {
     return (
         <div>
-            <div className={styles.bannerWrapper}>
+            <section className={styles.bannerWrapper}>
                 <MaskedImage
                     source={LandingPageBanner}
                     imageClassName={styles.bannerImage}
                     altText="Aile Danışmanlığı Örnek Fotoğrafı"
-                    opacity="0.4"
+                    opacity="0.3"
                     maskColor={Colors["light-blue"]}
                     priority={true}
                 />
@@ -23,7 +24,7 @@ export default function Home() {
                     <Typography text="Huzurlu ve sağlıklı bir aile hayatına sahip olun."
                         as={TextAsTypes.h1}
                         fontSizeDesktop={TextFontSizes["48px"]}
-                        fontSizeMobile={TextFontSizes["24px"]}
+                        fontSizeMobile={TextFontSizes["28px"]}
                         color={TextColors.light}
                         textClassName={styles.bannerText}
                     />
@@ -34,7 +35,10 @@ export default function Home() {
                         size={ButtonSizes.lg}
                     />
                 </div>
-            </div>
+            </section>
+            <section className={styles.servicesWrapper}>
+                <Services />
+            </section>
         </div>
     );
 }
