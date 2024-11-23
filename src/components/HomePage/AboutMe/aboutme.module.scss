@@ -1,0 +1,56 @@
+@import "/src/shared/styles/variables.scss";
+
+.aboutMeWrapper {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    position: relative;
+
+    @media screen and (min-width: 768px) {
+        height: 90vh;
+        width: 80%;
+        flex-direction: row;
+        margin-inline: auto;
+    }
+}
+
+.aboutMeContent {
+    padding: $spacingLg;
+    background-color: $colorNeutral;
+    padding: $fontSize4Xl;
+    padding-top: 130px;
+
+    @media screen and (min-width: 768px) {
+        border-radius: $borderRadiusSm 0 0 $borderRadiusSm;
+        padding: $spacing5Xl $fontSize6Xl;
+
+    }
+}
+
+.aboutMeImage {
+    width: 200px;
+    height: 200px;
+    object-fit: none;
+    position: absolute;
+    top: 0;
+    transform: translateY(-50%);
+    border-radius: 50%;
+
+    @media screen and (min-width: 768px) {
+        width: 400px;
+        height: 600px;
+        object-fit: cover;
+        position: relative;
+        top: initial;
+        transform: initial;
+        border-radius: 20px;
+    }
+}
+
+.title {
+    margin-bottom: $spacingXl;
+}
+
+.firstText {
+    margin-bottom: $spacingMd;
+}

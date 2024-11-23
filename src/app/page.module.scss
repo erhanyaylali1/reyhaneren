@@ -1,9 +1,18 @@
 @import "/src/shared/styles/variables.scss";
 
 .bannerWrapper,
-.servicesWrapper {
+.aboutMeWrapper {
     position: relative;
     margin-bottom: $spacing4Xl;
+}
+
+.servicesWrapper {
+    position: relative;
+    margin-bottom: 200px;
+
+    @media screen and (min-width: 768px) {
+        margin-bottom: 80px;
+    }
 }
 
 .bannerImage {

@@ -7,6 +7,7 @@ import Colors from "@/shared/enum/colors";
 import Typography, { TextAsTypes, TextColors, TextFontSizes } from "@/components/Shared/Typography/Typography";
 import Button, { ButtonSizes } from "@/components/Shared/Button/Button";
 import Services from "@/components/HomePage/Services";
+import AboutMe from "@/components/HomePage/AboutMe";
 
 export default function Home() {
     return (
@@ -38,6 +39,9 @@ export default function Home() {
             </section>
             <section className={styles.servicesWrapper}>
                 <Services />
+            </section>
+            <section className={styles.aboutMeWrapper}>
+                <AboutMe />
             </section>
         </div>
     );
