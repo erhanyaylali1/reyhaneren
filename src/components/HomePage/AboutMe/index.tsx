@@ -9,7 +9,7 @@ const AboutMe = () => {
         <div className={styles.aboutMeWrapper}>
             <div className={styles.aboutMeContent}>
                 <Typography
-                    text="Merhaba, ben Reyhan."
+                    text="Merhaba, ben Reyhan 👋🏻"
                     textClassName={styles.title}
                     type={TextType.title}
                     fontSizeDesktop={TextFontSizes['28px']}

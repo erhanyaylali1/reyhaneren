@@ -18,7 +18,7 @@
     padding: $spacingLg;
     background-color: $colorNeutral;
     padding: $fontSize4Xl;
-    padding-top: 130px;
+    padding-top: 240px;
 
     @media screen and (min-width: 768px) {
         border-radius: $borderRadiusSm 0 0 $borderRadiusSm;
@@ -28,13 +28,13 @@
 }
 
 .aboutMeImage {
-    width: 200px;
-    height: 200px;
+    width: 220px;
+    height: 300px;
     object-fit: none;
     position: absolute;
     top: 0;
-    transform: translateY(-50%);
-    border-radius: 50%;
+    transform: translateY(-30%);
+    border-radius: 30px;
 
     @media screen and (min-width: 768px) {
         width: 400px;
@@ -43,7 +43,7 @@
         position: relative;
         top: initial;
         transform: initial;
-        border-radius: 20px;
+        border-radius: $borderRadiusSm;
     }
 }
 
