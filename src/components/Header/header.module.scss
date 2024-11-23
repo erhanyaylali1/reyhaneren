@@ -1,19 +1,20 @@
 @import "/src/shared/styles/variables.scss";
 
 .headerWrapper {
+    position: relative;
+    top: 0;
     width: 100vw;
     display: flex;
     justify-content: space-between;
-    position: relative;
     background: $colorLight;
     box-shadow: 0px 16px 20px -12px rgba(0, 0, 0, 0.5);
     z-index: 5;
     flex-direction: column;
-    padding: $spacingXl $spacing3Xl;
+    padding: $spacingXl 5%;
     align-items: flex-start;
 
     @media screen and (min-width: 768px) {
-        padding: $spacingXl $spacing4Xl;
+        padding: $spacingXl 10%;
         flex-direction: row;
         align-items: center;
     }
