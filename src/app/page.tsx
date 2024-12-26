@@ -8,6 +8,7 @@ import Typography, { TextAsTypes, TextColors, TextFontSizes } from "@/components
 import Button, { ButtonSizes } from "@/components/Shared/Button/Button";
 import Services from "@/components/HomePage/Services";
 import AboutMe from "@/components/HomePage/AboutMe";
+import USP from "@/components/HomePage/USP";
 
 export default function Home() {
     return (
@@ -42,6 +43,9 @@ export default function Home() {
             </section>
             <section className={styles.aboutMeWrapper}>
                 <AboutMe />
+            </section>
+            <section className={styles.uspWrapper}>
+                <USP />
             </section>
         </div>
     );

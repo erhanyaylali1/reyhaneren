@@ -1,0 +1,98 @@
+@import "/src/shared/styles/variables.scss";
+
+.container {
+    display: grid;
+    grid-template-areas: 'usp1 usp2' 'usp4 usp3' 'usp5 usp6';
+    background-color: $colorSecondary;
+    color: $colorLight;
+
+    @media screen and (min-width: 768px) {
+        grid-template-areas: 'usp1 usp2 usp3' 'usp4 usp5 usp6';
+    }
+}
+
+.uspImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    @media screen and (min-width: 768px) {
+        height: revert-layer;
+    }
+}
+
+.usp1 {
+    grid-area: usp1;
+}
+
+.usp2 {
+    grid-area: usp2;
+}
+
+.usp3 {
+    grid-area: usp3;
+}
+
+.usp4 {
+    grid-area: usp4;
+}
+
+.usp5 {
+    grid-area: usp5;
+}
+
+.usp6 {
+    grid-area: usp6;
+}
+
+.usp2, .usp4, .usp6 {
+    padding: $spacing2Xl;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+    @media screen and (min-width: 768px) {
+        padding: $spacing6Xl;
+    }
+}
+
+.uspFrontTitle {
+    font-weight: 700;
+    margin: 0;
+    margin-bottom: $spacingXs;
+    font-size: $fontSizeMd;
+
+    @media screen and (min-width: 768px) {
+        font-size: $fontSizeXl;
+    }
+}
+
+.uspTitle {
+    font-family: "Playwrite NO", serif;
+    font-size: $fontSizeXl;
+    font-weight: 700;
+    margin: 0;
+    margin-bottom: $spacingXl;
+
+    @media screen and (min-width: 768px) {
+        font-size: $fontSize3Xl;
+    }
+}
+
+.uspBody {
+    margin: 0;
+    font-size: $fontSizeSm;
+
+    @media screen and (min-width: 768px) {
+        font-size: $fontSizeLg;
+        margin-bottom: $spacing3Xl;
+    }
+}
+
+.uspButton {
+    display: none;
+
+    @media screen and (min-width: 768px) {
+        display: unset;
+    }
+}
