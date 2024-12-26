@@ -1,8 +1,8 @@
 import React from 'react'
 import styles from './usp.module.scss'
-import USPImage1 from '../../../assets/images/Top Left Image.png'
-import USPImage2 from '../../../assets/images/Top Right Image.png'
-import USPImage3 from '../../../assets/images/Bottom Image.png'
+import USPImage1 from '../../../assets/images/Top Left Image.webp'
+import USPImage2 from '../../../assets/images/Top Right Image.webp'
+import USPImage3 from '../../../assets/images/Bottom Image.webp'
 import Image from 'next/image'
 import Typography, { TextAsTypes, TextColors } from '@/components/Shared/Typography/Typography'
 import Button, { ButtonSizes } from '@/components/Shared/Button/Button'
@@ -38,12 +38,11 @@ const USP = () => {
                 text="Daha sağlıklı ve mutlu bir aile ortam yaratmak için profesyonel olarak danışmanlık hizmeti alın." 
                 color={TextColors.light}
             />
-            <Link href="randevu-al">
+            <Link href="randevu-al" aria-label='Randevu al'>
                 <Button
                     title="Randevu al"
                     ariaLabel='Randevu al'
                     className={styles.uspButton}
-                    handleClick={() => console.log('button clicked')}
                     size={ButtonSizes.lg}
                 />
             </Link>
@@ -74,12 +73,11 @@ const USP = () => {
                 text="Düzgün iletişim ile birbirinizin düşünce-lerini ve hislerini daha iyi anlayıp aranızdaki sorunların aşın." 
                 color={TextColors.light}
             />
-            <Link href="randevu-al">
+            <Link href="randevu-al" aria-label='Bilgi al'>
                 <Button
                     title="Bilgi al"
                     ariaLabel='Bilgi al'
                     className={styles.uspButton}
-                    handleClick={() => console.log('button clicked')}
                     size={ButtonSizes.lg}
                 />
             </Link>
@@ -110,12 +108,11 @@ const USP = () => {
                 text="Mutlu bir aile ortamıyle birlikte hayattan aldığınız zevki arttırın ve daha tatmin edici deneyimler yaşayın." 
                 color={TextColors.light}
             />
-            <Link href="randevu-al">
+            <Link href="randevu-al" aria-label='Şimdi Başvur'>
                 <Button
                     title="Şimdi Başvur"
                     ariaLabel='Şimdi Başvur'
                     className={styles.uspButton}
-                    handleClick={() => console.log('button clicked')}
                     size={ButtonSizes.lg}
                 />
             </Link>

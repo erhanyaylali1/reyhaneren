@@ -25,6 +25,7 @@ const Services = () => {
                             src={Service1Image}
                             alt='Aile Danışmanlığı Servisi Fotoğrafı'
                             className={styles.serviceImage}
+                            loading='eager'
                         />
                         <div className={styles.serviceBody}>
                             <Typography
@@ -53,6 +54,7 @@ const Services = () => {
                             src={Service2Image}
                             alt='Aile Danışmanlığı Servisi Fotoğrafı'
                             className={styles.serviceImage}
+                            loading='eager'
                         />
                         <div className={styles.serviceBody}>
                             <Typography

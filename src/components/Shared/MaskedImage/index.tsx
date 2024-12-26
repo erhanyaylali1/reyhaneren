@@ -1,26 +1,36 @@
 import { StaticImport } from 'next/dist/shared/lib/get-img-props';
-import Image from 'next/image';
+import { getImageProps } from 'next/image';
 import React from 'react';
 import styles from "./maskedImage.module.scss";
 
 export type MaskedImageInterface = {
     source: string | StaticImport;
+    mobileSource: string | StaticImport;
     altText: string;
     maskColor: string;
     opacity: string;
     imageClassName: string;
-    priority?: boolean;
 }
 
-const MaskedImage = ({ source, altText, maskColor, opacity, imageClassName, priority = false }: MaskedImageInterface) => {
+const MaskedImage = ({ source, mobileSource, altText, maskColor, opacity, imageClassName }: MaskedImageInterface) => {
+    
+    const { props: { srcSet: OwnerPictureSrcSet } } = getImageProps({
+        alt: 'Reyhan Eren fotoğrafı',
+        src: source,
+    })
+
+    const { props: { srcSet: OwnerPictureMobileSrcSet } } = getImageProps({
+        alt: 'Reyhan Eren fotoğrafı',
+        src: mobileSource,
+    })
+
     return (
         <div className={styles.wrapper}>
-            <Image
-                src={source}
-                alt={altText}
-                priority={priority}
-                className={imageClassName}
-            />
+            <picture>
+                <source media="(min-width: 1400px)" srcSet={OwnerPictureSrcSet} />
+                <source media="(min-width: 300px)" srcSet={OwnerPictureMobileSrcSet} />
+                <img className={imageClassName} alt={altText} loading='eager' />
+            </picture>
             <div className={styles.mask} style={{ backgroundColor: maskColor, opacity }} />
         </div>
     )

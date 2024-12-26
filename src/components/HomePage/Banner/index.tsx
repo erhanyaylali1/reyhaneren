@@ -1,6 +1,7 @@
 import styles from "./banner.module.scss";
 import Button, { ButtonSizes } from '@/components/Shared/Button/Button'
 import LandingPageBanner from '../../../assets/images/Landing Page Banner Image.webp'
+import LandingPageBannerMobile from '../../../assets/images/Landing Page Banner Image Mobil.webp'
 import MaskedImage from '@/components/Shared/MaskedImage'
 import Typography, { TextAsTypes, TextColors, TextFontSizes } from '@/components/Shared/Typography/Typography'
 import Colors from '@/shared/enum/colors'
@@ -12,12 +13,12 @@ const Banner = () => {
     <React.Fragment>
         <MaskedImage
             source={LandingPageBanner}
+            mobileSource={LandingPageBannerMobile}
             imageClassName={styles.bannerImage}
             altText="Aile Danışmanlığı Örnek Fotoğrafı"
             opacity="0.3"
             maskColor={Colors["light-blue"]}
-            priority={true}
-            />
+          />
         <div className={styles.bannerTextWrapper}>
             <Typography text="Huzurlu ve sağlıklı bir aile hayatına sahip olun."
                 as={TextAsTypes.h1}
