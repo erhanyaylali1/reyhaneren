@@ -5,7 +5,8 @@ import USPImage2 from '../../../assets/images/Top Right Image.png'
 import USPImage3 from '../../../assets/images/Bottom Image.png'
 import Image from 'next/image'
 import Typography, { TextAsTypes, TextColors } from '@/components/Shared/Typography/Typography'
-import Button from '@/components/Shared/Button/Button'
+import Button, { ButtonSizes } from '@/components/Shared/Button/Button'
+import Link from 'next/link'
 
 const USP = () => {
 
@@ -14,7 +15,7 @@ const USP = () => {
         <div className={styles.usp1}>
             <Image 
                 src={USPImage1} 
-                alt="" 
+                alt="Aileniz ile mutlu hissedin" 
                 className={styles.uspImage}    
             />
         </div>
@@ -37,17 +38,20 @@ const USP = () => {
                 text="Daha sağlıklı ve mutlu bir aile ortam yaratmak için profesyonel olarak danışmanlık hizmeti alın." 
                 color={TextColors.light}
             />
-            <Button
-                title="Randevu al"
-                ariaLabel='Randevu al'
-                className={styles.uspButton}
-                handleClick={() => console.log('button clicked')}
-            />
+            <Link href="randevu-al">
+                <Button
+                    title="Randevu al"
+                    ariaLabel='Randevu al'
+                    className={styles.uspButton}
+                    handleClick={() => console.log('button clicked')}
+                    size={ButtonSizes.lg}
+                />
+            </Link>
         </div>
         <div className={styles.usp3}>
             <Image 
                 src={USPImage2} 
-                alt="" 
+                alt="Partneriniz ile ilişkinizi güçlendirin" 
                 className={styles.uspImage}    
             />
         </div>
@@ -70,17 +74,20 @@ const USP = () => {
                 text="Düzgün iletişim ile birbirinizin düşünce-lerini ve hislerini daha iyi anlayıp aranızdaki sorunların aşın." 
                 color={TextColors.light}
             />
-            <Button
-                title="Bilgi al"
-                ariaLabel='Bilgi al'
-                className={styles.uspButton}
-                handleClick={() => console.log('button clicked')}
-            />
+            <Link href="randevu-al">
+                <Button
+                    title="Bilgi al"
+                    ariaLabel='Bilgi al'
+                    className={styles.uspButton}
+                    handleClick={() => console.log('button clicked')}
+                    size={ButtonSizes.lg}
+                />
+            </Link>
         </div>
         <div className={styles.usp5}>
             <Image 
                 src={USPImage3} 
-                alt="" 
+                alt="Hayattan Aldığınız Zevki Arttırın" 
                 className={styles.uspImage}    
             />
         </div>
@@ -103,12 +110,15 @@ const USP = () => {
                 text="Mutlu bir aile ortamıyle birlikte hayattan aldığınız zevki arttırın ve daha tatmin edici deneyimler yaşayın." 
                 color={TextColors.light}
             />
-            <Button
-                title="Şimdi Başvur"
-                ariaLabel='Şimdi Başvur'
-                className={styles.uspButton}
-                handleClick={() => console.log('button clicked')}
-            />
+            <Link href="randevu-al">
+                <Button
+                    title="Şimdi Başvur"
+                    ariaLabel='Şimdi Başvur'
+                    className={styles.uspButton}
+                    handleClick={() => console.log('button clicked')}
+                    size={ButtonSizes.lg}
+                />
+            </Link>
         </div>
     </div>
   )

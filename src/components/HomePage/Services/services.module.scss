@@ -15,6 +15,11 @@
     width: 100%;
     overflow-x: auto;
     gap: $spacing3Xl;
+
+    @media screen and (min-width: 768px) {
+        justify-content: unset;
+        gap: 100px;
+    }
 }
 
 .serviceWrapper {
@@ -27,10 +32,6 @@
     @media screen and (min-width: 768px) {
         padding: $spacingLg $spacingXl;
         align-items: center;
-
-        &:hover {
-            background-color: $colorNeutral;
-        }
     }
 }
 

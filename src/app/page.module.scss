@@ -5,7 +5,7 @@
 .uspWrapper,
 .featuresWrapper {
     position: relative;
-    margin-bottom: $spacing4Xl;
+    margin-bottom: $spacing5Xl;
 }
 
 .servicesWrapper {
@@ -13,6 +13,6 @@
     margin-bottom: 160px;
 
     @media screen and (min-width: 768px) {
-        margin-bottom: 80px;
+        margin-bottom: 0;
     }
 }

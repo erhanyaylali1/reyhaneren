@@ -5,6 +5,7 @@ import MaskedImage from '@/components/Shared/MaskedImage'
 import Typography, { TextAsTypes, TextColors, TextFontSizes } from '@/components/Shared/Typography/Typography'
 import Colors from '@/shared/enum/colors'
 import React from 'react'
+import Link from "next/link";
 
 const Banner = () => {
   return (
@@ -25,12 +26,14 @@ const Banner = () => {
                 color={TextColors.light}
                 textClassName={styles.bannerText}
                 />
-            <Button
-                title="Randevu Al"
-                ariaLabel="Randevu Al"
-                handleClick={() => null}
-                size={ButtonSizes.lg}
-                />
+              <Link href="randevu-al">
+                <Button
+                    title="Randevu Al"
+                    ariaLabel="Randevu Al"
+                    handleClick={() => null}
+                    size={ButtonSizes.lg}
+                  />
+              </Link>
         </div>
     </React.Fragment>
   )

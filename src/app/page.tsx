@@ -4,7 +4,7 @@ import styles from "./page.module.scss";
 import Services from "@/components/HomePage/Services";
 import AboutMe from "@/components/HomePage/AboutMe";
 import USP from "@/components/HomePage/USP";
-import Banner from "@/components/HomePage/ Banner";
+import Banner from "@/components/HomePage/Banner";
 import Features from "@/components/HomePage/Features";
 
 export default function Home() {
