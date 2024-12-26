@@ -1,0 +1,50 @@
+@import "/src/shared/styles/variables.scss";
+
+.serviceWrapper {
+  padding: $spacing2Xl $spacing3Xl;
+  border-radius: $borderRadiusMd;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: $colorSecondary;
+
+  @media screen and (min-width: 768px) {
+    padding: $spacing4Xl;
+  }
+}
+
+.serviceBody {
+  margin-top: $spacingXl;
+  margin-bottom: $spacingXl;
+}
+
+.serviceIndexWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: $colorYellow;
+
+  h2 {
+   line-height: 24px;
+  }
+
+}
+
+.leftAlign {
+  left: 0;
+  transform: translate(-50%, -50%);
+}
+
+.rightAlign {
+  right: 0;
+  transform: translate(50%, -50%);
+}
+
+.buttonWrapper {
+  align-self: end;
+}

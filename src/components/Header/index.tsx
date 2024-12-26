@@ -20,7 +20,7 @@ const Header = () => {
     return (
         <header className={`${styles.headerWrapper} container`}>
             <div className={styles.headerLogoLinkWrapper}>
-                <Link href="/" className={styles.headerLogoLink}>
+                <Link href="/" className={styles.headerLogoLink} onClick={() => setIsMobileMenuOpen(false)}>
                     <Image
                         alt="Reyhan Eren Aile Danışmanlığı Logosu"
                         src={Logo}

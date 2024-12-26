@@ -15,12 +15,12 @@ export type MaskedImageInterface = {
 const MaskedImage = ({ source, mobileSource, altText, maskColor, opacity, imageClassName }: MaskedImageInterface) => {
     
     const { props: { srcSet: OwnerPictureSrcSet } } = getImageProps({
-        alt: 'Reyhan Eren fotoğrafı',
+        alt: altText,
         src: source,
     })
 
     const { props: { srcSet: OwnerPictureMobileSrcSet } } = getImageProps({
-        alt: 'Reyhan Eren fotoğrafı',
+        alt: altText,
         src: mobileSource,
     })
 
