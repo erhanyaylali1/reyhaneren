@@ -19,4 +19,10 @@
     display: flex;
     gap: $spacingLg;
     padding: $spacingLg;
+    align-items: center;
+
+    img {
+        height: auto;
+        width: 25px;
+    }
 }

@@ -7,7 +7,7 @@
     position: relative;
 
     @media screen and (min-width: 768px) {
-        height: 90vh;
+        height: 70vh;
         width: 80%;
         flex-direction: row;
         margin-inline: auto;
@@ -23,7 +23,6 @@
     @media screen and (min-width: 768px) {
         border-radius: $borderRadiusSm 0 0 $borderRadiusSm;
         padding: $spacing5Xl $fontSize6Xl;
-
     }
 }
 

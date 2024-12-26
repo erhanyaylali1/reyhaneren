@@ -39,11 +39,7 @@
         transition: margin-left .2s ease;
         height: 40px;
         width: auto;
-
-        &:hover {
-            margin-left: $spacingXs;
-        }
-
+        
         @media screen and (min-width: 768px) {
             height: 50px;
         }

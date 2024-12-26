@@ -12,7 +12,7 @@ const Contact = () => {
     return (
         <div className={styles.contact}>
             <div className={styles.contactListWrapper}>
-                <a href='mailto:reyhaneren6@gmail.com' className={styles.contactListItemWrapper}>
+                <a href='mailto:ailedanismani@reyhaneren.com.tr' className={styles.contactListItemWrapper}>
                     <Image
                         src={MailIcon}
                         height={20}
@@ -20,10 +20,10 @@ const Contact = () => {
                         aria-label='Reyhan Eren Mail Adres Bağlantısı'
                     />
                     <p>
-                        reyhaneren6@gmail.com
+                        ailedanismani@reyhaneren.com.tr
                     </p>
                 </a>
-                <a href='tel:+905379797612' className={styles.contactListItemWrapper}>
+                <a href='tel:+905411620827' className={styles.contactListItemWrapper}>
                     <Image
                         src={PhoneIcon}
                         height={20}
@@ -31,7 +31,7 @@ const Contact = () => {
                         aria-label='Reyhan Eren Telefon Numarası Bağlantısı'
                     />
                     <p>
-                        +90 537 979 76 12
+                        +90 541 162 0827
                     </p>
                 </a>
                 <a href='https://maps.app.goo.gl/Xts7HiSaptfNrVx5A' className={styles.contactListItemWrapper}>
@@ -69,7 +69,7 @@ const Contact = () => {
                         @reyhanerenailedanışmanı
                     </p>
                 </a>
-                <a href='https://www.linkedin.com/in/reyhan-eren-a31a09239/' className={styles.contactListItemWrapper}>
+                <a href='https://www.linkedin.com/in/reyhan-eren-aile-danismani/' className={styles.contactListItemWrapper}>
                     <Image
                         src={LinkedinIcon}
                         height={20}
