@@ -77,7 +77,7 @@ const Contact = () => {
                         aria-label='Reyhan Eren Linkedin Hesabının Bağlantısı'
                     />
                     <p>
-                        Bayraklı, İzmir
+                        @reyhaneren
                     </p>
                 </a>
             </div>

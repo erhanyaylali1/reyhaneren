@@ -14,6 +14,7 @@ export default function AboutMe() {
                 alt="Reyhan Eren"
                 width={1200}
                 height={800}
+                priority
             />
             <div className={styles.aboutMeTextWrapper}>
                 <Typography
