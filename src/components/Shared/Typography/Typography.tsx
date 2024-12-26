@@ -40,6 +40,7 @@ export enum TextFontSizes {
     "28px" = "28px",
     "30px" = "30px",
     "32px" = "32px",
+    "40px" = "40px",
     "48px" = "48px",
     "64px" = "64px"
 }

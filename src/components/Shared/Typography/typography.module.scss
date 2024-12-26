@@ -100,6 +100,12 @@
     }
 }
 
+.text-desktop-40px {
+    @media screen and (min-width: 768px) {
+        font-size: 40px;
+    }
+}
+
 .text-desktop-48px {
     @media screen and (min-width: 768px) {
         font-size: 48px;
@@ -169,6 +175,12 @@
 .text-mobile-32px {
     @media screen and (max-width: 768px) {
         font-size: 32px;
+    }
+}
+
+.text-mobile-40px {
+    @media screen and (max-width: 768px) {
+        font-size: 40px;
     }
 }
 
