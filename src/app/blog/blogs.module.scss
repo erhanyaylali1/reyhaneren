@@ -17,6 +17,12 @@
     }
 }
 
+.latestPostLink {
+    @media screen and (min-width: 768px) {
+        width: 60%;
+    }
+}
+
 .latestPost {
     cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -27,7 +33,6 @@
     }
 
     @media screen and (min-width: 768px) {
-        width: 60%;
         flex-direction: row;
         box-shadow: none;
         border-radius: 0;

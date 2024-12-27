@@ -39,17 +39,17 @@ const Header = () => {
                 </div>
             </div>
             <div className={`d-flex flex-align-center gap-sm desktop-actions-wrapper ${styles.desktopActionsWrappper}`}>
-                <Link onClick={() => setIsMobileMenuOpen(false)} href="hizmetler" className={styles.headerLinks}>Hizmetler</Link>
-                <Link onClick={() => setIsMobileMenuOpen(false)} href="blog" className={styles.headerLinks}>Blog</Link>
-                <Link onClick={() => setIsMobileMenuOpen(false)} href="hakkimda" className={styles.headerLinks}>Hakkımda</Link>
+                <Link onClick={() => setIsMobileMenuOpen(false)} href="/hizmetler" className={styles.headerLinks}>Hizmetler</Link>
+                <Link onClick={() => setIsMobileMenuOpen(false)} href="/blog" className={styles.headerLinks}>Blog</Link>
+                <Link onClick={() => setIsMobileMenuOpen(false)} href="/hakkimda" className={styles.headerLinks}>Hakkımda</Link>
                 <Link href="randevu-al">
                     <Button className="ui-ml-3xl" title="Randevu Al" ariaLabel="Randevu Al" handleClick={() => null} />
                 </Link>
             </div>
             <div className={styles.mobileModalWrapper} style={{ display: isMobileMenuOpen ? "flex" : "none" }}>
-                <Link onClick={() => setIsMobileMenuOpen(false)} href="hizmetler" className={styles.headerLinks}>Hizmetler</Link>
-                <Link onClick={() => setIsMobileMenuOpen(false)} href="blog" className={styles.headerLinks}>Blog</Link>
-                <Link onClick={() => setIsMobileMenuOpen(false)} href="hakkimda" className={styles.headerLinks}>Hakkımda</Link>
+                <Link onClick={() => setIsMobileMenuOpen(false)} href="/hizmetler" className={styles.headerLinks}>Hizmetler</Link>
+                <Link onClick={() => setIsMobileMenuOpen(false)} href="/blog" className={styles.headerLinks}>Blog</Link>
+                <Link onClick={() => setIsMobileMenuOpen(false)} href="/hakkimda" className={styles.headerLinks}>Hakkımda</Link>
                 <Link href="randevu-al">
                     <Button className="ui-mt-md" title="Randevu Al" ariaLabel="Randevu Al" handleClick={() => null} />
                 </Link>
