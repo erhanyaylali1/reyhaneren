@@ -66,7 +66,7 @@ export default function Blogs() {
           >
             <div className={styles.latestPost}>
               <Image 
-                src={firstPost?.image || "/placeholder.jpg"} 
+                src={firstPost?.image} 
                 alt={firstPost?.title || "Post image"} 
                 className={styles.latestPostImage}
                 width={500}

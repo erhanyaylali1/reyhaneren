@@ -12,19 +12,30 @@ import Link from 'next/link';
 const Blog = () => {
   const searchParams = useSearchParams();
   const id = searchParams.get('id');
-  const [blog, setBlog] = useState<IPost | null>(null);
+  const [post, setPost] = useState<IPost | null>(null);
   const [otherPosts, setOtherPosts] = useState<IPost[]>([]);
 
   useEffect(() => {
     if (id) {
       getPost(id)
-        .then((data) => setBlog(data))
+        .then((data) => setPost(data))
     }
     getAllPosts(true)
       .then(data => setOtherPosts(data.filter((item: IPost) => item.id != id)));
   }, [id]);
 
-  if (!blog) return null;
+  let blog = post;
+  if (!blog) {
+
+    const placeholderImage = "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png";
+
+    blog = {
+      id: " ",
+      title: "",
+      content: "Yükleniyor...<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>",
+      image: placeholderImage 
+    }
+  };
 
   return (
     <div className={styles.blogWrapper}>
@@ -34,6 +45,7 @@ const Blog = () => {
         className={styles.blogImage}
         width={500}
         height={300}
+        priority
         />
         <div className={styles.contentWrapper}>          
           <Typography
