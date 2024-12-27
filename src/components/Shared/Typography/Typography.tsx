@@ -16,7 +16,9 @@ type ITypography = {
 export enum TextColors {
     "light" = "light",
     "black" = "black",
+    "lightGray" = "lightGray",
     "dark" = "dark",
+    "gray" = "gray",
     "yellow" = "yellow",
     "secondary" = "secondary"
 }

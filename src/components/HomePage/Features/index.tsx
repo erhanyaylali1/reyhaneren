@@ -34,7 +34,7 @@ const Features = () => {
             textClassName={styles.description}
             fontWeight={TextFontWeights.light}
             fontSizeDesktop={TextFontSizes['24px']} 
-            fontSizeMobile={TextFontSizes['22px']}
+            fontSizeMobile={TextFontSizes['18px']}
             text='Eğer aşağıdaki durumları yaşıyorsanız, aile terapisi size ve ailenize yardımcı olabilir.' 
         />
         <div className={styles.featuresContainer}>
