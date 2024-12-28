@@ -43,7 +43,7 @@ const Header = () => {
                 <Link onClick={() => setIsMobileMenuOpen(false)} href="/blog" className={styles.headerLinks}>Blog</Link>
                 <Link onClick={() => setIsMobileMenuOpen(false)} href="/hakkimda" className={styles.headerLinks}>Hakkımda</Link>
                 <Link href="randevu-al">
-                    <Button className="ui-ml-3xl" title="Randevu Al" ariaLabel="Randevu Al" handleClick={() => null} />
+                    <Button className="ui-ml-3xl" title="Randevu Al" ariaLabel="Randevu Al" handleClick={() => setIsMobileMenuOpen(false)} />
                 </Link>
             </div>
             <div className={styles.mobileModalWrapper} style={{ display: isMobileMenuOpen ? "flex" : "none" }}>
@@ -51,7 +51,7 @@ const Header = () => {
                 <Link onClick={() => setIsMobileMenuOpen(false)} href="/blog" className={styles.headerLinks}>Blog</Link>
                 <Link onClick={() => setIsMobileMenuOpen(false)} href="/hakkimda" className={styles.headerLinks}>Hakkımda</Link>
                 <Link href="randevu-al">
-                    <Button className="ui-mt-md" title="Randevu Al" ariaLabel="Randevu Al" handleClick={() => null} />
+                    <Button className="ui-mt-md" title="Randevu Al" ariaLabel="Randevu Al" handleClick={() => setIsMobileMenuOpen(false)} />
                 </Link>
             </div>
         </header>

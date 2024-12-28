@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from "./service.module.scss"
 import Typography, { TextAsTypes, TextColors, TextFontSizes, TextFontWeights, TextType } from '@/components/Shared/Typography/Typography'
-import Button, { ButtonVariants } from '@/components/Shared/Button/Button'
+import Button, { ButtonSizes, ButtonVariants } from '@/components/Shared/Button/Button'
 import Link from 'next/link'
 
 type ServicepProps = {
@@ -36,6 +36,7 @@ const Service = ({ title, body }: ServicepProps) => {
                 title="Randevu Al"
                 variant={ButtonVariants.yellow}
                 ariaLabel='Randevu Al'
+                size={ButtonSizes.lg}
             />  
         </Link>
     </div>

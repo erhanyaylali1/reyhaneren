@@ -4,6 +4,7 @@ import Typography, { TextAsTypes, TextFontSizes, TextFontWeights, TextType } fro
 import Image from 'next/image';
 import FeatureListIcon from '@/assets/logo/Users.svg';
 import Button, { ButtonSizes } from '@/components/Shared/Button/Button';
+import Link from 'next/link';
 
 const Features = () => {
 
@@ -60,13 +61,14 @@ const Features = () => {
             ))}
 
         </div>
-        <Button 
-          title='Bilgi Al'
-          handleClick={() => {}}
-          ariaLabel='Bilgi Al'
-          className={styles.button}
-          size={ButtonSizes.lg}
-        />
+        <Link href="/randevu-al">
+          <Button 
+            title='Randevu Al'
+            ariaLabel='Randevu Al'
+            className={styles.button}
+            size={ButtonSizes.lg}
+          />
+        </Link>
     </div>
   )
 }
