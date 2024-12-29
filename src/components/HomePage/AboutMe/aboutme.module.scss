@@ -11,6 +11,7 @@
     width: 80%;
     flex-direction: row;
     margin-inline: auto;
+    margin-block: 150px;
   }
 }
 
@@ -32,6 +33,7 @@
   object-fit: cover;
   position: absolute;
   top: 0;
+  left: 50%;
   transform: translate(-50%, -30%);
   border-radius: 30px;
 
@@ -41,6 +43,7 @@
     object-fit: cover;
     position: relative;
     top: initial;
+    left: initial;
     transform: initial;
     border-radius: $borderRadiusSm;
   }

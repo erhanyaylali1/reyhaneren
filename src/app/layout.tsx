@@ -4,66 +4,71 @@ import Header from "../components/Header";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-    title: "Reyhan Eren - Aile Danışmanı",
-    description:
-        "Türkiye genelinde online veya İzmir'de yüzyüze aile danışmanlığı hizmetleri sunuyorum.",
-    category: "Aile Danışmanlığı",
-    authors: { name: "Reyhan Eren", url: "https://www.reyhaneren.com/" },
-    keywords:
-        "İzmir aile danışmanlığı, online aile danışmanlığı, Türkiye Aile Danışmanlığı, Aile Danışmalığı",
-    alternates: {
-        canonical: "https://www.reyhaneren.com/",
-    },
+  title: "Reyhan Eren - Aile Danışmanı",
+  description:
+    "Türkiye genelinde online veya İzmir'de yüzyüze aile danışmanlığı hizmetleri sunuyorum.",
+  category: "Aile Danışmanlığı",
+  authors: { name: "Reyhan Eren", url: "https://www.reyhaneren.com/" },
+  keywords:
+    "İzmir aile danışmanlığı, online aile danışmanlığı, Türkiye Aile Danışmanlığı, Aile Danışmalığı, Çift Terapisi, Aile Terapisi, İzmir Çift Terapisi",
+  alternates: {
+    canonical: "https://www.reyhaneren.com/",
+  },
 };
 
 export const viewport: Viewport = {
-    width: "device-width",
-    initialScale: 1,
+  width: "device-width",
+  initialScale: 1,
 };
 
 const schema = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    name: "Reyhan Eren",
-    image: "URL_TO_PROFILE_IMAGE",
-    url: "https://www.reyhaneren.com",
-    telephone: "+90 123 456 7890",
-    address: {
-        "@type": "PostalAddress",
-        addressLocality: "İzmir",
-        addressCountry: "TR",
-    },
-    description:
-        "Türkiye genelinde online veya İzmir'de yüzyüze aile danışmanlığı hizmetleri sunuyorum.",
-    keywords: [
-        "İzmir aile danışmanlığı",
-        "Türkiye genelinde aile danışmanı",
-        "online aile danışmanlığı",
-        "Aile Danışmanlığı",
-    ],
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Reyhan Eren",
+  image: "URL_TO_PROFILE_IMAGE",
+  url: "https://www.reyhaneren.com.tr",
+  telephone: "+905411620827",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "İzmir",
+    addressCountry: "TR",
+  },
+  description:
+    "Türkiye genelinde online veya İzmir'de yüzyüze aile danışmanlığı hizmetleri sunuyorum.",
+  keywords: [
+    "İzmir aile danışmanlığı",
+    "Türkiye genelinde aile danışmanı",
+    "online aile danışmanlığı",
+    "Aile Danışmanlığı",
+    "Çift Terapisi",
+    "Aile Terapisi",
+  ],
 };
 
 export default function RootLayout({
-    children,
+  children,
 }: Readonly<{
-    children: React.ReactNode;
+  children: React.ReactNode;
 }>) {
-    return (
-        <html suppressHydrationWarning lang="en">
-            <head>
-                <script
-                    id=""
-                    type="application/ld+json"
-                    dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-                />
-                {/* eslint-disable-next-line @next/next/no-page-custom-font */}
-                <link href="https://fonts.googleapis.com/css2?family=Playwrite+NO:wght@100..400&display=swap" rel="stylesheet"></link>
-            </head>
-            <body>
-                <Header />
-                <main>{children}</main>
-                <Footer />
-            </body>
-        </html>
-    );
+  return (
+    <html suppressHydrationWarning lang="en">
+      <head>
+        <script
+          id=""
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
+        <link
+          href="https://fonts.googleapis.com/css2?family=Playwrite+NO:wght@100..400&display=swap"
+          rel="stylesheet"
+        ></link>
+      </head>
+      <body>
+        <Header />
+        <main>{children}</main>
+        <Footer />
+      </body>
+    </html>
+  );
 }

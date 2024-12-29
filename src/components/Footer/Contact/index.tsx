@@ -69,7 +69,7 @@ const Contact = () => {
             alt="Instagram Simgesi"
             aria-label="Reyhan Eren Instagram Hesabının Bağlantısı"
           />
-          <p>@reyhanerenailedanışmanı</p>
+          <p>@reyhaneren</p>
         </a>
         <a
           href="https://www.linkedin.com/in/reyhan-eren-aile-danismani/"
@@ -81,7 +81,7 @@ const Contact = () => {
             alt="Linkedin Simgesi"
             aria-label="Reyhan Eren Linkedin Hesabının Bağlantısı"
           />
-          <p>@reyhaneren</p>
+          <p>@reyhan-eren-aile-danismani</p>
         </a>
       </div>
     </div>

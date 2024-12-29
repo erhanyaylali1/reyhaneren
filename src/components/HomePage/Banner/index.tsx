@@ -1,7 +1,6 @@
 import styles from "./banner.module.scss";
 import Button, { ButtonSizes } from "@/components/Shared/Button/Button";
 import LandingPageBanner from "../../../assets/images/Landing Page Banner Image.webp";
-import LandingPageBannerMobile from "../../../assets/images/Landing Page Banner Image Mobil.webp";
 import MaskedImage from "@/components/Shared/MaskedImage";
 import Typography, {
   TextAsTypes,
@@ -17,7 +16,7 @@ const Banner = () => {
     <React.Fragment>
       <MaskedImage
         source={LandingPageBanner}
-        mobileSource={LandingPageBannerMobile}
+        mobileSource={LandingPageBanner}
         imageClassName={styles.bannerImage}
         altText="Aile Danışmanlığı Örnek Fotoğrafı"
         opacity="0.3"

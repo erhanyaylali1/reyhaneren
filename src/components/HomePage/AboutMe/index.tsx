@@ -1,8 +1,7 @@
 import React from "react";
 import styles from "./aboutme.module.scss";
 import OwnerPicture from "../../../assets/images/reyhan eren.webp";
-import OwnerPictureMobile from "../../../assets/images/reyhan eren mobil.webp";
-import { getImageProps } from "next/image";
+import Image from "next/image";
 import Typography, {
   TextFontSizes,
   TextFontWeights,
@@ -10,20 +9,6 @@ import Typography, {
 } from "@/components/Shared/Typography/Typography";
 
 const AboutMe = () => {
-  const {
-    props: { srcSet: OwnerPictureSrcSet },
-  } = getImageProps({
-    alt: "Reyhan Eren fotoğrafı",
-    src: OwnerPicture,
-  });
-
-  const {
-    props: { srcSet: OwnerPictureMobileSrcSet },
-  } = getImageProps({
-    alt: "Reyhan Eren fotoğrafı",
-    src: OwnerPictureMobile,
-  });
-
   return (
     <div className={styles.aboutMeWrapper}>
       <div className={styles.aboutMeContent}>
@@ -51,11 +36,11 @@ const AboutMe = () => {
           fontWeight={TextFontWeights.light}
         />
       </div>
-      <picture>
-        <source media="(min-width: 1400px)" srcSet={OwnerPictureSrcSet} />
-        <source media="(min-width: 300px)" srcSet={OwnerPictureMobileSrcSet} />
-        <img className={styles.aboutMeImage} alt="Reyhan Eren Fotoğrafı" />
-      </picture>
+      <Image
+        className={styles.aboutMeImage}
+        alt="Reyhan Eren Fotoğrafı"
+        src={OwnerPicture}
+      />
     </div>
   );
 };

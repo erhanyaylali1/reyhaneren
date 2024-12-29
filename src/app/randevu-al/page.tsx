@@ -28,7 +28,7 @@ export default function BookAppointment() {
   const templateId = process.env.NEXT_PUBLIC_TEMPLATE_ID;
   const publicKey = process.env.NEXT_PUBLIC_PUBLIC_KEY;
 
-  const onSubmit = (e: any) => {
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     setTimeout(() => {
@@ -114,7 +114,7 @@ export default function BookAppointment() {
             <div className={styles.formInputContainer}>
               <label htmlFor="name">
                 <Typography
-                  text="Ad Soyad"
+                  text="* Ad Soyad"
                   as={TextAsTypes.span}
                   color={TextColors.dark}
                   fontSizeDesktop={TextFontSizes["20px"]}
@@ -128,6 +128,25 @@ export default function BookAppointment() {
                 name="name"
                 required
                 placeholder="Adınızı ve soyadınızı giriniz."
+              />
+            </div>
+            <div className={styles.formInputContainer}>
+              <label htmlFor="phone">
+                <Typography
+                  text="* Telefon Numarası"
+                  as={TextAsTypes.span}
+                  color={TextColors.dark}
+                  fontSizeDesktop={TextFontSizes["20px"]}
+                  fontWeight={TextFontWeights.regular}
+                  type={TextType.body}
+                />
+              </label>
+              <input
+                type="text"
+                className={styles.formInput}
+                name="phone"
+                required
+                placeholder="Telefon numaranızı giriniz."
               />
             </div>
             <div className={styles.formInputContainer}>
@@ -146,26 +165,7 @@ export default function BookAppointment() {
                 className={styles.formInput}
                 name="email"
                 required
-                placeholder="E-posta adresinizi giriniz."
-              />
-            </div>
-            <div className={styles.formInputContainer}>
-              <label htmlFor="phone">
-                <Typography
-                  text="Telefon Numarası"
-                  as={TextAsTypes.span}
-                  color={TextColors.dark}
-                  fontSizeDesktop={TextFontSizes["20px"]}
-                  fontWeight={TextFontWeights.regular}
-                  type={TextType.body}
-                />
-              </label>
-              <input
-                type="text"
-                className={styles.formInput}
-                name="phone"
-                required
-                placeholder="Telefon numaranızı giriniz."
+                placeholder="Eğer varsa e-posta adresinizi giriniz."
               />
             </div>
             <div className={styles.formInputContainer}>

@@ -1,16 +1,37 @@
 @import "/src/shared/styles/variables.scss";
 
 .serviceWrapper {
-  padding: $spacing2Xl $spacing3Xl;
+  padding: $spacing2Xl;
   border-radius: $borderRadiusMd;
   position: relative;
   display: flex;
   flex-direction: column;
   background-color: $colorLight;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  gap: $spacingLg;
 
   @media screen and (min-width: 768px) {
     padding: $spacing4Xl;
+    flex-direction: row;
+    gap: $spacing3Xl;
+  }
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: $borderRadiusSm;
+
+  @media screen and (min-width: 768px) {
+    width: 400px;
+    height: auto;
+    border-radius: $borderRadiusMd;
   }
 }
 

@@ -46,7 +46,7 @@ const Footer = () => {
               />
             </Link>
             <Link
-              href="/"
+              href="/randevu-al"
               className={styles.linkWrapper}
               aria-label="Randevu Al"
             >
