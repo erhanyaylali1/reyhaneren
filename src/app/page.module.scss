@@ -4,15 +4,15 @@
 .aboutMeWrapper,
 .uspWrapper,
 .featuresWrapper {
-    position: relative;
-    margin-bottom: $spacing5Xl;
+  position: relative;
+  margin-bottom: $spacing5Xl;
 }
 
 .servicesWrapper {
-    position: relative;
-    margin-bottom: 160px;
+  position: relative;
+  margin-bottom: 160px;
 
-    @media screen and (min-width: 768px) {
-        margin-bottom: 0;
-    }
+  @media screen and (min-width: 768px) {
+    margin-bottom: 0;
+  }
 }

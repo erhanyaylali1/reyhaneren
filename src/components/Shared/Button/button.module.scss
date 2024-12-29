@@ -1,41 +1,41 @@
 @import "/src/shared/styles/variables.scss";
 
 .button {
-    border: none;
-    border-radius: $borderRadiusXs;
-    cursor: pointer;
+  border: none;
+  border-radius: $borderRadiusXs;
+  cursor: pointer;
 }
 
 .button__sm {
-    font-size: $fontSizeXs;
-    padding: $spacingSm $spacingLg;
+  font-size: $fontSizeXs;
+  padding: $spacingSm $spacingLg;
 }
 
 .button__md {
-    font-size: $fontSizeSm;
-    padding: $spacingSm $spacingXl;
+  font-size: $fontSizeSm;
+  padding: $spacingSm $spacingXl;
 }
 
 .button__lg {
-    font-size: $fontSizeMd;
-    padding: $spacingMd $spacing3Xl;
+  font-size: $fontSizeMd;
+  padding: $spacingMd $spacing3Xl;
 }
 
 .button__primary {
-    background-color: $colorPrimary;
-    color: $colorLight;
+  background-color: $colorPrimary;
+  color: $colorLight;
 }
 
 .button__secondary {
-    background-color: $colorSecondary;
-    color: $colorLight;
+  background-color: $colorSecondary;
+  color: $colorLight;
 }
 
 .button__yellow {
-    background-color: $colorYellow;
-    color: $colorDark;
+  background-color: $colorYellow;
+  color: $colorDark;
 
-    &:hover {
-        background-color: $colorYellowHover;
-    }
+  &:hover {
+    background-color: $colorYellowHover;
+  }
 }

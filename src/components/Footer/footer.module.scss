@@ -1,50 +1,49 @@
 @import "/src/shared/styles/variables.scss";
 
 .footerContent {
-    background-color: $colorNeutral;
-    padding: $spacing4Xl 5% $spacing3Xl 5%;
+  background-color: $colorNeutral;
+  padding: $spacing4Xl 5% $spacing3Xl 5%;
 
-    @media screen and (min-width: 768px) {
-        padding: $spacing4Xl 10% $spacing3Xl 10%;
-    }
+  @media screen and (min-width: 768px) {
+    padding: $spacing4Xl 10% $spacing3Xl 10%;
+  }
 }
 
 .footerLogoWrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: $spacingXl;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: $spacingXl;
 
-    @media screen and (min-width: 768px) {
-        justify-content: flex-start;
-        padding: 0;
-    }
+  @media screen and (min-width: 768px) {
+    justify-content: flex-start;
+    padding: 0;
+  }
 }
 
 .linkContainer {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-    @media screen and (min-width: 768px) {
-        flex-direction: row;
-        padding: 0;
-
-    }
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    padding: 0;
+  }
 }
 
 .linksWrapper {
-    margin-top: $spacingLg;
-    padding: 0 $spacingLg;
+  margin-top: $spacingLg;
+  padding: 0 $spacingLg;
 }
 
 .linkWrapper {
-    padding-block: $spacingMd;
-    display: block;
+  padding-block: $spacingMd;
+  display: block;
 }
 
 .copyRightText {
-    width: 100%;
-    background-color: $colorSecondary;
-    padding: $spacingMd;
-    text-align: center;
+  width: 100%;
+  background-color: $colorSecondary;
+  padding: $spacingMd;
+  text-align: center;
 }

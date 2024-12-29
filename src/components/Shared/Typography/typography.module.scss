@@ -1,205 +1,205 @@
 @import "/src/shared/styles/variables.scss";
 
 .text-light {
-    color: $colorLight;
+  color: $colorLight;
 }
 
 .text-black {
-    color: $colorBlack;
+  color: $colorBlack;
 }
 
 .text-dark {
-    color: $colorDark;
+  color: $colorDark;
 }
 
 .text-yellow {
-    color: $colorYellow;
+  color: $colorYellow;
 }
 
 .text-secondary {
-    color: $colorSecondary;
+  color: $colorSecondary;
 }
 
 .text-gray {
-    color: $colorGray;
+  color: $colorGray;
 }
 
 .text-lightGray {
-    color: $colorLightGray;
+  color: $colorLightGray;
 }
 
 .text-light {
-    font-weight: 300;
+  font-weight: 300;
 }
 
 .text-regular {
-    font-weight: 400;
+  font-weight: 400;
 }
 
 .text-medium {
-    font-weight: 500;
+  font-weight: 500;
 }
 
 .text-semibold {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 .text-bold {
-    font-weight: 700;
+  font-weight: 700;
 }
 
 .text-desktop-12px {
-    @media screen and (min-width: 768px) {
-        font-size: 12px;
-    }
+  @media screen and (min-width: 768px) {
+    font-size: 12px;
+  }
 }
 
 .text-desktop-14px {
-    @media screen and (min-width: 768px) {
-        font-size: 14px;
-    }
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+  }
 }
 
 .text-desktop-16px {
-    @media screen and (min-width: 768px) {
-        font-size: 16px;
-    }
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+  }
 }
 
 .text-desktop-18px {
-    @media screen and (min-width: 768px) {
-        font-size: 18px;
-    }
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+  }
 }
 
 .text-desktop-20px {
-    @media screen and (min-width: 768px) {
-        font-size: 20px;
-    }
+  @media screen and (min-width: 768px) {
+    font-size: 20px;
+  }
 }
 
 .text-desktop-22px {
-    @media screen and (min-width: 768px) {
-        font-size: 22px;
-    }
+  @media screen and (min-width: 768px) {
+    font-size: 22px;
+  }
 }
 
 .text-desktop-24px {
-    @media screen and (min-width: 768px) {
-        font-size: 24px;
-    }
+  @media screen and (min-width: 768px) {
+    font-size: 24px;
+  }
 }
 
 .text-desktop-28px {
-    @media screen and (min-width: 768px) {
-        font-size: 28px;
-    }
+  @media screen and (min-width: 768px) {
+    font-size: 28px;
+  }
 }
 
 .text-desktop-30px {
-    @media screen and (min-width: 768px) {
-        font-size: 30px;
-    }
+  @media screen and (min-width: 768px) {
+    font-size: 30px;
+  }
 }
 
 .text-desktop-32px {
-    @media screen and (min-width: 768px) {
-        font-size: 32px;
-    }
+  @media screen and (min-width: 768px) {
+    font-size: 32px;
+  }
 }
 
 .text-desktop-40px {
-    @media screen and (min-width: 768px) {
-        font-size: 40px;
-    }
+  @media screen and (min-width: 768px) {
+    font-size: 40px;
+  }
 }
 
 .text-desktop-48px {
-    @media screen and (min-width: 768px) {
-        font-size: 48px;
-    }
+  @media screen and (min-width: 768px) {
+    font-size: 48px;
+  }
 }
 
 .text-desktop-64px {
-    @media screen and (min-width: 768px) {
-        font-size: 64px;
-    }
+  @media screen and (min-width: 768px) {
+    font-size: 64px;
+  }
 }
 
 .text-mobile-12px {
-    @media screen and (max-width: 768px) {
-        font-size: 12px;
-    }
+  @media screen and (max-width: 768px) {
+    font-size: 12px;
+  }
 }
 
 .text-mobile-14px {
-    @media screen and (max-width: 768px) {
-        font-size: 14px;
-    }
+  @media screen and (max-width: 768px) {
+    font-size: 14px;
+  }
 }
 
 .text-mobile-16px {
-    @media screen and (max-width: 768px) {
-        font-size: 16px;
-    }
+  @media screen and (max-width: 768px) {
+    font-size: 16px;
+  }
 }
 
 .text-mobile-18px {
-    @media screen and (max-width: 768px) {
-        font-size: 18px;
-    }
+  @media screen and (max-width: 768px) {
+    font-size: 18px;
+  }
 }
 
 .text-mobile-20px {
-    @media screen and (max-width: 768px) {
-        font-size: 20px;
-    }
+  @media screen and (max-width: 768px) {
+    font-size: 20px;
+  }
 }
 
 .text-mobile-22px {
-    @media screen and (max-width: 768px) {
-        font-size: 22px;
-    }
+  @media screen and (max-width: 768px) {
+    font-size: 22px;
+  }
 }
 
 .text-mobile-24px {
-    @media screen and (max-width: 768px) {
-        font-size: 24px;
-    }
+  @media screen and (max-width: 768px) {
+    font-size: 24px;
+  }
 }
 
 .text-mobile-28px {
-    @media screen and (max-width: 768px) {
-        font-size: 28px;
-    }
+  @media screen and (max-width: 768px) {
+    font-size: 28px;
+  }
 }
 
 .text-mobile-30px {
-    @media screen and (max-width: 768px) {
-        font-size: 30px;
-    }
+  @media screen and (max-width: 768px) {
+    font-size: 30px;
+  }
 }
 
 .text-mobile-32px {
-    @media screen and (max-width: 768px) {
-        font-size: 32px;
-    }
+  @media screen and (max-width: 768px) {
+    font-size: 32px;
+  }
 }
 
 .text-mobile-40px {
-    @media screen and (max-width: 768px) {
-        font-size: 40px;
-    }
+  @media screen and (max-width: 768px) {
+    font-size: 40px;
+  }
 }
 
 .text-mobile-48px {
-    @media screen and (max-width: 768px) {
-        font-size: 48px;
-    }
+  @media screen and (max-width: 768px) {
+    font-size: 48px;
+  }
 }
 
 .text-mobile-64px {
-    @media screen and (max-width: 768px) {
-        font-size: 64px;
-    }
+  @media screen and (max-width: 768px) {
+    font-size: 64px;
+  }
 }

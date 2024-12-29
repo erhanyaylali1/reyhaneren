@@ -4,16 +4,24 @@ import Image from "next/image";
 import styles from "./booking.module.scss";
 import Banner from "@/assets/images/randevu-al.webp";
 import CalendarIcon from "@/assets/logo/Calendar Icon.svg";
-import Typography, { TextAsTypes, TextColors, TextFontSizes, TextFontWeights, TextType } from "@/components/Shared/Typography/Typography";
+import Typography, {
+  TextAsTypes,
+  TextColors,
+  TextFontSizes,
+  TextFontWeights,
+  TextType,
+} from "@/components/Shared/Typography/Typography";
 import Button, { ButtonSizes } from "@/components/Shared/Button/Button";
 import { useRef, useState } from "react";
-import emailjs from '@emailjs/browser';
+import emailjs from "@emailjs/browser";
 import Notification from "@/components/Shared/Notification";
 
 export default function BookAppointment() {
-
   const form = useRef<HTMLFormElement | null>(null);
-  const [notification, setNotification] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
+  const [notification, setNotification] = useState<{
+    message: string;
+    type: "success" | "error";
+  } | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
 
   const serviceId = process.env.NEXT_PUBLIC_SERVICE_ID;
@@ -23,12 +31,11 @@ export default function BookAppointment() {
   const onSubmit = (e: any) => {
     e.preventDefault();
 
-
     setTimeout(() => {
       setNotification(null);
     }, 3000);
 
-    if(form.current && serviceId && templateId) {
+    if (form.current && serviceId && templateId) {
       setLoading(true);
       emailjs
         .sendForm(serviceId, templateId, form.current, {
@@ -36,26 +43,34 @@ export default function BookAppointment() {
         })
         .then(
           () => {
-            setNotification({ message: 'Talebiniz bize ulaştı. En kısa sürede sizinle iletişime geçeceğim!', type: 'success' });
+            setNotification({
+              message:
+                "Talebiniz bize ulaştı. En kısa sürede sizinle iletişime geçeceğim!",
+              type: "success",
+            });
             form.current?.reset();
           },
-          (error) => {            
+          (error) => {
             console.error(error.text);
-            setNotification({ message: 'Bir hata meydana geldi, lütfen daha sonra tekrar deneyin!', type: 'error' });
-          },
-        ).finally(() => {
+            setNotification({
+              message:
+                "Bir hata meydana geldi, lütfen daha sonra tekrar deneyin!",
+              type: "error",
+            });
+          }
+        )
+        .finally(() => {
           setLoading(false);
           setTimeout(() => {
             setNotification(null);
           }, 4000);
-        })
+        });
     }
+  };
 
-  }
-  
   return (
     <div className="container">
-      <div className={`${styles.container} ${loading ? styles.loading : ''}`}>
+      <div className={`${styles.container} ${loading ? styles.loading : ""}`}>
         {notification && (
           <Notification
             message={notification.message}
@@ -71,7 +86,7 @@ export default function BookAppointment() {
         />
         <div className={styles.formContainer}>
           <div className={styles.titleContainer}>
-            <Image 
+            <Image
               src={CalendarIcon}
               width={30}
               height={30}
@@ -107,7 +122,13 @@ export default function BookAppointment() {
                   type={TextType.body}
                 />
               </label>
-              <input type="text" className={styles.formInput} name="name" required placeholder="Adınızı ve soyadınızı giriniz."/>
+              <input
+                type="text"
+                className={styles.formInput}
+                name="name"
+                required
+                placeholder="Adınızı ve soyadınızı giriniz."
+              />
             </div>
             <div className={styles.formInputContainer}>
               <label htmlFor="email">
@@ -120,7 +141,13 @@ export default function BookAppointment() {
                   type={TextType.body}
                 />
               </label>
-              <input type="text" className={styles.formInput} name="email" required placeholder="E-posta adresinizi giriniz."/>
+              <input
+                type="text"
+                className={styles.formInput}
+                name="email"
+                required
+                placeholder="E-posta adresinizi giriniz."
+              />
             </div>
             <div className={styles.formInputContainer}>
               <label htmlFor="phone">
@@ -133,7 +160,13 @@ export default function BookAppointment() {
                   type={TextType.body}
                 />
               </label>
-              <input type="text" className={styles.formInput} name="phone" required placeholder="Telefon numaranızı giriniz."/>
+              <input
+                type="text"
+                className={styles.formInput}
+                name="phone"
+                required
+                placeholder="Telefon numaranızı giriniz."
+              />
             </div>
             <div className={styles.formInputContainer}>
               <label htmlFor="message">
@@ -146,20 +179,27 @@ export default function BookAppointment() {
                   type={TextType.body}
                 />
               </label>
-              <textarea className={styles.formInputTextArea} name="message" placeholder="Eğer bana iletmek istediğiniz ekstra bir not varsa, buraya yazabilirsiniz."/>
+              <textarea
+                className={styles.formInputTextArea}
+                name="message"
+                placeholder="Eğer bana iletmek istediğiniz ekstra bir not varsa, buraya yazabilirsiniz."
+              />
             </div>
-            <Button 
+            <Button
               title="Randevu İçin Başvur"
               ariaLabel="Randevu İçin Başvur"
               className={styles.submitButton}
               size={ButtonSizes.lg}
             />
-
           </form>
         </div>
-        
-        {loading && <div className={styles.spinnerOverlay}><div className={styles.spinner}></div></div>}
+
+        {loading && (
+          <div className={styles.spinnerOverlay}>
+            <div className={styles.spinner}></div>
+          </div>
+        )}
       </div>
     </div>
-  )
+  );
 }

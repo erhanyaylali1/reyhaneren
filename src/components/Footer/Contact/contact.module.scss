@@ -1,28 +1,28 @@
 @import "/src/shared/styles/variables.scss";
 
 .contact {
-    display: flex;
-    flex-direction: column;
-    margin-right: $spacing4Xl;
+  display: flex;
+  flex-direction: column;
+  margin-right: $spacing4Xl;
 
-    @media screen and (min-width: 768px) {
-        flex-direction: row;
-        gap: $spacing4Xl;
-    }
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    gap: $spacing4Xl;
+  }
 }
 
 .contactListWrapper {
-    padding-block: $spacingMd;
+  padding-block: $spacingMd;
 }
 
 .contactListItemWrapper {
-    display: flex;
-    gap: $spacingLg;
-    padding: $spacingLg;
-    align-items: center;
+  display: flex;
+  gap: $spacingLg;
+  padding: $spacingLg;
+  align-items: center;
 
-    img {
-        height: auto;
-        width: 25px;
-    }
+  img {
+    height: auto;
+    width: 25px;
+  }
 }

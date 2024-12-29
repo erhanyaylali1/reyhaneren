@@ -1,48 +1,47 @@
 @import "/src/shared/styles/variables.scss";
 
-
 .container {
-    padding-block: $spacingMd;
+  padding-block: $spacingMd;
 }
 
 .description {
-    margin-top: $spacingXl;
+  margin-top: $spacingXl;
 }
 
 .featuresContainer {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: $spacing3Xl $spacingLg;
-    margin-top: $spacing4Xl;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: $spacing3Xl $spacingLg;
+  margin-top: $spacing4Xl;
 
-    @media screen and (min-width: 768px) {
-        grid-template-columns: repeat(4, 1fr);
-        gap: $spacing3Xl $spacingLg;
-        margin-top: $spacing6Xl;
-    }
+  @media screen and (min-width: 768px) {
+    grid-template-columns: repeat(4, 1fr);
+    gap: $spacing3Xl $spacingLg;
+    margin-top: $spacing6Xl;
+  }
 }
 
 .feature {
-    display: flex;
-    gap: $spacingLg;
+  display: flex;
+  gap: $spacingLg;
 }
 
 .iconContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: $colorSecondary;
-    border-radius: 50%;
-    width: 40px;
-    min-width: 40px;
-    height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $colorSecondary;
+  border-radius: 50%;
+  width: 40px;
+  min-width: 40px;
+  height: 40px;
 }
 
 .button {
-    margin-top: $spacing4Xl;
-    width: 100%;
+  margin-top: $spacing4Xl;
+  width: 100%;
 
-    @media screen and (min-width: 768px) {
-        width: auto;
-    }
+  @media screen and (min-width: 768px) {
+    width: auto;
+  }
 }

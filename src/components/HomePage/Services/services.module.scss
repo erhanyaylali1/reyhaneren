@@ -1,68 +1,67 @@
 @import "/src/shared/styles/variables.scss";
 
 .title {
-    margin-bottom: $spacingSm;
+  margin-bottom: $spacingSm;
 
-    @media screen and (min-width: 768px) {
-        margin-bottom: $spacingXl;
-    }
+  @media screen and (min-width: 768px) {
+    margin-bottom: $spacingXl;
+  }
 }
 
 .servicesWrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    overflow-x: auto;
-    gap: $spacing3Xl;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  overflow-x: auto;
+  gap: $spacing3Xl;
 
-    @media screen and (min-width: 768px) {
-        justify-content: unset;
-        gap: 100px;
-    }
+  @media screen and (min-width: 768px) {
+    justify-content: unset;
+    gap: 100px;
+  }
 }
 
 .serviceWrapper {
-    display: flex;
-    gap: $spacing2Xl;
-    cursor: pointer;
-    border-radius: $spacingSm;
+  display: flex;
+  gap: $spacing2Xl;
+  cursor: pointer;
+  border-radius: $spacingSm;
 
-
-    @media screen and (min-width: 768px) {
-        padding: $spacingLg $spacingXl;
-        align-items: center;
-    }
+  @media screen and (min-width: 768px) {
+    padding: $spacingLg $spacingXl;
+    align-items: center;
+  }
 }
 
 .serviceImage {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    border: 1px solid $colorNeutral;
-    object-fit: cover;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 1px solid $colorNeutral;
+  object-fit: cover;
 
-    @media screen and (min-width: 768px) {
-        width: 130px;
-        height: 130px;
-    }
+  @media screen and (min-width: 768px) {
+    width: 130px;
+    height: 130px;
+  }
 }
 
 .serviceBody {
-    display: flex;
-    flex-direction: column;
-    gap: $spacingXs;
-    max-width: 230px;
-    width: max-content;
+  display: flex;
+  flex-direction: column;
+  gap: $spacingXs;
+  max-width: 230px;
+  width: max-content;
 }
 
 .serviceBodyAction {
-    margin-top: $spacingMd;
-    width: max-content;
+  margin-top: $spacingMd;
+  width: max-content;
 }
 
 .divider {
-    height: 160px;
-    width: 2px;
-    background-color: $colorNeutral;
+  height: 160px;
+  width: 2px;
+  background-color: $colorNeutral;
 }

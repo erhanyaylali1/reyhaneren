@@ -1,55 +1,55 @@
 @import "/src/shared/styles/variables.scss";
 
 .aboutMeWrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    margin-bottom: $spacing5Xl;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: $spacing5Xl;
 
-    @media screen and (min-width: 768px) {
-        flex-direction: row;
-        gap: $spacing5Xl;
-        width: 80%;
-        margin-inline: auto;
-        margin-block: $spacing5Xl;
-    }
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    gap: $spacing5Xl;
+    width: 80%;
+    margin-inline: auto;
+    margin-block: $spacing5Xl;
+  }
 }
 
 .ownerPicture {
-    flex: 2;
-    object-fit: cover;
-    width: 100%;
-    object-position: bottom;
-    max-height: 50vh;
+  flex: 2;
+  object-fit: cover;
+  width: 100%;
+  object-position: bottom;
+  max-height: 50vh;
 
-    @media screen and (min-width: 768px) {
-        flex: 1;
-        border-radius: $borderRadiusMd;
-        max-height: unset;
-    }
+  @media screen and (min-width: 768px) {
+    flex: 1;
+    border-radius: $borderRadiusMd;
+    max-height: unset;
+  }
 }
 
 .aboutMeTextWrapper {
-    flex: 3;
-    margin-top: -$spacing3Xl;
-    padding-inline: 10%;
-    padding-top: $spacing3Xl;
-    background-color: $colorLight;
-    border-radius: 30px;
+  flex: 3;
+  margin-top: -$spacing3Xl;
+  padding-inline: 10%;
+  padding-top: $spacing3Xl;
+  background-color: $colorLight;
+  border-radius: 30px;
 
-    @media screen and (min-width: 768px) {
-        margin-top: $spacing5Xl;
-        padding-inline: unset;
-    }
+  @media screen and (min-width: 768px) {
+    margin-top: $spacing5Xl;
+    padding-inline: unset;
+  }
 }
 
 .aboutMeText {
+  margin-top: $spacing2Xl;
+  @media screen and (min-width: 768px) {
     margin-top: $spacing2Xl;
-    @media screen and (min-width: 768px) {
-        margin-top: $spacing2Xl;
-    }
+  }
 }
 
 .aboutMeButton {
-    margin-top: $spacing2Xl;
+  margin-top: $spacing2Xl;
 }
