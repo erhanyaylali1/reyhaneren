@@ -56,6 +56,20 @@ const getAllPosts = (limit?: boolean) => {
     });
 };
 
+const getAllPostsForSiteMap = () => {
+  const url = `https://www.googleapis.com/blogger/v3/blogs/${blogId}/posts?key=${apiKey}`;
+  return fetch(url)
+    .then((res) => res.json())
+    .then((data) => {
+      return data.items.map((item: IPostRespose) => {
+        return {
+          id: item.id,
+          title: item.title,
+        };
+      });
+    });
+};
+
 const getPost = (id: string) => {
   const url = `https://www.googleapis.com/blogger/v3/blogs/${blogId}/posts/${id}?key=${apiKey}`;
   return fetch(url)
@@ -83,4 +97,4 @@ const getPost = (id: string) => {
     });
 };
 
-export { getAllPosts, getPost };
+export { getAllPosts, getPost, getAllPostsForSiteMap };

@@ -25,7 +25,8 @@ const schema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: "Reyhan Eren",
-  image: "URL_TO_PROFILE_IMAGE",
+  image:
+    "https://media.licdn.com/dms/image/v2/D4D03AQHEpFPp2VeUsQ/profile-displayphoto-shrink_800_800/B4DZP.NJ5FG0Ag-/0/1735136689421?e=1741219200&v=beta&t=k9SEzKf44DbW6nFhRJ2xxPd_Kf78KIA5RBHlTzRmc_w",
   url: "https://www.reyhaneren.com.tr",
   telephone: "+905411620827",
   address: {
