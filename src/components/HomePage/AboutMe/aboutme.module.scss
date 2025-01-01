@@ -16,14 +16,13 @@
 }
 
 .aboutMeContent {
-  padding: $spacingLg;
   background-color: $colorNeutral;
   padding: $fontSize4Xl;
   padding-top: 240px;
 
   @media screen and (min-width: 768px) {
     border-radius: $borderRadiusSm 0 0 $borderRadiusSm;
-    padding: $spacing5Xl $fontSize6Xl;
+    padding: $spacing3Xl $fontSize4Xl;
   }
 }
 
@@ -48,11 +47,49 @@
     border-radius: $borderRadiusSm;
   }
 }
+.preTitle {
+  font-family: American Typewriter;
+  text-align: center;
+  margin-bottom: $spacingXs;
+  padding-left: 2px;
+}
 
 .title {
-  margin-bottom: $spacingXl;
+  margin-bottom: $spacing2Xl;
+  font-family: American Typewriter;
+  text-align: center;
+  background-color: $colorSecondary;
+  color: #f6c47e;
+  padding-block: 0;
 }
 
 .firstText {
   margin-bottom: $spacingMd;
+  text-align: center;
+
+  @media screen and (min-width: 768px) {
+    text-align: left;
+  }
+}
+
+.buttonWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: $spacing2Xl;
+  gap: $spacingMd;
+
+  button {
+    width: 100%;
+  }
+
+  @media screen and (min-width: 768px) {
+    justify-content: flex-start;
+    flex-direction: row;
+  }
+}
+
+.aboutMeButton {
+  background-color: #874d4d;
+  color: $colorLight;
 }

@@ -13,14 +13,14 @@ import Link from "next/link";
 
 const Features = () => {
   const features = [
-    "Aile içinde iletişim kopuklukları yaşıyorsanız",
-    "Aile üyeleri arasında güven sorunları varsa",
-    "Aile içinde duygusal bağlar zayıflamışsa",
-    "Ayrılık, boşanma veya yeniden evlenme sürecinde sorunlar yaşıyorsanız",
-    "Eşinizle veya partnerinizle sık sık tartışıyorsanız",
-    "Çocuklarınızla aranızda çatışmalar artıyorsa",
-    "Ebeveynlik sorumluluklarını paylaşmakta zorluk çekiyorsanız",
-    "Stres, kaygı veya duygusal sorunlar aile içindeki ilişkileri etkiliyorsa",
+    "Aile içinde iletişim kopuklukları",
+    "Aile üyeleri arasında güven sorunları",
+    "Aile içinde zayıf duygusal bağlar",
+    "Ayrılık, boşanma veya yeniden evlenme sürecindeki sorunlar",
+    "Eşinizle veya partnerinizle sık sık tartışmalar",
+    "Çocuklarınızla aranızdaki çatışmalar",
+    "Ebeveynlik sorumluluklarını paylaşırken yaşanan zorluklar",
+    "Stres, kaygı veya duygusal sorunlar",
   ];
 
   return (

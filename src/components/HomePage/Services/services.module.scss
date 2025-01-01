@@ -18,7 +18,7 @@
 
   @media screen and (min-width: 768px) {
     justify-content: unset;
-    gap: 100px;
+    gap: 20px;
   }
 }
 
@@ -44,6 +44,7 @@
   @media screen and (min-width: 768px) {
     width: 130px;
     height: 130px;
+    object-position: 70%;
   }
 }
 
@@ -51,7 +52,7 @@
   display: flex;
   flex-direction: column;
   gap: $spacingXs;
-  max-width: 230px;
+  max-width: 300px;
   width: max-content;
 }
 

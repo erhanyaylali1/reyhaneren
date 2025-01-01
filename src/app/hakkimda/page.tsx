@@ -27,17 +27,27 @@ export default function AboutMe() {
           as={TextAsTypes.h2}
           type={TextType.title}
           color={TextColors.dark}
-          text="Merhaba, ben Reyhan 👋🏾"
+          text="Merhaba,"
           fontSizeDesktop={TextFontSizes["32px"]}
           fontSizeMobile={TextFontSizes["24px"]}
           fontWeight={TextFontWeights.semibold}
         />
         <Typography
+          as={TextAsTypes.h2}
+          type={TextType.title}
+          color={TextColors.dark}
+          text="Ben Reyhan Eren"
+          fontSizeDesktop={TextFontSizes["32px"]}
+          fontSizeMobile={TextFontSizes["24px"]}
+          fontWeight={TextFontWeights.semibold}
+        />
+        <hr className={styles.line} />
+        <Typography
           as={TextAsTypes.p}
           type={TextType.body}
           color={TextColors.dark}
           textClassName={styles.aboutMeText}
-          text="Akdeniz Üniversitesi’ndeki sosyoloji lisans eğitimimi tamamladıktan sonra, Marmara Üniversitesi’nde aile   danışmanlığı eğitimi aldım. İzmir’de yüzyüze ve tüm Türkiye’de  çevrimiçi aile danışmanlığı hizmetleri sunmaktayım."
+          text="Akdeniz Üniversitesi Sosyoloji bölümünden 2022 yılında yüksek onur derecesiyle mezun olmuştur. Lisans döneminde aileye ve ilişkilere duyduğu merak neticesinde tez çalışmasını Flört Kültürü üzerine yaparak Aile Sosyolojisi'nin alt başlıklarına dair çalışmıştır."
           fontSizeDesktop={TextFontSizes["24px"]}
           fontSizeMobile={TextFontSizes["20px"]}
         />
@@ -47,17 +57,7 @@ export default function AboutMe() {
           type={TextType.body}
           color={TextColors.dark}
           textClassName={styles.aboutMeText}
-          text="İnsan ilişkilerine her zaman büyük bir değer verdim; bireylerin ve ailelerin yaşadıkları duygusal ve sosyal zorlukları aşmalarına yardımcı olmanın beni mutlu ettiğini fark ettim. Bu içten gelen istek, beni aile danışmanlığı alanında uzmanlaşmaya yönlendirdi."
-          fontSizeDesktop={TextFontSizes["24px"]}
-          fontSizeMobile={TextFontSizes["20px"]}
-        />
-
-        <Typography
-          as={TextAsTypes.p}
-          type={TextType.body}
-          color={TextColors.dark}
-          textClassName={styles.aboutMeText}
-          text="İlişkilerde karşılıklı güven, anlayış ve saygının ne kadar önemli olduğunu gördükçe, bu değerlere dayalı bir danışmanlık süreci sunmak için profesyonel olarak bu kariyerde hizmet etmekteyim."
+          text="2025 itibariyle Marmara Üniversitesi Aile Danışmanlığı eğitimini başarıyla tamamlayarak, Aile Danışmanı ünvanıyla ailelerde istikrarın ve dengenin sağlanmasına eşlik etmeyi amaçlamaktadır. İzmir’de yüzyüze ve tüm Türkiye’de çevrimiçi aile danışmanlığı hizmetleri sunmaktadır."
           fontSizeDesktop={TextFontSizes["24px"]}
           fontSizeMobile={TextFontSizes["20px"]}
         />

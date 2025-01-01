@@ -9,8 +9,8 @@ import Typography, {
   TextFontWeights,
 } from "@/components/Shared/Typography/Typography";
 import Service from "@/components/Services/Service";
-import ServiceImage1 from "@/assets/images/service1-detail.webp";
-import ServiceImage2 from "@/assets/images/service2-detail.webp";
+import ServiceImage1 from "@/assets/images/service1.webp";
+import ServiceImage2 from "@/assets/images/service2.webp";
 
 export default function Services() {
   return (
@@ -37,13 +37,13 @@ export default function Services() {
       <div className="container">
         <div className={styles.servicesWrapper}>
           <Service
-            title="Aile Danışmanlığı"
-            body="Aile üyelerinin iletişim becerilerini ge-liştirmelerine, çatışmaları çözmelerine ve ilişkilerini güçlendirmelerine yardımcı olan bir terapi sürecidir. Bu süreçte, aile içindeki dinamikler analiz edilerek bireylerin sorunlarına yönelik çözüm odaklı yaklaşımlar sunulur. Amaç, aile üyelerinin sağlıklı ve mutlu bir şekilde bir arada yaşamalarını sağlamak için gerekli beceri ve farkındalığı kazandırmaktır."
+            title="Birey Odaklı Aile Danışmanlığı"
+            body="Birey Odaklı Aile Danışmanlığı, aile sistemindeki bireyin duygu, düşünce ve davranışlarına odaklanarak, aile içindeki dinamikleri anlamayı ve bu dinamikleri daha sağlıklı hale getirmeyi amaçlayan bir danışmanlık yaklaşımıdır. Bu yaklaşım, bireylerin kendi duygusal ihtiyaçlarını anlamalarını, sorun çözme becerilerini geliştirmelerini ve aile içindeki ilişkilerinde daha etkili bir şekilde iletişim kurmalarını sağlamayı hedefler."
             image={ServiceImage1}
           />
           <Service
-            title="Evlilik Öncesi Danışmanlığı"
-            body="Çiftlerin evlilik öncesinde ilişkilerindeki güçlü ve zayıf yönleri keşfetmelerine ve sağlıklı bir evlilik için gerekli becerileri kazanmalarına yardımcı olan bir süreçtir. Bu danışmanlıkta, iletişim, çatışma çözümü, değerler ve gelecek planları gibi konular ele alınarak çiftlerin birbirlerini daha iyi anlamaları sağlanır. Amacı, çiftlerin evliliğe sağlam bir temel atarak başlamalarına destek olmaktır."
+            title="Çift Odaklı Aile Danışmanlığı"
+            body="Çift Odaklı Aile Danışmanlığı, çiftlerin arasındaki ilişkisel dinamiklere odaklanan, çiftler arasındaki iletişimi, duygusal bağları ve sorun çözme becerilerini güçlendirmeyi hedefleyen bir aile danışmanlığı yaklaşımıdır. Bu yaklaşım, çiftlerin birbirlerini daha iyi anlamalarına, ilişkilerinde daha sağlıklı sınırlar oluşturmalarına ve ortak hedeflere ulaşmalarına yardımcı olur."
             image={ServiceImage2}
           />
         </div>

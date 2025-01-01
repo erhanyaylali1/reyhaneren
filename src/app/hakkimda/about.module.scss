@@ -22,10 +22,17 @@
   max-height: 50vh;
 
   @media screen and (min-width: 768px) {
+    width: 50%;
     flex: 1;
     border-radius: $borderRadiusMd;
     max-height: unset;
   }
+}
+
+.line {
+  display: block;
+  margin-top: 4px;
+  color: azure;
 }
 
 .aboutMeTextWrapper {
@@ -37,6 +44,7 @@
   border-radius: 30px;
 
   @media screen and (min-width: 768px) {
+    width: 50%;
     padding-inline: unset;
     display: flex;
     flex-direction: column;

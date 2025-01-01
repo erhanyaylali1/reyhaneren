@@ -7,8 +7,8 @@ import Typography, {
 import React from "react";
 import styles from "./services.module.scss";
 import Image from "next/image";
-import Service1Image from "../../../assets/images/services-1.webp";
-import Service2Image from "../../../assets/images/services-2.webp";
+import Service1Image from "../../../assets/images/service1.webp";
+import Service2Image from "../../../assets/images/service2.webp";
 import Link from "next/link";
 import Button, { ButtonVariants } from "@/components/Shared/Button/Button";
 
@@ -34,12 +34,12 @@ const Services = () => {
             />
             <div className={styles.serviceBody}>
               <Typography
-                text="Aile Danışmanlığı"
+                text="Birey Odaklı Aile Danışmanlığı"
                 as={TextAsTypes.h3}
                 fontWeight={TextFontWeights.semibold}
               />
               <Typography
-                text="Aile ilişkilerinizi güçlendirin"
+                text="''Duygusal ihtiyaçlarınızı keşfedin''"
                 fontWeight={TextFontWeights.regular}
                 as={TextAsTypes.p}
               />
@@ -63,12 +63,12 @@ const Services = () => {
             />
             <div className={styles.serviceBody}>
               <Typography
-                text="Evlilik Öncesi Danışmanlık"
+                text="Çift Odaklı Aile Danışmanlığı"
                 as={TextAsTypes.h3}
                 fontWeight={TextFontWeights.semibold}
               />
               <Typography
-                text="Huzurlu bir evliliğe doğru sağlıklı adımlar atın"
+                text="''Sağlıklı bir ilişki için adım atın''"
                 fontWeight={TextFontWeights.regular}
                 as={TextAsTypes.p}
               />

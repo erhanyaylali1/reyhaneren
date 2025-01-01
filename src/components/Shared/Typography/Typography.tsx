@@ -17,6 +17,7 @@ export enum TextColors {
   "light" = "light",
   "black" = "black",
   "lightGray" = "lightGray",
+  "neutral" = "neutral",
   "dark" = "dark",
   "gray" = "gray",
   "yellow" = "yellow",
