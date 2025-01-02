@@ -24,7 +24,7 @@ const Services = () => {
         type={TextType.title}
       />
       <div className={styles.servicesWrapper}>
-        <Link href="hizmetler">
+        <Link href="hizmetler" className={styles.serviceLink}>
           <div className={styles.serviceWrapper}>
             <Image
               src={Service1Image}
@@ -52,8 +52,7 @@ const Services = () => {
             </div>
           </div>
         </Link>
-        <div className={styles.divider} />
-        <Link href="hizmetler">
+        <Link href="hizmetler" className={styles.serviceLink}>
           <div className={styles.serviceWrapper}>
             <Image
               src={Service2Image}

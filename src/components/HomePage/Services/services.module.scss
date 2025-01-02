@@ -14,12 +14,17 @@
   justify-content: space-between;
   width: 100%;
   overflow-x: auto;
-  gap: $spacing3Xl;
+  gap: $spacing5Xl;
 
   @media screen and (min-width: 768px) {
     justify-content: unset;
     gap: 20px;
   }
+}
+
+.serviceLink {
+  flex: 1;
+  margin-bottom: $spacingXl;
 }
 
 .serviceWrapper {
@@ -59,10 +64,4 @@
 .serviceBodyAction {
   margin-top: $spacingMd;
   width: max-content;
-}
-
-.divider {
-  height: 160px;
-  width: 2px;
-  background-color: $colorNeutral;
 }

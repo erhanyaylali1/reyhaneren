@@ -3,7 +3,7 @@ import styles from "./contact.module.scss";
 import MailIcon from "../../../assets/logo/mailIcon.svg";
 import PhoneIcon from "../../../assets/logo/phoneIcon.svg";
 import LocationIcon from "../../../assets/logo/locationIcon.svg";
-import FacebookIcon from "../../../assets/logo/facebookIcon.svg";
+import TwitterIcon from "../../../assets/logo/twitterIcon.svg";
 import InstagramIcon from "../../../assets/logo/instagramIcon.svg";
 import LinkedinIcon from "../../../assets/logo/linkedInIcon.svg";
 import Image from "next/image";
@@ -48,18 +48,6 @@ const Contact = () => {
       </div>
       <div className={styles.contactListWrapper}>
         <a
-          href="https://www.facebook.com/reyhan.eren.7"
-          className={styles.contactListItemWrapper}
-        >
-          <Image
-            src={FacebookIcon}
-            height={20}
-            alt="Facebook Simgesi"
-            aria-label="Reyhan Eren Facebook Hesabının Bağlantısı"
-          />
-          <p>@reyhaneren</p>
-        </a>
-        <a
           href="https://www.instagram.com/reyhaaaneren/"
           className={styles.contactListItemWrapper}
         >
@@ -72,7 +60,19 @@ const Contact = () => {
           <p>@reyhaneren</p>
         </a>
         <a
-          href="https://www.linkedin.com/in/reyhan-eren-aile-danismani/"
+          href="https://www.x.com/reyhaneren2025"
+          className={styles.contactListItemWrapper}
+        >
+          <Image
+            src={TwitterIcon}
+            height={20}
+            alt="Facebook Simgesi"
+            aria-label="Reyhan Eren Facebook Hesabının Bağlantısı"
+          />
+          <p>@reyhaneren2025</p>
+        </a>
+        <a
+          href="https://www.twitter.com/in/reyhan-eren-aile-danismani/"
           className={styles.contactListItemWrapper}
         >
           <Image

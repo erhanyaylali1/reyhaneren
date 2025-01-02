@@ -57,7 +57,7 @@ const AboutMe = () => {
             <Button
               title="Beni Tanıyın"
               ariaLabel="Beni Tanıyın"
-              size={ButtonSizes.md}
+              size={ButtonSizes.lg}
               className={styles.aboutMeButton}
             />
           </Link>
@@ -66,7 +66,7 @@ const AboutMe = () => {
               title="Randevu Oluşturun"
               ariaLabel="Randevu Oluşturun"
               variant={ButtonVariants.yellow}
-              size={ButtonSizes.md}
+              size={ButtonSizes.lg}
             />
           </Link>
         </div>

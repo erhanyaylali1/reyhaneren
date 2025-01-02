@@ -56,6 +56,8 @@
 
 .aboutMeText {
   margin-top: $spacing2Xl;
+  text-align: justify;
+
   @media screen and (min-width: 768px) {
     margin-top: $spacing2Xl;
   }

@@ -72,7 +72,7 @@ const USP = () => {
         <Typography
           as={TextAsTypes.p}
           textClassName={styles.uspBody}
-          text="Düzgün iletişim ile birbirinizin düşünce-lerini ve hislerini daha iyi anlayıp aranızdaki sorunların aşın."
+          text="Düzgün iletişim ile birbirinizin düşüncelerini ve hislerini daha iyi anlayıp aranızdaki sorunların aşın."
           color={TextColors.light}
         />
         <Link href="randevu-al" aria-label="Bilgi al">
