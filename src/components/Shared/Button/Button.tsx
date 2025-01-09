@@ -9,6 +9,7 @@ export type IButtonProps = {
   size?: ButtonSizes;
   disabled?: boolean;
   handleClick?: () => void;
+  type?: "button" | "submit";
 };
 
 export enum ButtonSizes {
@@ -31,15 +32,16 @@ const Button = ({
   variant = ButtonVariants.yellow,
   size = ButtonSizes.md,
   disabled = false,
+  type = "button"
 }: IButtonProps): React.ReactNode => {
   return (
     <button
-      className={`${className} ${styles.button} ${styles["button__" + size]} ${
-        styles["button__" + variant]
-      }`}
+      className={`${className} ${styles.button} ${styles["button__" + size]} ${styles["button__" + variant]
+        }`}
       disabled={disabled}
       aria-label={ariaLabel}
       onClick={handleClick}
+      type={type}
     >
       {title}
     </button>
