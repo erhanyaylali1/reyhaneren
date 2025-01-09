@@ -47,7 +47,8 @@
 }
 
 .formInput,
-.formInputTextArea {
+.formInputTextArea,
+.formSelect {
   height: 50px;
   border-radius: $borderRadiusSm;
   background-color: transparent;
@@ -62,6 +63,51 @@
     padding: $spacingLg;
     font-size: 20px;
   }
+}
+
+.formSelectContainer {
+  position: relative;
+  width: 100%;
+
+  &::after {
+    content: "▼"; /* Arrow symbol */
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    pointer-events: none; /* Prevent the arrow from blocking clicks */
+    font-size: 14px;
+    color: #c1c1c1;
+  }
+}
+
+/* Hide the default select arrow */
+.formSelect {
+  appearance: none; /* For most browsers */
+  -webkit-appearance: none; /* For Safari */
+  -moz-appearance: none; /* For Firefox */
+  background-color: transparent;
+  border: 2px solid #c1c1c1;
+  padding: $spacingMd 16px;
+  width: 100%;
+  font-size: 20px;
+  color: #333;
+  cursor: pointer;
+
+  &:focus {
+    outline-color: -webkit-focus-ring-color;
+    outline-style: auto;
+    outline-width: 5px;
+
+    & + .custom-dropdown::after {
+      color: #007bff;
+    }
+  }
+}
+
+/* Styling for when the dropdown is opened */
+.custom-select:focus + .custom-dropdown::after {
+  color: #007bff;
 }
 
 .formInputTextArea {

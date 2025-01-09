@@ -169,6 +169,26 @@ export default function BookAppointment() {
               />
             </div>
             <div className={styles.formInputContainer}>
+              <label htmlFor="type">
+                <Typography
+                  text="Danışmanlık Tipi"
+                  as={TextAsTypes.span}
+                  color={TextColors.dark}
+                  fontSizeDesktop={TextFontSizes["20px"]}
+                  fontWeight={TextFontWeights.regular}
+                  type={TextType.body}
+                />
+              </label>
+              <div className={styles.formSelectContainer}>
+                <select className={styles.formSelect} name="type" required>
+                  <option value="çift" selected>
+                    Çift Odaklı Danışmanlık
+                  </option>
+                  <option value="tek">Bireysel Odaklı Danışmanlık</option>
+                </select>
+              </div>
+            </div>
+            <div className={styles.formInputContainer}>
               <label htmlFor="message">
                 <Typography
                   text="Ekstra Not"
