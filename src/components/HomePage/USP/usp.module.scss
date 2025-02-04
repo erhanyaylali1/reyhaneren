@@ -85,11 +85,11 @@
 .uspBody {
   margin: 0;
   font-size: $fontSizeSm;
-  text-align: justify;
 
   @media screen and (min-width: 768px) {
     font-size: $fontSizeLg;
     margin-bottom: $spacing3Xl;
+    text-align: justify;
   }
 }
 

@@ -130,7 +130,7 @@ export default function Blogs() {
               </div>
             </div>
           </Link>
-          {selectedItems.length && (
+          {selectedItems.length ? (
             <div className={styles.latestPosts}>
               {selectedItems.map((post) => (
                 <Link
@@ -201,10 +201,10 @@ export default function Blogs() {
                 </Link>
               ))}
             </div>
-          )}
+          ) : null}
         </div>
 
-        {remainingPosts.length && (
+        {remainingPosts.length ? (
           <div className={styles.postsWrapper}>
             <Typography
               as={TextAsTypes.h1}
@@ -281,7 +281,7 @@ export default function Blogs() {
               </Link>
             ))}
           </div>
-        )}
+        ) : null}
       </div>
     </div>
   );

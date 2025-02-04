@@ -10,7 +10,6 @@ import Image from "next/image";
 import Service1Image from "../../../assets/images/service1.webp";
 import Service2Image from "../../../assets/images/service2.webp";
 import Link from "next/link";
-import Button, { ButtonVariants } from "@/components/Shared/Button/Button";
 
 const Services = () => {
   return (
@@ -43,12 +42,6 @@ const Services = () => {
                 fontWeight={TextFontWeights.regular}
                 as={TextAsTypes.p}
               />
-              <Button
-                title="Bilgi Al"
-                className={styles.serviceBodyAction}
-                variant={ButtonVariants.yellow}
-                ariaLabel="Aile Danışmanlığı hakkında bilgi al."
-              />
             </div>
           </div>
         </Link>
@@ -70,12 +63,6 @@ const Services = () => {
                 text="''Sağlıklı bir ilişki için adım atın''"
                 fontWeight={TextFontWeights.regular}
                 as={TextAsTypes.p}
-              />
-              <Button
-                title="Bilgi Al"
-                className={styles.serviceBodyAction}
-                variant={ButtonVariants.yellow}
-                ariaLabel="Evlilik Öncesi Danışmanlık hakkında bilgi al."
               />
             </div>
           </div>

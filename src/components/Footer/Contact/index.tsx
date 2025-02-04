@@ -13,7 +13,7 @@ const Contact = () => {
     <div className={styles.contact}>
       <div className={styles.contactListWrapper}>
         <a
-          href="mailto:ailedanismani@reyhaneren.com.tr"
+          href="mailto:ailedanismanireyhaneren@gmail.com"
           className={styles.contactListItemWrapper}
         >
           <Image
@@ -22,7 +22,7 @@ const Contact = () => {
             alt="Mail Simgesi"
             aria-label="Reyhan Eren Mail Adres Bağlantısı"
           />
-          <p>ailedanismani@reyhaneren.com.tr</p>
+          <p>ailedanismanireyhaneren@gmail.com</p>
         </a>
         <a href="tel:+905411620827" className={styles.contactListItemWrapper}>
           <Image
@@ -48,7 +48,7 @@ const Contact = () => {
       </div>
       <div className={styles.contactListWrapper}>
         <a
-          href="https://www.instagram.com/reyhaaaneren/"
+          href="https://www.instagram.com/ailedanismani.reyhaneren/"
           className={styles.contactListItemWrapper}
         >
           <Image
@@ -57,10 +57,10 @@ const Contact = () => {
             alt="Instagram Simgesi"
             aria-label="Reyhan Eren Instagram Hesabının Bağlantısı"
           />
-          <p>@reyhaneren</p>
+          <p>@ailedanismani.reyhaneren</p>
         </a>
         <a
-          href="https://www.x.com/reyhaneren2025"
+          href="https://www.x.com/reyhanerentr"
           className={styles.contactListItemWrapper}
         >
           <Image
@@ -69,10 +69,10 @@ const Contact = () => {
             alt="Facebook Simgesi"
             aria-label="Reyhan Eren Facebook Hesabının Bağlantısı"
           />
-          <p>@reyhaneren2025</p>
+          <p>@reyhanerentr</p>
         </a>
         <a
-          href="https://www.twitter.com/in/reyhan-eren-aile-danismani/"
+          href="https://www.linkedin.com/in/reyhan-eren-aile-danismani/"
           className={styles.contactListItemWrapper}
         >
           <Image

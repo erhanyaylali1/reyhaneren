@@ -31,6 +31,7 @@ const Blog = () => {
   }, [id]);
 
   let blog = post;
+
   if (!blog) {
     const placeholderImage =
       "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png";

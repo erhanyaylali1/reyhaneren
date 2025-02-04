@@ -26,26 +26,6 @@ const Footer = () => {
           <Contact />
           <div className={styles.linksWrapper}>
             <Link
-              href="/"
-              className={styles.linkWrapper}
-              aria-label="Gizlilik Politikası Linki"
-            >
-              <Typography
-                text="Gizlilik Politikası"
-                fontWeight={TextFontWeights.semibold}
-              />
-            </Link>
-            <Link
-              href="/"
-              className={styles.linkWrapper}
-              aria-label="Şartlar ve Koşullar Linki"
-            >
-              <Typography
-                text="Şartlar ve Koşullar"
-                fontWeight={TextFontWeights.semibold}
-              />
-            </Link>
-            <Link
               href="/randevu-al"
               className={styles.linkWrapper}
               aria-label="Randevu Al"

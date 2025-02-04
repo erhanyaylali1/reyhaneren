@@ -133,8 +133,16 @@
   padding: 0 $spacingLg $spacingMd $spacingLg;
 
   @media screen and (min-width: 768px) {
+    overflow-x: hidden;
     padding: 0;
   }
+}
+
+.latestPostItemTitle {
+  /* number of lines to show */
+  line-clamp: 1;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 
 .latestPostItemContent {

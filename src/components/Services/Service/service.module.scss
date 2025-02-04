@@ -38,7 +38,10 @@
 .serviceBody {
   margin-top: $spacingXl;
   margin-bottom: $spacingXl;
-  text-align: justify;
+
+  @media screen and (min-width: 768px) {
+    text-align: justify;
+  }
 }
 
 .serviceIndexWrapper {
