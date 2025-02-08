@@ -22,7 +22,7 @@ export interface IPost {
   readingTime?: number;
 }
 
-export const formatDate = (dateString: string): string => {
+export function formatDate(dateString: string): string {
   const date = new Date(dateString);
 
   // Format the date in Turkish locale
@@ -33,7 +33,7 @@ export const formatDate = (dateString: string): string => {
   }).format(date);
 
   return formattedDate.replace(/ (\d{4})$/, ", $1");
-};
+}
 
 export default function Blogs() {
   const [blogData, setBlogData] = useState<IPost[]>([]);
