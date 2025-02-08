@@ -20,7 +20,6 @@
     display: flex;
     flex-direction: column;
 
-
     @media screen and (min-width: 768px) {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -56,7 +55,7 @@
   font-size: 18px;
   border: 1px solid #c1c1c1;
   width: 100%;
-  font-family: 'Noto Sans', 'Noto Sans Fallback';
+  font-family: "Noto Sans", "Noto Sans Fallback";
 
   @media screen and (min-width: 768px) {
     border-radius: $borderRadiusMd;
@@ -98,21 +97,19 @@
   color: #333;
   cursor: pointer;
 
-
-
   &:focus {
     outline-color: -webkit-focus-ring-color;
     outline-style: auto;
     outline-width: 5px;
 
-    &+.custom-dropdown::after {
+    & + .custom-dropdown::after {
       color: #007bff;
     }
   }
 }
 
 /* Styling for when the dropdown is opened */
-.custom-select:focus+.custom-dropdown::after {
+.custom-select:focus + .custom-dropdown::after {
   color: #007bff;
 }
 
@@ -121,22 +118,35 @@
   height: 50px;
   gap: $spacing4Xl;
   padding-left: $spacingSm;
+  flex-direction: column;
+  gap: $spacingLg;
+  margin-block: $spacingSm $spacing2Xl;
+
+  @media screen and (min-width: 768px) {
+    gap: $spacing4Xl;
+    flex-direction: row;
+    margin-block: unset;
+  }
 }
 
 .radioOption {
   display: inline-flex;
-  align-items: center;
-  gap: 5px;
+  gap: 8px;
   cursor: pointer;
   font-size: 18px;
-  font-family: 'Noto Sans', 'Noto Sans Fallback';
+  font-family: "Noto Sans", "Noto Sans Fallback";
+
+  @media screen and (min-width: 768px) {
+    align-items: center;
+  }
 
   input {
     height: 25px;
     aspect-ratio: 1;
     border: 2px solid #939393;
     padding: 2px;
-    background: radial-gradient(farthest-side, $colorDark 94%, #0000) 50%/0 0 no-repeat content-box;
+    background: radial-gradient(farthest-side, $colorDark 94%, #0000) 50%/0 0
+      no-repeat content-box;
     border-radius: 50%;
     outline-offset: 1px;
     -webkit-appearance: none;
@@ -144,7 +154,7 @@
     appearance: none;
     cursor: pointer;
     font-size: inherit;
-    transition: .3s;
+    transition: 0.3s;
 
     &:checked {
       border-color: $colorDark;
