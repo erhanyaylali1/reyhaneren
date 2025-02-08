@@ -17,7 +17,7 @@ import Link from "next/link";
 
 const Blog = () => {
   const searchParams = useSearchParams();
-  const id = searchParams.get("id");
+  const id = searchParams ? searchParams.get("id") : null;
   const [post, setPost] = useState<IPost | null>(null);
   const [otherPosts, setOtherPosts] = useState<IPost[]>([]);
 
