@@ -22,7 +22,7 @@ export interface IPost {
   readingTime?: number;
 }
 
-export function formatDate(dateString: string): string {
+function formatDate(dateString: string): string {
   const date = new Date(dateString);
 
   // Format the date in Turkish locale

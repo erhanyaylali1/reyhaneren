@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import styles from "./blog.module.scss";
-import { formatDate, IPost } from "../page";
+import { IPost } from "../page";
 import { getAllPosts, getPost } from "@/shared/helpers/apiCall";
 import Image from "next/image";
 import Typography, {
@@ -31,6 +31,19 @@ const Blog = () => {
   }, [id]);
 
   let blog = post;
+
+  function formatDate(dateString: string): string {
+    const date = new Date(dateString);
+
+    // Format the date in Turkish locale
+    const formattedDate = new Intl.DateTimeFormat("tr-TR", {
+      day: "2-digit",
+      month: "long",
+      year: "numeric",
+    }).format(date);
+
+    return formattedDate.replace(/ (\d{4})$/, ", $1");
+  }
 
   if (!blog) {
     const placeholderImage =
