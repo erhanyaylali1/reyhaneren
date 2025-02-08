@@ -22,8 +22,11 @@ export default function BookAppointment() {
     type: "success" | "error";
   } | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
-  const [dropdownValue, setDropdownValue] = useState<string>("Çift Odaklı Danışma");
-  const [radioButtonValue, setRadioButtonValue] = useState<string>("Online Danışma");
+  const [dropdownValue, setDropdownValue] = useState<string>(
+    "Çift Odaklı Danışma"
+  );
+  const [radioButtonValue, setRadioButtonValue] =
+    useState<string>("Online Danışma");
 
   const serviceId = process.env.NEXT_PUBLIC_SERVICE_ID;
   const templateId = process.env.NEXT_PUBLIC_TEMPLATE_ID;
@@ -175,9 +178,19 @@ export default function BookAppointment() {
                 />
               </label>
               <div className={styles.formSelectContainer}>
-                <select className={styles.formSelect} name="type" required value={dropdownValue} onChange={(e) => setDropdownValue(e.target.value)}>
-                  <option value="Çift Odaklı Danışma">Çift Odaklı Danışmanlık</option>
-                  <option value="Bireysel Odaklı Danışma">Bireysel Odaklı Danışmanlık</option>
+                <select
+                  className={styles.formSelect}
+                  name="type"
+                  required
+                  value={dropdownValue}
+                  onChange={(e) => setDropdownValue(e.target.value)}
+                >
+                  <option value="Çift Odaklı Danışma">
+                    Çift Odaklı Danışmanlık
+                  </option>
+                  <option value="Birey Odaklı Danışma">
+                    Birey Odaklı Danışmanlık
+                  </option>
                 </select>
               </div>
             </div>
@@ -193,7 +206,11 @@ export default function BookAppointment() {
                 />
               </label>
               <div className={styles.radioGroup}>
-                <label className={`${styles.radioOption} ${radioButtonValue === "Online Danışma" ? styles.checked : ""}`}>
+                <label
+                  className={`${styles.radioOption} ${
+                    radioButtonValue === "Online Danışma" ? styles.checked : ""
+                  }`}
+                >
                   <input
                     type="radio"
                     name="style"
@@ -203,7 +220,11 @@ export default function BookAppointment() {
                   />
                   Online Danışma
                 </label>
-                <label className={`${styles.radioOption} ${radioButtonValue === "Yüzyüze Danışma" ? styles.checked : ""}`}>
+                <label
+                  className={`${styles.radioOption} ${
+                    radioButtonValue === "Yüzyüze Danışma" ? styles.checked : ""
+                  }`}
+                >
                   <input
                     type="radio"
                     name="style"
@@ -315,7 +336,9 @@ export default function BookAppointment() {
                 placeholder="Eğer varsa e-posta adresinizi giriniz."
               />
             </div>
-            <div className={`${styles.formInputContainer} ${styles.gridSpanRow}`}>
+            <div
+              className={`${styles.formInputContainer} ${styles.gridSpanRow}`}
+            >
               <label htmlFor="message">
                 <Typography
                   text="Neden Danışmanlık Almak İstiyorsunuz?"
