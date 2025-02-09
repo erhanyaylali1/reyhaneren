@@ -18,7 +18,7 @@ const Footer = () => {
             src={Logo}
             className={styles.logo}
             alt="Reyhan Eren Aile Danışmanlığı Logosu"
-            height={50}
+            height={100}
             aria-description="Reyhan Eren Aile Danışmanlığı Logosu"
           />
         </Link>

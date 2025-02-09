@@ -37,7 +37,7 @@ const USP = () => {
         <Typography
           as={TextAsTypes.p}
           textClassName={styles.uspBody}
-          text="Daha sağlıklı ve mutlu bir aile ortam yaratmak için profesyonel olarak danışmanlık hizmeti alın."
+          text="Daha sağlıklı ve mutlu bir aile ortamı yaratmak için profesyonel olarak danışmanlık hizmeti alın."
           color={TextColors.light}
         />
         <Link href="randevu-al" aria-label="Randevu al">
@@ -72,7 +72,7 @@ const USP = () => {
         <Typography
           as={TextAsTypes.p}
           textClassName={styles.uspBody}
-          text="Düzgün iletişim ile birbirinizin düşüncelerini ve hislerini daha iyi anlayıp aranızdaki sorunların aşın."
+          text="Kaliteli iletişim ile birbirinizin düşüncelerini ve hislerini daha iyi anlayarak aranızdaki sorunları aşın."
           color={TextColors.light}
         />
         <Link href="randevu-al" aria-label="Bilgi al">
@@ -107,7 +107,7 @@ const USP = () => {
         <Typography
           as={TextAsTypes.p}
           textClassName={styles.uspBody}
-          text="Mutlu bir aile ortamıyle birlikte hayattan aldığınız zevki arttırın ve daha tatmin edici deneyimler yaşayın."
+          text="Mutlu bir aile ortamıyla birlikte hayattan aldığınız zevki arttırın ve daha tatmin edici deneyimler yaşayın."
           color={TextColors.light}
         />
         <Link href="randevu-al" aria-label="Şimdi Başvur">

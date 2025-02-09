@@ -32,21 +32,14 @@ const AboutMe = () => {
           fontSizeMobile={TextFontSizes["28px"]}
         />
         <Typography
-          text="İnsan ilişkilerine ve etkileşimlerine verdiğim değer ile ailelerin ve bireylerin daha sağlıklı ve dengeli ilişkiler kurmalarına yardımcı olmayı amaçlıyorum."
+          text="Aile üyelerinin ve bireylerin daha sağlıklı ve dengeli ilişkiler kurmalarına destek olmak için seanslar yürütüyorum."
           textClassName={styles.firstText}
           fontSizeDesktop={TextFontSizes["22px"]}
           fontSizeMobile={TextFontSizes["18px"]}
           fontWeight={TextFontWeights.light}
         />
         <Typography
-          text="Amacım, aile içi iletişimde yaşanan zorlukları birlikte aşarak, daha mutlu ve huzurlu bir yaşam yolculuğu sunmak. Sorunların çözüme kavuşması için, danışanlarımda yeni bir bakış açısı ve farkındalık yaratmayı hedefliyorum."
-          textClassName={styles.firstText}
-          fontSizeDesktop={TextFontSizes["22px"]}
-          fontSizeMobile={TextFontSizes["18px"]}
-          fontWeight={TextFontWeights.light}
-        />
-        <Typography
-          text="Bireylerin ve çiftlerin sağlıklı ilişkiler kurmalarına destek olurken onlara güvenli ve rahat bir alan sunarak online ve yüzyüze danışmanlık süreçleri yürütüyorum."
+          text="Sorunlar çözüme kavuşurken danışanlarımda yeni bir bakış açısı ve farkındalık yaratmayı hedefliyorum."
           textClassName={styles.firstText}
           fontSizeDesktop={TextFontSizes["22px"]}
           fontSizeMobile={TextFontSizes["18px"]}

@@ -9,7 +9,7 @@
   @media screen and (min-width: 768px) {
     height: 70vh;
     width: 80%;
-    flex-direction: row;
+    flex-direction: row-reverse;
     margin-inline: auto;
     margin-block: 150px;
   }
@@ -21,7 +21,8 @@
   padding-top: 240px;
 
   @media screen and (min-width: 768px) {
-    border-radius: $borderRadiusSm 0 0 $borderRadiusSm;
+    background-color: transparent;
+    border-radius: 0 $borderRadiusSm $borderRadiusSm 0;
     padding: $spacing3Xl $fontSize4Xl;
   }
 }
@@ -44,7 +45,7 @@
     top: initial;
     left: initial;
     transform: initial;
-    border-radius: $borderRadiusSm;
+    border-radius: 250px;
   }
 }
 .preTitle {
