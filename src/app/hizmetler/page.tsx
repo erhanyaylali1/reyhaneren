@@ -11,6 +11,7 @@ import Typography, {
 import Service from "@/components/Services/Service";
 import ServiceImage1 from "@/assets/images/service1.webp";
 import ServiceImage2 from "@/assets/images/service2.webp";
+import ServiceImage3 from "@/assets/images/service3.webp";
 
 export default function Services() {
   return (
@@ -45,6 +46,11 @@ export default function Services() {
             title="Çift Odaklı Aile Danışmanlığı"
             body="Çift Odaklı Aile Danışmanlığı, çiftlerin arasındaki ilişkisel dinamiklere odaklanan, çiftler arasındaki iletişimi, duygusal bağları ve sorun çözme becerilerini güçlendirmeyi hedefleyen bir aile danışmanlığı yaklaşımıdır. Bu yaklaşım, çiftlerin birbirlerini daha iyi anlamalarına, ilişkilerinde daha sağlıklı sınırlar oluşturmalarına ve ortak hedeflere ulaşmalarına yardımcı olur."
             image={ServiceImage2}
+          />
+          <Service
+            title="Aile Odaklı Aile Danışmanlığı"
+            body="Aile Odaklı Aile Danışmanlığı, bireylerin değil, ailenin bir bütün olarak ele alındığı ve aile içi ilişkileri, iletişimi ve sorun çözme becerilerini geliştirmeyi amaçlayan bir yaklaşımdır. Bu danışmanlık türü, aile üyelerinin birbirlerini daha iyi anlamalarına, duygusal bağlarını güçlendirmelerine ve sağlıklı bir aile dinamiği oluşturmalarına yardımcı olur."
+            image={ServiceImage3}
           />
         </div>
       </div>

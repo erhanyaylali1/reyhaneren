@@ -190,6 +190,9 @@ export default function BookAppointment() {
                   <option value="Birey Odaklı Danışma">
                     Birey Odaklı Danışmanlık
                   </option>
+                  <option value="Aile Odaklı Danışma">
+                    Aile Odaklı Danışmanlık
+                  </option>
                 </select>
               </div>
             </div>
@@ -235,7 +238,8 @@ export default function BookAppointment() {
                 </label>
               </div>
             </div>
-            {dropdownValue === "Çift Odaklı Danışma" && (
+            {(dropdownValue === "Çift Odaklı Danışma" ||
+              dropdownValue === "Aile Odaklı Danışma") && (
               <React.Fragment>
                 <div className={styles.formInputContainer}>
                   <label htmlFor="partner_name">
