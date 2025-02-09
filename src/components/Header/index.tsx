@@ -65,7 +65,7 @@ const Header = () => {
         >
           Hakkımda
         </Link>
-        <Link href="randevu-al">
+        <Link href="/randevu-al">
           <Button
             className="ui-ml-3xl"
             title="Randevu Al"
@@ -99,7 +99,7 @@ const Header = () => {
         >
           Hakkımda
         </Link>
-        <Link href="randevu-al">
+        <Link href="/randevu-al">
           <Button
             className="ui-mt-md"
             title="Randevu Al"
