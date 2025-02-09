@@ -1,8 +1,4 @@
 User-agent: *
-Allow: /
+Disallow:
 
-# Host
-Host: https://www.reyhaneren.com.tr
-
-# Sitemaps
 Sitemap: https://www.reyhaneren.com.tr/sitemap.xml
