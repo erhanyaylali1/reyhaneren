@@ -48,7 +48,7 @@ const Contact = () => {
       </div>
       <div className={styles.contactListWrapper}>
         <a
-          href="https://www.instagram.com/ailedanismani.reyhaneren/"
+          href="https://www.instagram.com/ailedan.reyhaneren/"
           className={styles.contactListItemWrapper}
         >
           <Image
@@ -57,7 +57,7 @@ const Contact = () => {
             alt="Instagram Simgesi"
             aria-label="Reyhan Eren Instagram Hesabının Bağlantısı"
           />
-          <p>@ailedanismani.reyhaneren</p>
+          <p>@ailedan.reyhaneren</p>
         </a>
         <a
           href="https://www.x.com/reyhanerentr"
