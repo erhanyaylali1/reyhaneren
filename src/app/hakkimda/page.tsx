@@ -47,7 +47,7 @@ export default function AboutMe() {
           type={TextType.body}
           color={TextColors.dark}
           textClassName={styles.aboutMeText}
-          text="Akdeniz Üniversitesi Sosyoloji bölümünden 2022 yılında yüksek onur derecesiyle mezun olmuştur. Lisans döneminde aileye ve ilişkilere duyduğu merak neticesinde tez çalışmasını Flört Kültürü üzerine yaparak Aile Sosyolojisi'nin alt başlıklarına dair çalışmıştır."
+          text="Reyhan Eren, Akdeniz Üniversitesi Sosyoloji bölümünden 2022 yılında yüksek onur derecesiyle mezun olmuştur. Lisans döneminde ilişkilerin gelişimine ve aile oluşumuna duyduğu merak ile beraber tez çalışmasını Flört Kültürü üzerine yaparak Aile Sosyolojisi'nin alt başlıklarına dair çalışmıştır."
           fontSizeDesktop={TextFontSizes["24px"]}
           fontSizeMobile={TextFontSizes["20px"]}
         />
@@ -57,7 +57,7 @@ export default function AboutMe() {
           type={TextType.body}
           color={TextColors.dark}
           textClassName={styles.aboutMeText}
-          text="2025 itibariyle Marmara Üniversitesi Aile Danışmanlığı eğitimini başarıyla tamamlayarak, Aile Danışmanı ünvanıyla ailelerde istikrarın ve dengenin sağlanmasına eşlik etmeyi amaçlamaktadır. İzmir’de yüzyüze ve tüm Türkiye’de çevrimiçi aile danışmanlığı hizmetleri sunmaktadır."
+          text="2025 itibariyle Marmara Üniversitesi Aile Danışmanlığı eğitimini başarıyla tamamlayarak, Aile Danışmanı ünvanıyla ailelerde istikrarın ve dengenin sağlanmasına eşlik etmeyi amaçlamaktadır. İzmir’de yüz yüze ve tüm Türkiye’de çevrimiçi aile danışmanlığı hizmetleri sunmaktadır."
           fontSizeDesktop={TextFontSizes["24px"]}
           fontSizeMobile={TextFontSizes["20px"]}
         />

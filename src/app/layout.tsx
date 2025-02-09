@@ -35,11 +35,11 @@ const schema = {
     addressCountry: "TR",
   },
   description:
-    "Türkiye genelinde online veya İzmir'de yüzyüze aile danışmanlığı hizmetleri sunuyorum.",
+    "İzmir'de yüz yüze ve Türkiye genelinde çevrimiçi aile danışmanlığı hizmetleri sunuyorum.",
   keywords: [
     "İzmir aile danışmanlığı",
     "Türkiye genelinde aile danışmanı",
-    "online aile danışmanlığı",
+    "Çevrimiçi aile danışmanlığı",
     "Aile Danışmanlığı",
     "Çift Terapisi",
     "Aile Terapisi",
