@@ -15,6 +15,7 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
     { url: "/hizmetler", changefreq: "weekly", priority: 0.7 },
     { url: "/hakkimda", changefreq: "monthly", priority: 0.7 },
     { url: "/randevu-al", changefreq: "weekly", priority: 0.7 },
+    { url: "/robots.txt", changefreq: "monthly", priority: 0.7 },
   ];
 
   // Generate sitemap entries
