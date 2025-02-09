@@ -165,7 +165,6 @@ export default function BookAppointment() {
                 placeholder="Mesleğinizi giriniz."
               />
             </div>
-            <div></div>
             <div className={styles.formInputContainer}>
               <label htmlFor="type">
                 <Typography
@@ -295,7 +294,6 @@ export default function BookAppointment() {
                     placeholder="Partnerinizin mesleğini giriniz."
                   />
                 </div>
-                <div></div>
               </React.Fragment>
             )}
             <div className={styles.formInputContainer}>
