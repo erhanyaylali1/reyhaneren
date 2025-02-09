@@ -20,7 +20,7 @@ const Features = () => {
     "Eşinizle veya partnerinizle sık sık tartışmalar",
     "Çocuklarınızla aranızdaki çatışmalar",
     "Ebeveynlik sorumluluklarını paylaşırken yaşanan zorluklar",
-    "Stres, kaygı veya duygusal sorunlar",
+    "Yaşam seyrindeki zorlu duygusal süreçler",
   ];
 
   return (
