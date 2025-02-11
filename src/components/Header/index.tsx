@@ -56,7 +56,7 @@ const Header = () => {
           href="/blog"
           className={styles.headerLinks}
         >
-          Blog
+          Blog Yazılarım
         </Link>
         <Link
           onClick={() => setIsMobileMenuOpen(false)}
@@ -90,7 +90,7 @@ const Header = () => {
           href="/blog"
           className={styles.headerLinks}
         >
-          Blog
+          Blog Yazılarım
         </Link>
         <Link
           onClick={() => setIsMobileMenuOpen(false)}
