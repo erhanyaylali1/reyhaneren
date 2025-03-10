@@ -343,7 +343,7 @@ export default function BookAppointment() {
             >
               <label htmlFor="message">
                 <Typography
-                  text="Neden Danışmanlık Almak İstiyorsunuz?"
+                  text="Başvuru nedeninizi özetler misiniz?"
                   as={TextAsTypes.span}
                   color={TextColors.dark}
                   fontSizeDesktop={TextFontSizes["20px"]}
