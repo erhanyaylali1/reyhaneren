@@ -12,6 +12,7 @@ import Service from "@/components/Services/Service";
 import ServiceImage1 from "@/assets/images/service1.webp";
 import ServiceImage2 from "@/assets/images/service2.webp";
 import ServiceImage3 from "@/assets/images/service3.webp";
+import ServiceImage4 from "@/assets/images/service4.jpg";
 
 export default function Services() {
   return (
@@ -51,6 +52,11 @@ export default function Services() {
             title="Aile Odaklı Aile Danışmanlığı"
             body="Aile Odaklı Aile Danışmanlığı, bireylerin değil, ailenin bir bütün olarak ele alındığı ve aile içi ilişkileri, iletişimi ve sorun çözme becerilerini geliştirmeyi amaçlayan bir yaklaşımdır. Bu danışmanlık türü, aile üyelerinin birbirlerini daha iyi anlamalarına, duygusal bağlarını güçlendirmelerine ve sağlıklı bir aile dinamiği oluşturmalarına yardımcı olur."
             image={ServiceImage3}
+          />
+          <Service
+            title="Kurumsal Danışmanlık"
+            body="Çalışanların iş-yaşam dengesini sağlıklı bir şekilde kurmalarına, ekip içi ilişkilerini güçlendirmelerine ve iş yerinde daha tatmin edici bir deneyim yaşamalarına destek oluyorum. Kurumsal danışmanlık hizmetlerim, çalışanların motivasyonunu artırmayı, stres yönetimini desteklemeyi ve daha verimli bir çalışma ortamı oluşturmayı hedeflemektedir."
+            image={ServiceImage4}
           />
         </div>
       </div>

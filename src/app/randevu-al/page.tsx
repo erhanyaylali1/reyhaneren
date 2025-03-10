@@ -193,6 +193,7 @@ export default function BookAppointment() {
                   <option value="Aile Odaklı Danışma">
                     Aile Odaklı Danışmanlık
                   </option>
+                  <option value="Kurumsal Danışma">Kurumsal Danışmanlık</option>
                 </select>
               </div>
             </div>

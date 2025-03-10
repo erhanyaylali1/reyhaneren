@@ -10,6 +10,7 @@ import Image from "next/image";
 import Service1Image from "../../../assets/images/service1.webp";
 import Service2Image from "../../../assets/images/service2.webp";
 import Service3Image from "../../../assets/images/service3.webp";
+import Service4Image from "../../../assets/images/service4.jpg";
 import Link from "next/link";
 
 const Services = () => {
@@ -84,6 +85,28 @@ const Services = () => {
               />
               <Typography
                 text="''Aile dinamiklerinizi yeniden yapılandırın''"
+                fontWeight={TextFontWeights.regular}
+                as={TextAsTypes.p}
+              />
+            </div>
+          </div>
+        </Link>
+        <Link href="hizmetler" className={styles.serviceLink}>
+          <div className={styles.serviceWrapper}>
+            <Image
+              src={Service4Image}
+              alt="Kurumsal Danışmanlığı Servisi Fotoğrafı"
+              className={styles.serviceImage}
+              loading="eager"
+            />
+            <div className={styles.serviceBody}>
+              <Typography
+                text="Kurumsal Danışmanlık"
+                as={TextAsTypes.h3}
+                fontWeight={TextFontWeights.semibold}
+              />
+              <Typography
+                text="''Daha tatmin edici bir iş deneyimi ve güçlü ekip ilişkileri için''"
                 fontWeight={TextFontWeights.regular}
                 as={TextAsTypes.p}
               />
