@@ -168,7 +168,7 @@ export default function BookAppointment() {
             <div className={styles.formInputContainer}>
               <label htmlFor="type">
                 <Typography
-                  text="* Danışmanlık Tipi"
+                  text="* Konu"
                   as={TextAsTypes.span}
                   color={TextColors.dark}
                   fontSizeDesktop={TextFontSizes["20px"]}
@@ -234,7 +234,7 @@ export default function BookAppointment() {
                     checked={radioButtonValue === "Yüzyüze Danışma"}
                     onChange={() => setRadioButtonValue("Yüzyüze Danışma")}
                   />
-                  Yüzyüze Danışma
+                  Yüz yüze Danışma
                 </label>
               </div>
             </div>
