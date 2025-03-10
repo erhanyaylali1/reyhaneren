@@ -24,7 +24,7 @@ const Banner = () => {
       />
       <div className={styles.bannerTextWrapper}>
         <Typography
-          text="Bir profesyonel eşliğinde daha huzurlu ve mutlu bir ilişkiye adım atın."
+          text="Bir profesyonel eşliğinde daha huzurlu ve mutlu ilişkilere adım atın."
           as={TextAsTypes.h1}
           fontSizeDesktop={TextFontSizes["48px"]}
           fontSizeMobile={TextFontSizes["28px"]}
