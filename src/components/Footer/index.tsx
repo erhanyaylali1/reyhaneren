@@ -40,7 +40,7 @@ const Footer = () => {
       </div>
       <div className={styles.copyRightText}>
         <Typography
-          text="© 2024 Reyhan Eren. Tüm hakları saklıdır."
+          text="© 2026 Reyhan Eren. Tüm hakları saklıdır."
           color={TextColors.light}
         />
       </div>
