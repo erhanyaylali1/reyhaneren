@@ -68,12 +68,14 @@ const noto_sans = Noto_Sans({
   weight: ["300", "400", "500", "600", "700"],
   style: ["normal", "italic"],
   subsets: ["latin"],
+  preload: false,
 });
 
 const saira = Saira({
   weight: ["300", "400", "500", "600", "700"],
   style: ["normal", "italic"],
   subsets: ["latin"],
+  preload: false,
 });
 
 const Typography = ({

@@ -72,7 +72,7 @@ const Contact = () => {
           <p>@reyhanerentr</p>
         </a>
         <a
-          href="https://www.linkedin.com/in/reyhan-eren-aile-danismani/"
+          href="https://www.linkedin.com/in/reyhan-erenin/"
           className={styles.contactListItemWrapper}
         >
           <Image
@@ -81,7 +81,7 @@ const Contact = () => {
             alt="Linkedin Simgesi"
             aria-label="Reyhan Eren Linkedin Hesabının Bağlantısı"
           />
-          <p>@reyhan-eren-aile-danismani</p>
+          <p>@reyhan-erenin</p>
         </a>
       </div>
     </div>
