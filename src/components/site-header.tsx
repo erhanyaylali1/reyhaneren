@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { navLinks, site } from "@/lib/site";
+import { HomeLink } from "./home-link";
 import { MobileMenu } from "./mobile-menu";
 
 // z-index scale (the only one in the app): header 40.
@@ -10,10 +11,7 @@ export function SiteHeader() {
         aria-label="Ana menü"
         className="relative mx-auto flex h-18 max-w-6xl items-center justify-between px-5 sm:px-8"
       >
-        <Link
-          href="/"
-          className="flex flex-col leading-none"
-        >
+        <HomeLink className="flex flex-col leading-none">
           <span className="font-serif text-[1.375rem] tracking-[-0.01em] text-ink">
             {site.person}
           </span>
@@ -21,7 +19,7 @@ export function SiteHeader() {
             {site.title}
           </span>
           <span className="sr-only"> — Ana sayfa</span>
-        </Link>
+        </HomeLink>
 
         <div className="hidden items-center gap-10 md:flex">
           <ul className="flex items-center gap-8">

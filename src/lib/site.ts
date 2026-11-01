@@ -32,5 +32,6 @@ export const navLinks = [
   { label: "Hakkımda", href: "/#hakkimda" },
   { label: "Hizmetler", href: "/#hizmetler" },
   { label: "SSS", href: "/#sss" },
+  { label: "Blog", href: "/blog" },
   { label: "İletişim", href: "#iletisim" },
 ] as const;

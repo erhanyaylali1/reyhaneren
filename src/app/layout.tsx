@@ -1,7 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { Figtree, Newsreader } from "next/font/google";
-import { SiteFooter } from "@/components/site-footer";
-import { SiteHeader } from "@/components/site-header";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -136,17 +134,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             __html: JSON.stringify(clinicJsonLd).replace(/</g, "\\u003c"),
           }}
         />
-        <a
-          href="#icerik"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-ink focus:px-5 focus:py-3 focus:text-canvas"
-        >
-          İçeriğe geç
-        </a>
-        <SiteHeader />
-        <main id="icerik" className="flex-1">
-          {children}
-        </main>
-        <SiteFooter />
+        {children}
       </body>
     </html>
   );

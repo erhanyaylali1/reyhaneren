@@ -1,0 +1,60 @@
+// Pure helpers shared by the editor (client) and the data layer (server).
+
+const TR_MAP: Record<string, string> = {
+  ç: "c", ğ: "g", ı: "i", i̇: "i", ö: "o", ş: "s", ü: "u",
+  â: "a", î: "i", û: "u",
+};
+
+export function slugify(input: string): string {
+  return input
+    .toLocaleLowerCase("tr-TR")
+    .replace(/[çğıöşüâîû]|i̇/g, (ch) => TR_MAP[ch] ?? ch)
+    .normalize("NFKD")
+    .replace(/[̀-ͯ]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 80);
+}
+
+export function htmlToText(html: string): string {
+  return html
+    .replace(/<(script|style)[\s\S]*?<\/\1>/gi, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&nbsp;/g, " ")
+    .replace(/&amp;/g, "&")
+    .replace(/&[a-z#0-9]+;/gi, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+export function countWords(text: string): number {
+  return text ? text.split(" ").filter(Boolean).length : 0;
+}
+
+/** ~200 words/minute for Turkish prose, +10s per image, never below 1 minute. */
+export function readingMinutes(html: string): number {
+  const words = countWords(htmlToText(html));
+  const images = (html.match(/<img\b/gi) ?? []).length;
+  return Math.max(1, Math.round(words / 200 + (images * 10) / 60));
+}
+
+export function makeExcerpt(html: string, max = 170): string {
+  const text = htmlToText(html);
+  if (text.length <= max) return text;
+  const cut = text.slice(0, max);
+  return `${cut.slice(0, cut.lastIndexOf(" ")).replace(/[,.;:–-]+$/, "")}…`;
+}
+
+const dateFormat = new Intl.DateTimeFormat("tr-TR", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+  timeZone: "Europe/Istanbul",
+});
+
+export function formatDate(iso: string): string {
+  return dateFormat.format(new Date(iso));
+}
+
+const numberFormat = new Intl.NumberFormat("tr-TR");
+export const formatNumber = (n: number) => numberFormat.format(n);

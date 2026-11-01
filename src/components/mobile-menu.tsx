@@ -8,6 +8,7 @@ export function MobileMenu() {
   const [open, setOpen] = useState(false);
   const panelId = useId();
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const rootRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!open) return;
@@ -17,12 +18,20 @@ export function MobileMenu() {
         buttonRef.current?.focus();
       }
     };
+    // Tapping the page behind the menu closes it.
+    const onPointer = (e: PointerEvent) => {
+      if (!rootRef.current?.contains(e.target as Node)) setOpen(false);
+    };
     document.addEventListener("keydown", onKey);
-    return () => document.removeEventListener("keydown", onKey);
+    document.addEventListener("pointerdown", onPointer);
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.removeEventListener("pointerdown", onPointer);
+    };
   }, [open]);
 
   return (
-    <div className="md:hidden">
+    <div ref={rootRef} className="md:hidden">
       <button
         ref={buttonRef}
         type="button"
@@ -52,7 +61,7 @@ export function MobileMenu() {
       <div
         id={panelId}
         hidden={!open}
-        className="absolute inset-x-0 top-full border-b border-line bg-canvas"
+        className="absolute inset-x-0 top-full rounded-b-3xl border-b border-line bg-canvas shadow-[0_24px_48px_-12px_rgb(31_42_37/0.28),0_8px_16px_-8px_rgb(31_42_37/0.12)]"
       >
         <ul className="mx-auto flex max-w-6xl flex-col px-5 pb-6 pt-2">
           {navLinks.map((link) => (
