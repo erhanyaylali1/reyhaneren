@@ -1,74 +1,152 @@
 import type { Metadata, Viewport } from "next";
+import { Figtree, Newsreader } from "next/font/google";
+import { SiteFooter } from "@/components/site-footer";
+import { SiteHeader } from "@/components/site-header";
+import { site } from "@/lib/site";
 import "./globals.css";
-import Header from "../components/Header";
-import Footer from "@/components/Footer";
+
+// latin-ext is required for Turkish glyphs (ğ, ş, ı, İ).
+const figtree = Figtree({
+  variable: "--font-figtree",
+  subsets: ["latin", "latin-ext"],
+  display: "swap",
+});
+
+const newsreader = Newsreader({
+  variable: "--font-newsreader",
+  subsets: ["latin", "latin-ext"],
+  style: ["normal", "italic"],
+  axes: ["opsz"],
+  display: "swap",
+});
+
+const defaultTitle =
+  "İzmir Aile Danışmanı ve Çift Terapisi | Reyhan Eren · Bayraklı";
 
 export const metadata: Metadata = {
-  title: "Reyhan Eren - Aile Danışmanı",
-  description:
-    "Türkiye genelinde online veya İzmir'de yüzyüze aile danışmanlığı hizmetleri sunuyorum.",
-  category: "Aile Danışmanlığı",
-  authors: { name: "Reyhan Eren", url: "https://www.reyhaneren.com/" },
-  keywords:
-    "İzmir aile danışmanlığı, online aile danışmanlığı, Türkiye Aile Danışmanlığı, Aile Danışmalığı, Çift Terapisi, Aile Terapisi, İzmir Çift Terapisi",
-  alternates: {
-    canonical: "https://www.reyhaneren.com/",
+  metadataBase: new URL(site.url),
+  title: {
+    default: defaultTitle,
+    template: "%s | Reyhan Eren · İzmir Aile Danışmanı",
   },
+  description: site.description,
+  applicationName: site.name,
+  authors: [{ name: site.person, url: site.url }],
+  creator: site.person,
+  keywords: [
+    "İzmir aile danışmanı",
+    "İzmir çift terapisi",
+    "Bayraklı aile danışmanı",
+    "İzmir aile danışmanlığı",
+    "online aile danışmanlığı",
+    "çift terapisi",
+    "aile terapisi",
+  ],
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    locale: "tr_TR",
+    url: "/",
+    siteName: site.name,
+    title: defaultTitle,
+    description: site.description,
+  },
+  twitter: {
+    // Switch to "summary_large_image" once an opengraph-image is added.
+    card: "summary",
+    site: "@reyhanerentr",
+    creator: "@reyhanerentr",
+    title: defaultTitle,
+    description: site.description,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large" },
+  },
+  category: "health",
 };
 
 export const viewport: Viewport = {
-  width: "device-width",
-  initialScale: 1,
+  themeColor: "#f6f2ec",
+  colorScheme: "light",
 };
 
-const schema = {
+const clinicJsonLd = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  name: "Reyhan Eren",
-  image:
-    "https://media.licdn.com/dms/image/v2/D4D03AQHEpFPp2VeUsQ/profile-displayphoto-shrink_800_800/B4DZP.NJ5FG0Ag-/0/1735136689421?e=1741219200&v=beta&t=k9SEzKf44DbW6nFhRJ2xxPd_Kf78KIA5RBHlTzRmc_w",
-  url: "https://www.reyhaneren.com.tr",
-  telephone: "+905411620827",
+  "@type": "MedicalClinic",
+  "@id": `${site.url}/#clinic`,
+  name: site.name,
+  alternateName: `${site.person} — İzmir Aile Danışmanı`,
+  description: site.description,
+  url: site.url,
+  telephone: site.phone.e164,
+  email: site.email,
   address: {
     "@type": "PostalAddress",
-    addressLocality: "İzmir",
-    addressCountry: "TR",
+    addressLocality: site.address.locality,
+    addressRegion: site.address.region,
+    addressCountry: site.address.country,
   },
-  description:
-    "İzmir'de yüz yüze ve Türkiye genelinde çevrimiçi aile danışmanlığı hizmetleri sunuyorum.",
-  keywords: [
-    "İzmir aile danışmanlığı",
-    "Türkiye genelinde aile danışmanı",
-    "Çevrimiçi aile danışmanlığı",
-    "Aile Danışmanlığı",
-    "Çift Terapisi",
-    "Aile Terapisi",
+  hasMap: site.address.mapUrl,
+  areaServed: [
+    { "@type": "City", name: "İzmir" },
+    { "@type": "Country", name: "Türkiye" },
   ],
+  availableService: [
+    { "@type": "MedicalTherapy", name: "Birey Odaklı Aile Danışmanlığı" },
+    { "@type": "MedicalTherapy", name: "Çift Terapisi" },
+    { "@type": "MedicalTherapy", name: "Aile Terapisi" },
+    { "@type": "MedicalTherapy", name: "Kurumsal Danışmanlık" },
+  ],
+  knowsLanguage: "tr",
+  image: `${site.url}/reyhan-eren-aile-danismani.jpg`,
+  employee: {
+    "@type": "Person",
+    "@id": `${site.url}/#reyhan-eren`,
+    name: site.person,
+    jobTitle: site.title,
+    image: `${site.url}/reyhan-eren-aile-danismani.jpg`,
+    alumniOf: [
+      { "@type": "CollegeOrUniversity", name: "Akdeniz Üniversitesi" },
+      { "@type": "CollegeOrUniversity", name: "Marmara Üniversitesi" },
+    ],
+    hasCredential: {
+      "@type": "EducationalOccupationalCredential",
+      name: "Aile Danışmanlığı Eğitimi",
+      credentialCategory: "certificate",
+      recognizedBy: { "@type": "CollegeOrUniversity", name: "Marmara Üniversitesi" },
+    },
+    knowsAbout: ["Aile danışmanlığı", "Çift terapisi", "Aile terapisi", "Sosyoloji"],
+    sameAs: site.social.map((s) => s.href),
+  },
+  sameAs: site.social.map((s) => s.href),
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html suppressHydrationWarning lang="en">
-      <head>
+    <html
+      lang="tr"
+      className={`${figtree.variable} ${newsreader.variable} antialiased`}
+    >
+      <body className="flex min-h-dvh flex-col">
         <script
-          id=""
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(clinicJsonLd).replace(/</g, "\\u003c"),
+          }}
         />
-        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
-        <link
-          href="https://fonts.googleapis.com/css2?family=Playwrite+NO:wght@100..400&display=swap"
-          rel="stylesheet"
-        ></link>
-      </head>
-      <body>
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <a
+          href="#icerik"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-ink focus:px-5 focus:py-3 focus:text-canvas"
+        >
+          İçeriğe geç
+        </a>
+        <SiteHeader />
+        <main id="icerik" className="flex-1">
+          {children}
+        </main>
+        <SiteFooter />
       </body>
     </html>
   );
