@@ -137,7 +137,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section id="randevu" aria-labelledby="randevu-baslik" className="scroll-mt-24 border-t border-line bg-sage-50">
+      <section id="randevu" aria-labelledby="randevu-baslik" className="border-t border-line bg-sage-50">
         <div className="mx-auto grid max-w-6xl gap-12 px-5 py-20 sm:px-8 md:py-24 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
             <p className={eyebrow}>Randevu formu</p>

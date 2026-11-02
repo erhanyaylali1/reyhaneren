@@ -119,7 +119,10 @@ const faqJsonLd = {
 };
 
 const sessionFormats = [
-  { label: "Yüz yüze", detail: `${site.address.locality}, ${site.address.region}` },
+  {
+    label: "Yüz yüze",
+    detail: `${site.address.locality}, ${site.address.region}`,
+  },
   { label: "Online", detail: "Türkiye’nin her yerinden" },
 ];
 
@@ -160,46 +163,49 @@ export default function Home() {
         className="mx-auto max-w-6xl px-5 pb-20 pt-12 sm:px-8 md:pb-28 md:pt-20"
       >
         <div className="max-w-3xl">
-            <p className="flex items-center gap-2.5 text-sm font-medium text-ink-muted">
-              <span aria-hidden="true" className="size-1.5 rounded-full bg-sage-700" />
-              Bayraklı, İzmir · Online tüm Türkiye
-            </p>
+          <p className="flex items-center gap-2.5 text-sm font-medium text-ink-muted">
+            <span
+              aria-hidden="true"
+              className="size-1.5 rounded-full bg-sage-700"
+            />
+            Bayraklı, İzmir · Online tüm Türkiye
+          </p>
 
-            <h1
-              id="hero-baslik"
-              className="mt-6 font-serif text-[2.5rem] leading-[1.08] tracking-[-0.02em] text-ink text-balance sm:text-5xl md:text-[3.75rem]"
-            >
-              İzmir’de aile danışmanlığı ve çift terapisi
-              <span className="block italic text-sage-700">
-                daha huzurlu ilişkiler için
-              </span>
-            </h1>
+          <h1
+            id="hero-baslik"
+            className="mt-6 font-serif text-[2.5rem] leading-[1.08] tracking-[-0.02em] text-ink text-balance sm:text-5xl md:text-[3.75rem]"
+          >
+            İzmir’de aile danışmanlığı ve çift terapisi
+            <span className="block italic text-sage-700">
+              daha huzurlu ilişkiler için
+            </span>
+          </h1>
 
-            <p className="mt-7 max-w-[34rem] text-lg leading-relaxed text-ink-muted text-pretty">
-              Aile Danışmanı {site.person} ile güvenli ve yargısız bir ortamda
-              ilişkinizdeki düğümleri birlikte çözün. Sorunlar çözüme
-              kavuşurken yeni bir bakış açısı ve farkındalık kazanın.
-            </p>
+          <p className="mt-7 max-w-[34rem] text-lg leading-relaxed text-ink-muted text-pretty">
+            Aile Danışmanı {site.person} ile güvenli ve yargısız bir ortamda
+            ilişkinizdeki düğümleri birlikte çözün. Sorunlar çözüme kavuşurken
+            yeni bir bakış açısı ve farkındalık kazanın.
+          </p>
 
-            <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
-              <a href="#randevu" className={primaryCta}>
-                Randevu Al
-                <ArrowIcon />
-              </a>
-              <Link href="/hizmetler" className={secondaryCta}>
-                Hizmetleri inceleyin
-              </Link>
-            </div>
+          <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
+            <a href="#randevu" className={primaryCta}>
+              Randevu Al
+              <ArrowIcon />
+            </a>
+            <Link href="/hizmetler" className={secondaryCta}>
+              Hizmetleri inceleyin
+            </Link>
+          </div>
 
-            {/* Session formats: lets visitors self-select before they call. */}
-            <dl className="mt-12 grid max-w-md grid-cols-2 gap-6 border-t border-line pt-6">
-              {sessionFormats.map((f) => (
-                <div key={f.label}>
-                  <dt className="font-serif text-xl text-ink">{f.label}</dt>
-                  <dd className="mt-1 text-sm text-ink-muted">{f.detail}</dd>
-                </div>
-              ))}
-            </dl>
+          {/* Session formats: lets visitors self-select before they call. */}
+          <dl className="mt-12 grid max-w-md grid-cols-2 gap-6 border-t border-line pt-6">
+            {sessionFormats.map((f) => (
+              <div key={f.label}>
+                <dt className="font-serif text-xl text-ink">{f.label}</dt>
+                <dd className="mt-1 text-sm text-ink-muted">{f.detail}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
 
@@ -215,9 +221,9 @@ export default function Home() {
               on mobile so the bio stays near the fold; stacked on desktop. */}
           <figure className="flex items-end gap-5 sm:gap-6 lg:col-span-4 lg:block">
             <Image
-              src="/reyhan-eren-aile-danismani.jpg"
-              width={828}
-              height={1472}
+              src="/reyhan-eren-profil.jpg"
+              width={1200}
+              height={1600}
               alt="İzmir aile danışmanı Reyhan Eren’in portresi"
               sizes="(min-width: 1152px) 352px, (min-width: 1024px) 30vw, 192px"
               className="aspect-[4/5] w-40 shrink-0 rounded-2xl bg-sand-100 object-cover object-top sm:w-48 lg:w-full lg:rounded-3xl"
@@ -232,7 +238,10 @@ export default function Home() {
                 </span>
               </span>
               <span className="mt-4 flex items-center gap-2 text-sm text-ink-muted lg:mt-0">
-                <span aria-hidden="true" className="size-1.5 rounded-full bg-sage-700" />
+                <span
+                  aria-hidden="true"
+                  className="size-1.5 rounded-full bg-sage-700"
+                />
                 {site.address.locality}, {site.address.region}
               </span>
             </figcaption>
@@ -244,21 +253,21 @@ export default function Home() {
               id="hakkimda-baslik"
               className="mt-4 font-serif text-[2rem] leading-[1.15] tracking-[-0.015em] text-ink text-balance md:text-[2.75rem]"
             >
-              İzmir aile danışmanı Reyhan Eren
+              İzmir Aile Danışmanı Reyhan Eren
             </h2>
 
             <div className="mt-6 max-w-[38rem] space-y-5 text-lg leading-relaxed text-ink-muted text-pretty">
               <p>
                 Reyhan Eren, Akdeniz Üniversitesi Sosyoloji bölümünden 2022
-                yılında yüksek onur derecesiyle mezun olmuştur. Lisans
-                döneminde ilişkilerin gelişimine ve aile oluşumuna duyduğu
-                merakla tezini Flört Kültürü üzerine yapmıştır.
+                yılında yüksek onur derecesiyle mezun olmuştur. Lisans döneminde
+                ilişkilerin gelişimine ve aile oluşumuna duyduğu merakla tezini
+                Flört Kültürü üzerine yapmıştır.
               </p>
               <p>
-                2025 itibarıyla Marmara Üniversitesi Aile Danışmanlığı
-                eğitimini başarıyla tamamlayarak Aile Danışmanı unvanını
-                almıştır. İzmir Bayraklı’da yüz yüze ve tüm Türkiye’ye online
-                danışmanlık sunmaktadır.
+                2025 itibarıyla Marmara Üniversitesi Aile Danışmanlığı eğitimini
+                başarıyla tamamlayarak Aile Danışmanı unvanını almıştır. İzmir
+                Bayraklı’da yüz yüze ve tüm Türkiye’ye online danışmanlık
+                sunmaktadır.
               </p>
             </div>
 
@@ -280,7 +289,9 @@ export default function Home() {
                       <span className="text-ink-muted"> · </span>
                       {c.title}
                     </p>
-                    <p className="mt-1 text-[0.9375rem] text-ink-muted">{c.note}</p>
+                    <p className="mt-1 text-[0.9375rem] text-ink-muted">
+                      {c.note}
+                    </p>
                   </div>
                 </li>
               ))}
@@ -291,7 +302,10 @@ export default function Home() {
                 Reyhan Eren’den randevu alın
                 <ArrowIcon />
               </a>
-              <Link href="/hakkimda" className={`${secondaryCta} w-full sm:w-auto`}>
+              <Link
+                href="/hakkimda"
+                className={`${secondaryCta} w-full sm:w-auto`}
+              >
                 Yaklaşımım ve eğitimim
               </Link>
             </div>
@@ -340,12 +354,19 @@ export default function Home() {
                   {s.icon}
                 </span>
                 <h3 className="mt-8 text-xl font-semibold tracking-[-0.01em] text-ink">
-                  <Link href={s.href} className="after:absolute after:inset-0 after:rounded-3xl">
+                  <Link
+                    href={s.href}
+                    className="after:absolute after:inset-0 after:rounded-3xl"
+                  >
                     {s.title}
                   </Link>
                 </h3>
-                <p className="mt-2 font-serif text-lg italic text-ink">{s.lead}</p>
-                <p className="mt-4 flex-1 leading-relaxed text-ink-muted">{s.body}</p>
+                <p className="mt-2 font-serif text-lg italic text-ink">
+                  {s.lead}
+                </p>
+                <p className="mt-4 flex-1 leading-relaxed text-ink-muted">
+                  {s.body}
+                </p>
                 <span className="mt-6 inline-flex items-center gap-1.5 text-[0.9375rem] font-medium text-sage-700">
                   Detaylı bilgi
                   <ArrowIcon />
@@ -364,7 +385,9 @@ export default function Home() {
       >
         <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 md:py-28">
           <div className="max-w-2xl">
-            <p className={eyebrow}>Adım adım yaklaşım · Şeffaf ve güvenilir süreç</p>
+            <p className={eyebrow}>
+              Adım adım yaklaşım · Şeffaf ve güvenilir süreç
+            </p>
             <h2
               id="surec-baslik"
               className="mt-4 font-serif text-[2rem] leading-[1.15] tracking-[-0.015em] text-ink text-balance md:text-[2.75rem]"
@@ -401,7 +424,11 @@ export default function Home() {
       </section>
 
       {/* ───────────── SSS ───────────── */}
-      <section id="sss" aria-labelledby="sss-baslik" className="border-t border-line">
+      <section
+        id="sss"
+        aria-labelledby="sss-baslik"
+        className="border-t border-line"
+      >
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -467,12 +494,14 @@ export default function Home() {
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-ink-muted text-pretty">
               Formu doldurun, size uygun bir zaman planlamak için sizi arayalım.
-              Hangi hizmetin size uygun olduğundan emin değilseniz, bunu da
-              ilk görüşmede birlikte belirleriz.
+              Hangi hizmetin size uygun olduğundan emin değilseniz, bunu da ilk
+              görüşmede birlikte belirleriz.
             </p>
 
             <div className="mt-10 border-t border-line-strong pt-6">
-              <p className="text-sm text-ink-muted">Formla uğraşmak istemiyor musunuz?</p>
+              <p className="text-sm text-ink-muted">
+                Formla uğraşmak istemiyor musunuz?
+              </p>
               <a
                 href={site.phone.href}
                 className="mt-1 inline-flex min-h-11 items-center font-serif text-[1.75rem] tracking-[-0.01em] text-ink tabular-nums underline decoration-transparent underline-offset-4 transition-colors duration-150 hover:decoration-ink"

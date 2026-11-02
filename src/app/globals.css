@@ -217,3 +217,75 @@
     outline-offset: 3px;
   }
 }
+
+/*
+  Page transitions (React <ViewTransition>, see components/page-transition).
+  Calm, clinical motion: the header stays put as the spatial anchor, the old
+  page fades out quickly, the new one fades in while rising 12px.
+*/
+::view-transition {
+  pointer-events: none; /* clicks during the animation reach the live page */
+}
+
+/* The rest of the page (footer, background) swaps instantly underneath. */
+::view-transition-old(root) {
+  display: none;
+}
+::view-transition-new(root) {
+  animation: none;
+}
+
+/* Header: never moves or flashes. */
+::view-transition-group(site-header) {
+  animation: none;
+  z-index: 100;
+}
+::view-transition-old(site-header) {
+  display: none;
+}
+::view-transition-new(site-header) {
+  animation: none;
+}
+
+/* Sequential, not overlapping: two pages of text crossfading looks muddy. */
+::view-transition-old(.page-exit) {
+  animation: 120ms cubic-bezier(0.4, 0, 1, 1) both vt-fade-out;
+}
+::view-transition-new(.page-enter) {
+  animation:
+    240ms cubic-bezier(0, 0, 0.2, 1) 120ms both vt-fade-in,
+    380ms cubic-bezier(0.2, 0.7, 0.2, 1) 100ms both vt-rise;
+}
+
+/* Shared elements (e.g. service tile → service page) morph a little slower
+   than the page fade so the eye can follow them. */
+::view-transition-group(.service-mark) {
+  animation-duration: 420ms;
+  animation-timing-function: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+@keyframes vt-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes vt-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes vt-rise {
+  from {
+    translate: 0 12px;
+  }
+}
+
+/* Reduced motion: keep a plain crossfade, drop all movement. */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-new(.page-enter) {
+    animation: 200ms ease-out 120ms both vt-fade-in;
+  }
+  ::view-transition-group(*) {
+    animation-duration: 0s !important;
+  }
+}

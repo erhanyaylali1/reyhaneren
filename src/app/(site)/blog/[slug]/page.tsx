@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PostCard } from "@/components/blog/post-card";
@@ -78,12 +79,14 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
             {post.excerpt}
           </p>
           <div className="mt-8 flex items-center gap-4 border-t border-line pt-6">
-            <span
-              aria-hidden="true"
-              className="flex size-11 shrink-0 items-center justify-center rounded-full bg-sage-700 font-serif text-lg text-canvas"
-            >
-              R
-            </span>
+            <Image
+              src="/reyhan-eren-avatar.jpg"
+              width={256}
+              height={256}
+              alt=""
+              sizes="44px"
+              className="size-11 shrink-0 rounded-full bg-sand-100 object-cover"
+            />
             <div>
               <p className="font-medium text-ink">{site.person}</p>
               <PostMeta publishedAt={post.publishedAt} readingMinutes={post.readingMinutes}>

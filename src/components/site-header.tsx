@@ -7,7 +7,10 @@ import { NavLinks } from "./nav-links";
 // z-index scale (the only one in the app): header 40.
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-canvas">
+    <header
+      className="sticky top-0 z-40 border-b border-line bg-canvas"
+      style={{ viewTransitionName: "site-header" }}
+    >
       <nav
         aria-label="Ana menü"
         className="relative mx-auto flex h-18 max-w-6xl items-center justify-between px-5 sm:px-8"

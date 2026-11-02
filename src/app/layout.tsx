@@ -88,7 +88,7 @@ const structuredData = {
       url: site.url,
       telephone: site.phone.e164,
       email: site.email,
-      image: `${site.url}/reyhan-eren-aile-danismani.jpg`,
+      image: `${site.url}/reyhan-eren-profil.jpg`,
       logo: `${site.url}/icon.png`,
       address: {
         "@type": "PostalAddress",
@@ -118,7 +118,7 @@ const structuredData = {
       name: site.person,
       jobTitle: site.title,
       url: site.url,
-      image: `${site.url}/reyhan-eren-aile-danismani.jpg`,
+      image: `${site.url}/reyhan-eren-profil.jpg`,
       worksFor: { "@id": businessId },
       alumniOf: [
         { "@type": "CollegeOrUniversity", name: "Akdeniz Üniversitesi" },
@@ -149,6 +149,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="tr"
       className={`${figtree.variable} ${newsreader.variable} antialiased`}
+      // globals.css sets scroll-behavior: smooth for in-page anchors. This
+      // tells Next.js to switch it off during page navigations, so a new page
+      // opens at the very top instantly instead of gliding up from mid-page.
+      data-scroll-behavior="smooth"
     >
       <body className="flex min-h-dvh flex-col">
         <script

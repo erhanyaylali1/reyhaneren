@@ -1,4 +1,5 @@
 import { SiteFooter } from "@/components/site-footer";
+import { PageTransition } from "@/components/page-transition";
 import { ScrollToTop } from "@/components/scroll-to-top";
 import { SiteHeader } from "@/components/site-header";
 
@@ -13,7 +14,7 @@ export default function SiteLayout({ children }: LayoutProps<"/">) {
       </a>
       <SiteHeader />
       <main id="icerik" className="flex-1">
-        {children}
+        <PageTransition>{children}</PageTransition>
       </main>
       <SiteFooter />
       <ScrollToTop />

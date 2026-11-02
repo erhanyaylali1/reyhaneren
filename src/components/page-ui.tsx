@@ -106,9 +106,11 @@ export function PageHero({
   title,
   accent,
   lead,
+  mark,
   children,
 }: {
   crumbs: Crumb[];
+  mark?: ReactNode;
   kicker: string;
   title: string;
   accent?: string;
@@ -119,6 +121,7 @@ export function PageHero({
     <section className="mx-auto max-w-6xl px-5 pb-16 pt-8 sm:px-8 md:pb-24 md:pt-12">
       <Breadcrumbs items={crumbs} />
       <div className="mt-10 max-w-3xl md:mt-14">
+        {mark && <div className="mb-7">{mark}</div>}
         <p className="flex items-center gap-2.5 text-sm font-medium text-ink-muted">
           <span aria-hidden="true" className="size-1.5 rounded-full bg-sage-700" />
           {kicker}

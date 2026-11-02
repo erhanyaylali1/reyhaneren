@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { JsonLd, ArrowIcon, CtaBand, FaqList, PageHero, WhatsAppIcon, bodyText, eyebrow, h2Class, primaryCta, secondaryCta } from "@/components/page-ui";
+import { ServiceMark } from "@/components/service-mark";
 import { SESSION_LENGTH, steps, type ServiceContent } from "@/lib/content";
 import { servicePages, site } from "@/lib/site";
 
@@ -42,6 +43,7 @@ export function ServiceTemplate({ content: c }: { content: ServiceContent }) {
           { name: "Hizmetler", href: "/hizmetler" },
           { name: page.title, href: `/hizmetler/${c.slug}` },
         ]}
+        mark={<ServiceMark slug={c.slug} size="lg" />}
         kicker={c.kicker}
         title={c.title}
         accent={c.accent}

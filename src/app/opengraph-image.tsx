@@ -16,7 +16,7 @@ const [serif, serifItalic, sans, portrait] = await Promise.all([
   readFile(join(dir, "newsreader-a.ttf")),
   readFile(join(dir, "newsreader-b.ttf")),
   readFile(join(dir, "figtree-500.ttf")),
-  readFile(join(process.cwd(), "public/reyhan-eren-aile-danismani.jpg"), "base64"),
+  readFile(join(process.cwd(), "public/reyhan-eren-profil.jpg"), "base64"),
 ]);
 
 export default function OpengraphImage() {

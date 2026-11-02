@@ -46,21 +46,25 @@ export const navLinks = [
 export const servicePages = [
   {
     slug: "cift-terapisi",
+    tone: "bg-clay-100 text-clay-700",
     title: "Çift Terapisi",
     short: "İletişim, güven ve tekrarlayan çatışmalar için çift odaklı seanslar.",
   },
   {
     slug: "aile-danismanligi",
+    tone: "bg-sage-100 text-sage-700",
     title: "Aile Danışmanlığı",
     short: "Bireysel, ebeveyn–çocuk ve tüm aileyle yapılan sistemik çalışmalar.",
   },
   {
     slug: "online-danismanlik",
+    tone: "bg-mist-100 text-mist-700",
     title: "Online Danışmanlık",
     short: "Türkiye’nin ve dünyanın her yerinden güvenli görüntülü seanslar.",
   },
   {
     slug: "kurumsal-danismanlik",
+    tone: "bg-sand-100 text-sand-700",
     title: "Kurumsal Danışmanlık",
     short: "Ekip içi iletişim ve iş–aile dengesi için kuruma özel çalışmalar.",
   },
