@@ -12,7 +12,8 @@ export function PostCard({ post, featured = false }: { post: PostSummary; featur
         src={post.coverImage}
         alt={post.coverAlt}
         title={post.title}
-        priority={featured}
+        eager={featured}
+        sizes={featured ? "(min-width: 1152px) 640px, (min-width: 768px) 56vw, 100vw" : "(min-width: 1152px) 344px, (min-width: 1024px) 30vw, (min-width: 640px) 46vw, 100vw"}
         className={`aspect-[3/2] w-full rounded-2xl transition-opacity duration-150 group-hover:opacity-90 ${featured ? "md:col-span-7 md:rounded-3xl" : ""}`}
       />
       <div className={featured ? "md:col-span-5" : ""}>

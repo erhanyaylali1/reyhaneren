@@ -4,7 +4,7 @@ import { DeletePostButton } from "@/components/admin/delete-post-button";
 import { Icon } from "@/components/admin/icons";
 import { requireAdmin } from "@/lib/auth/dal";
 import { listPosts } from "@/lib/blog/store";
-import { formatDate, formatNumber } from "@/lib/blog/text";
+import { countImagesMissingAlt, formatDate, formatNumber } from "@/lib/blog/text";
 
 export const metadata = { title: "Yazılar" };
 
@@ -95,6 +95,18 @@ export default async function AdminPostsPage({ searchParams }: PageProps<"/admin
                     {formatNumber(p.views)}
                     <span className="sr-only">görüntülenme</span>
                   </span>
+                  {(() => {
+                    const missing =
+                      countImagesMissingAlt(p.contentHtml) + (p.coverImage && !p.coverAlt.trim() ? 1 : 0);
+                    return missing > 0 ? (
+                      <Link
+                        href={`/admin/blog/${p.id}`}
+                        className="inline-flex items-center rounded-full bg-clay-100 px-2 py-0.5 text-xs font-medium text-clay-700 transition-colors duration-150 hover:bg-[#ecd6c6]"
+                      >
+                        {missing} görselde alt metin eksik
+                      </Link>
+                    ) : null;
+                  })()}
                 </p>
               </div>
               <div className="flex shrink-0 items-center gap-0.5">

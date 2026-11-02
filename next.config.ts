@@ -1,8 +1,13 @@
 import type { NextConfig } from "next";
+import { optimizedImagePatterns } from "./src/lib/image-hosts";
 
 const nextConfig: NextConfig = {
   /* config options here */
   cacheComponents: true,
+  images: {
+    // Supabase Storage (our uploads) + Unsplash. See src/lib/image-hosts.ts.
+    remotePatterns: optimizedImagePatterns(),
+  },
   // Let phones on the same Wi-Fi use `npm run dev` (e.g. http://192.168.1.22:3000).
   // Without this, Next 16 blocks dev resources for other hosts and the page
   // never hydrates — buttons like the mobile menu silently do nothing.
@@ -21,6 +26,7 @@ const nextConfig: NextConfig = {
     return [
       { source: "/sss", destination: "/#sss", permanent: true },
       { source: "/randevu", destination: "/iletisim#randevu", permanent: true },
+      { source: "/bireysel-danismanlik", destination: "/hizmetler/bireysel-danismanlik", permanent: true },
       { source: "/cift-terapisi", destination: "/hizmetler/cift-terapisi", permanent: true },
       { source: "/aile-danismanligi", destination: "/hizmetler/aile-danismanligi", permanent: true },
       { source: "/online-danismanlik", destination: "/hizmetler/online-danismanlik", permanent: true },

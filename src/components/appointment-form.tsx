@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState, type FormEvent } from "react";
-import { site } from "@/lib/site";
+import { servicePages, site } from "@/lib/site";
 
 // Public by design: EmailJS keys are meant to live in the browser. Abuse is
 // limited by the dashboard's allowed-origins setting + the throttle below.
@@ -14,13 +14,8 @@ const PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 // recipients) isn't used.
 const AUTOREPLY_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_AUTOREPLY_TEMPLATE_ID;
 
-const services = [
-  "Birey Odaklı Aile Danışmanlığı",
-  "Çift Terapisi",
-  "Aile Terapisi",
-  "Kurumsal Danışmanlık",
-  "Henüz emin değilim",
-] as const;
+// Same four services, same names as the service pages (single source).
+const services = [...servicePages.map((s) => s.title), "Henüz emin değilim"];
 
 const formats = [
   { value: "Yüz yüze (Bayraklı, İzmir)", label: "Yüz yüze", hint: "Bayraklı, İzmir" },

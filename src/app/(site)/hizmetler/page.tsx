@@ -3,12 +3,12 @@ import { pageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 import { ArrowIcon, CtaBand, PageHero } from "@/components/page-ui";
 import { ServiceMark } from "@/components/service-mark";
-import { servicePages } from "@/lib/site";
+import { onlinePage, servicePages } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
   title: "Hizmetler — İzmir Aile Danışmanlığı ve Çift Terapisi | Reyhan Eren",
   description:
-    "Çift terapisi, aile danışmanlığı, online danışmanlık ve kurumsal danışmanlık. İzmir Bayraklı’da yüz yüze, Türkiye genelinde online seanslar.",
+    "Bireysel danışmanlık, çift terapisi, aile danışmanlığı ve kurumsal danışmanlık. İzmir Bayraklı’da yüz yüze, Türkiye genelinde online seanslar.",
   path: "/hizmetler",
 });
 
@@ -22,8 +22,8 @@ export default function ServicesPage() {
         title="Aile danışmanlığı ve çift terapisi hizmetleri"
         lead={
           <p>
-            Bireysel görüşmelerden çift terapisine, aile seanslarından online
-            danışmanlığa kadar her süreci ihtiyacınıza göre şekillendiriyorum.
+            Bireysel danışmanlıktan çift terapisine, aile danışmanlığından kurumsal
+            çalışmalara kadar her süreci ihtiyacınıza göre şekillendiriyorum.
             Hangisinin size uygun olduğundan emin değilseniz, bunu ilk görüşmede
             birlikte belirleriz.
           </p>
@@ -50,6 +50,24 @@ export default function ServicesPage() {
             ))}
           </ul>
 
+          {/* Online is a way of meeting, offered for every service above. */}
+          <Link
+            href={`/hizmetler/${onlinePage.slug}`}
+            className="group mt-6 flex flex-col gap-5 rounded-3xl border border-line bg-sage-50 p-7 transition-colors duration-150 hover:border-line-strong sm:flex-row sm:items-center sm:p-8"
+          >
+            <ServiceMark slug={onlinePage.slug} />
+            <span className="flex-1">
+              <span className="block text-xl font-semibold tracking-[-0.01em] text-ink">
+                Tüm hizmetler online olarak da sunulur
+              </span>
+              <span className="mt-1.5 block leading-relaxed text-ink-muted">
+                Türkiye’nin ve dünyanın her yerinden, güvenli görüntülü görüşmeyle.
+              </span>
+            </span>
+            <span className="inline-flex items-center gap-1.5 text-[0.9375rem] font-medium text-sage-700">
+              Online görüşmeler nasıl işler? <ArrowIcon />
+            </span>
+          </Link>
         </div>
       </section>
 

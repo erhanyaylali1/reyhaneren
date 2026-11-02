@@ -1,5 +1,5 @@
 import type { Faq } from "@/components/page-ui";
-import type { ServiceSlug } from "./site";
+import type { ServicePageSlug } from "./site";
 
 // Copy shared by several pages. Facts here (education, dates, session length)
 // are the single source — update them once and every page follows.
@@ -39,7 +39,7 @@ export const SESSION_LENGTH = "50–60 dakika";
 // ─── Service pages ──────────────────────────────────────────────────────────
 
 export type ServiceContent = {
-  slug: ServiceSlug;
+  slug: ServicePageSlug;
   metaTitle: string;
   metaDescription: string;
   serviceType: string;
@@ -59,7 +59,57 @@ export type ServiceContent = {
   cta?: { title: string; text: string };
 };
 
-export const serviceContent: Record<ServiceSlug, ServiceContent> = {
+export const serviceContent: Record<ServicePageSlug, ServiceContent> = {
+  "bireysel-danismanlik": {
+    slug: "bireysel-danismanlik",
+    metaTitle: "Bireysel Danışmanlık İzmir — Yüz Yüze ve Online",
+    metaDescription:
+      "İzmir Bayraklı’da yüz yüze ve online bireysel danışmanlık: ilişki, aile ve yaşam geçişlerindeki zorlanmalarınızı Aile Danışmanı Reyhan Eren ile güvenli bir alanda ele alın.",
+    serviceType: "Bireysel danışmanlık",
+    kicker: "Hizmetler · Bireysel danışmanlık",
+    title: "Bireysel danışmanlık",
+    accent: "ilişkilerinize kendinizden başlayarak",
+    lead: "İlişkinizde, ailenizde ya da hayatınızın bir geçiş döneminde zorlandığınızda, her zaman diğer kişilerle birlikte başvurmanız gerekmez. Bireysel danışmanlıkta ihtiyaçlarınızı, ilişki kurma biçiminizi ve sınırlarınızı birlikte ele alıyoruz. Seanslar İzmir Bayraklı’daki ofiste yüz yüze ya da online olarak yapılır.",
+    sections: [
+      {
+        heading: "Birey odaklı aile danışmanlığı nedir?",
+        paragraphs: [
+          "Bireysel danışmanlık, aile ve ilişki yaşamınızda karşılaştığınız zorlukları sizinle birebir yapılan görüşmelerde ele alır. Odak yalnızca yaşadığınız sorunda değil; bu sorunun içinde bulunduğunuz ilişkilerle nasıl bağlantılı olduğundadır.",
+          "Sistemik bakış açısıyla, ailenizden getirdiğiniz alışkanlıkları, tekrar eden ilişki örüntülerini ve gündelik hayatın baskılarını birlikte değerlendiriyoruz. Amaç, kendinizi ve ihtiyaçlarınızı daha net görmeniz ve ilişkilerinizde daha özgür seçimler yapabilmenizdir.",
+        ],
+      },
+      {
+        heading: "Kimler için uygun?",
+        paragraphs: [
+          "Partneriniz ya da aile üyeleriniz sürece katılmak istemediğinde, bir ilişki kararı öncesinde düşüncelerinizi netleştirmek istediğinizde ya da yalnızca kendinize ayrılmış bir alana ihtiyaç duyduğunuzda bireysel görüşmeler iyi bir başlangıçtır.",
+          "Gerektiğinde süreç, uygun olduğu noktada çift ya da aile görüşmeleriyle devam edebilir.",
+        ],
+      },
+    ],
+    topicsHeading: "Bireysel danışmanlıkta sık çalıştığımız konular",
+    topics: [
+      "İlişkide kararsızlık ve tekrar eden ilişki örüntüleri",
+      "Partneriniz katılmak istemediğinde ilişki sorunları",
+      "Ailenizle ve geniş aileyle sınır koyma",
+      "Ayrılık ya da boşanma sonrasına uyum",
+      "Ebeveynlikte zorlanma ve tükenmişlik hissi",
+      "Taşınma, evlilik, iş değişikliği gibi yaşam geçişleri",
+    ],
+    faqs: [
+      {
+        q: "Bireysel danışmanlığa ilişki sorunları için tek başıma gelebilir miyim?",
+        a: "Evet. İlişkideki kendi payınızı, ihtiyaçlarınızı ve iletişim biçiminizi ele almak çoğu zaman ilişkinin tamamına olumlu yansır. Uygun olduğunda partnerinizin de katılımıyla ortak seanslara geçilebilir.",
+      },
+      {
+        q: "Bireysel danışmanlık seansları ne kadar sürer?",
+        a: `Bir seans genellikle ${SESSION_LENGTH} sürer. Seans sayısı başvuru konunuza ve birlikte belirlediğimiz hedeflere göre değişir; ilerlemeyi düzenli olarak birlikte gözden geçiririz.`,
+      },
+      {
+        q: "Bireysel seanslar online yapılabilir mi?",
+        a: "Evet. Bireysel danışmanlık, Bayraklı’daki ofiste yüz yüze olduğu gibi Türkiye’nin ve dünyanın her yerinden güvenli görüntülü görüşmeyle online olarak da yürütülebilir.",
+      },
+    ],
+  },
   "cift-terapisi": {
     slug: "cift-terapisi",
     metaTitle: "İzmir Çift Terapisi — Bayraklı’da Yüz Yüze ve Online",
@@ -116,7 +166,7 @@ export const serviceContent: Record<ServiceSlug, ServiceContent> = {
     slug: "aile-danismanligi",
     metaTitle: "Bayraklı Aile Danışmanlığı ve Aile Terapisi — İzmir",
     metaDescription:
-      "İzmir Bayraklı’da aile danışmanlığı ve aile terapisi: ebeveyn–çocuk ilişkileri, ergenlik dönemi, boşanma süreci ve aile içi iletişim için yüz yüze ve online destek.",
+      "İzmir Bayraklı’da aile danışmanlığı: ebeveyn–çocuk ilişkileri, ergenlik dönemi, boşanma süreci ve aile içi iletişim için yüz yüze ve online destek.",
     serviceType: "Aile danışmanlığı",
     kicker: "Hizmetler · Aile danışmanlığı",
     title: "Bayraklı aile danışmanlığı",
@@ -146,7 +196,6 @@ export const serviceContent: Record<ServiceSlug, ServiceContent> = {
       "Kardeş kıskançlığı ve aile içindeki roller",
       "Yeni kurulan aileler ve geniş aileyle ilişkiler",
       "Kayıp, taşınma, iş değişikliği gibi zorlayıcı yaşam olayları",
-      "Bireysel olarak aile ve ilişki içindeki zorlanmalar",
     ],
     faqs: [
       {
@@ -170,10 +219,10 @@ export const serviceContent: Record<ServiceSlug, ServiceContent> = {
     metaDescription:
       "Türkiye’nin ve dünyanın her yerinden online aile danışmanlığı ve online çift terapisi. Aile Danışmanı Reyhan Eren ile güvenli görüntülü görüşme, esnek randevu saatleri.",
     serviceType: "Online aile danışmanlığı ve çift terapisi",
-    kicker: "Hizmetler · Online danışmanlık",
+    kicker: "Görüşme şekli · Online",
     title: "Online aile danışmanlığı",
     accent: "nerede olursanız olun",
-    lead: "İzmir dışında yaşıyorsanız, yoğun bir iş temponuz varsa ya da kendi alanınızda konuşmak size daha iyi geliyorsa, aile danışmanlığı ve çift terapisi seanslarına güvenli görüntülü görüşmeyle online olarak katılabilirsiniz.",
+    lead: "Bireysel danışmanlık, çift terapisi, aile danışmanlığı ve kurumsal çalışmaların tamamı online olarak da yapılabilir. İzmir dışında yaşıyorsanız, yoğun bir iş temponuz varsa ya da kendi alanınızda konuşmak size daha iyi geliyorsa, seanslara güvenli görüntülü görüşmeyle katılabilirsiniz.",
     sections: [
       {
         heading: "Online seanslar nasıl işler?",
@@ -195,11 +244,12 @@ export const serviceContent: Record<ServiceSlug, ServiceContent> = {
         ],
       },
     ],
-    topicsHeading: "Online olarak destek alabileceğiniz konular",
+    topicsHeading: "Online olarak alabileceğiniz hizmetler",
     topics: [
-      "Online çift terapisi ve ilişki danışmanlığı",
-      "Bireysel aile ve ilişki danışmanlığı",
-      "Ebeveyn danışmanlığı ve çocuk–ergen ile iletişim",
+      "Online bireysel danışmanlık",
+      "Online çift terapisi",
+      "Online aile ve ebeveyn danışmanlığı",
+      "Online kurumsal çalışmalar",
       "Uzak mesafe ilişkileri",
       "Yurt dışında yaşayan aileler ve çiftler",
       "Ofise gelmesi zor olan, yoğun çalışan danışanlar",

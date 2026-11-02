@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useActionState, useEffect, useMemo, useState } from "react";
 import { savePost, type FormState } from "@/app/admin/actions";
 import { uploadImageFile } from "@/lib/image";
-import { countWords, htmlToText, readingMinutes, slugify } from "@/lib/blog/text";
+import { countImagesMissingAlt, countWords, htmlToText, readingMinutes, slugify } from "@/lib/blog/text";
 import type { Post } from "@/lib/blog/types";
 import { Icon } from "./icons";
 import { RichTextEditor } from "./rich-text-editor";
@@ -31,7 +31,11 @@ export function PostEditor({ post }: { post?: Post }) {
 
   const effectiveSlug = slugTouched ? slug : slugify(title);
   const stats = useMemo(
-    () => ({ words: countWords(htmlToText(html)), minutes: readingMinutes(html) }),
+    () => ({
+      words: countWords(htmlToText(html)),
+      minutes: readingMinutes(html),
+      missingAlt: countImagesMissingAlt(html),
+    }),
     [html],
   );
 
@@ -83,6 +87,14 @@ export function PostEditor({ post }: { post?: Post }) {
             <span>{stats.words.toLocaleString("tr-TR")} kelime</span>
             <span aria-hidden="true">·</span>
             <span>Ortalama {stats.minutes} dk okuma</span>
+            {stats.missingAlt > 0 && (
+              <>
+                <span aria-hidden="true">·</span>
+                <span className="font-medium text-clay-700">
+                  {stats.missingAlt} görselde alt metin eksik
+                </span>
+              </>
+            )}
           </p>
         </div>
       </div>
@@ -192,16 +204,24 @@ export function PostEditor({ post }: { post?: Post }) {
           )}
           {coverError && <p className="mt-2 text-sm text-clay-700">{coverError}</p>}
           <label htmlFor="coverAlt" className="mt-4 block text-sm text-ink">
-            Görsel açıklaması
+            Görsel açıklaması (alt metin)
+            {cover && <span className="text-clay-700"> *</span>}
           </label>
           <input
             id="coverAlt"
             name="coverAlt"
             value={coverAlt}
             onChange={(e) => setCoverAlt(e.target.value)}
-            placeholder="Görme engelli okurlar ve Google için"
-            className={`${field} mt-1.5 h-10 text-sm`}
+            placeholder="Örn. Pencere kenarında konuşan anne ve kızı"
+            aria-invalid={Boolean(cover) && !coverAlt.trim()}
+            aria-describedby="coverAlt-ipucu"
+            className={`${field} mt-1.5 h-10 text-sm aria-invalid:border-clay-700`}
           />
+          <p id="coverAlt-ipucu" className="mt-1.5 text-xs leading-relaxed text-ink-muted">
+            {cover && !coverAlt.trim()
+              ? "Yayınlamak için zorunlu. Görselde ne olduğunu bir cümleyle anlatın."
+              : "Görme engelli okurlar ve Google bu açıklamayı kullanır."}
+          </p>
         </section>
 
         <section className="rounded-2xl border border-line bg-surface p-5">

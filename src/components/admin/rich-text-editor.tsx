@@ -449,15 +449,56 @@ function LinkForm({ editor, initial, close }: { editor: Editor; initial: string;
 }
 
 function ImageForm({ editor, close }: { editor: Editor; close: () => void }) {
+  // Two steps: pick the image (upload or link), then describe it. Alt text is
+  // required — screen readers and Google rely on it — so "Ekle" stays disabled
+  // until it is filled in.
+  const [src, setSrc] = useState("");
   const [url, setUrl] = useState("");
   const [alt, setAlt] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
-
-  const insert = (src: string) => {
+  const choose = (value: string) => {
+    setSrc(value);
+    setError(null);
+  };
+  const insert = () => {
+    if (!src || !alt.trim()) return;
     editor.chain().focus().setImage({ src, alt: alt.trim() }).run();
     close();
   };
+
+  if (src) {
+    return (
+      <div onKeyDown={onEnter(insert)} className="space-y-2.5">
+        {/* eslint-disable-next-line @next/next/no-img-element -- editor preview */}
+        <img src={src} alt="" className="max-h-36 w-full rounded-lg bg-sand-100 object-contain" />
+        <label htmlFor="image-alt" className="block text-xs font-medium text-ink-muted">
+          Görsel açıklaması (alt metin) <span className="text-clay-700">*</span>
+        </label>
+        <input
+          id="image-alt"
+          autoFocus
+          required
+          className={inputClass}
+          value={alt}
+          onChange={(e) => setAlt(e.target.value)}
+          placeholder="Örn. Kanepede el ele oturan bir çift"
+        />
+        <p className="text-xs leading-relaxed text-ink-muted">
+          Görselde ne olduğunu bir cümleyle anlatın. Görme engelli okurlar ve Google bu
+          metni kullanır.
+        </p>
+        <div className="flex justify-between gap-1.5">
+          <button type="button" className={smallGhost} onClick={() => setSrc("")}>
+            Geri
+          </button>
+          <button type="button" onClick={insert} className={smallPrimary} disabled={!alt.trim()}>
+            Ekle
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div>
@@ -475,7 +516,7 @@ function ImageForm({ editor, close }: { editor: Editor; close: () => void }) {
             setBusy(true);
             setError(null);
             try {
-              insert(await uploadImageFile(file, 1400));
+              choose(await uploadImageFile(file, 1400));
             } catch (err) {
               setError(err instanceof Error ? err.message : "Görsel yüklenemedi.");
             } finally {
@@ -485,7 +526,7 @@ function ImageForm({ editor, close }: { editor: Editor; close: () => void }) {
         />
       </label>
       <p className="my-2.5 text-center text-xs text-ink-muted">ya da bağlantı ile</p>
-      <div onKeyDown={onEnter(() => url.trim() && insert(url.trim()))} className="space-y-2">
+      <div onKeyDown={onEnter(() => url.trim() && choose(url.trim()))} className="space-y-2">
         <input
           aria-label="Görsel adresi"
           className={inputClass}
@@ -494,22 +535,15 @@ function ImageForm({ editor, close }: { editor: Editor; close: () => void }) {
           placeholder="https://…/gorsel.jpg"
           inputMode="url"
         />
-        <input
-          aria-label="Görsel açıklaması (alt metin)"
-          className={inputClass}
-          value={alt}
-          onChange={(e) => setAlt(e.target.value)}
-          placeholder="Görsel açıklaması (erişilebilirlik için)"
-        />
         {error && <p className="text-xs text-[#b42318]">{error}</p>}
         <div className="flex justify-end">
           <button
             type="button"
-            onClick={() => insert(url.trim())}
+            onClick={() => choose(url.trim())}
             className={smallPrimary}
-            disabled={!url.trim()}
+            disabled={!/^https?:\/\/\S+$/.test(url.trim())}
           >
-            Ekle
+            Devam
           </button>
         </div>
       </div>

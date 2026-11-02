@@ -19,7 +19,7 @@ import {
   updatePost,
   uploadImage as storeImage,
 } from "@/lib/blog/store";
-import { htmlToText } from "@/lib/blog/text";
+import { countImagesMissingAlt, htmlToText } from "@/lib/blog/text";
 import type { PostStatus } from "@/lib/blog/types";
 
 export type FormState = { error?: string; ok?: string } | undefined;
@@ -88,6 +88,20 @@ export async function savePost(_: FormState, formData: FormData): Promise<FormSt
   if (title.length > 160) return { error: "Başlık en fazla 160 karakter olabilir." };
   if (status === "published" && !htmlToText(contentHtml) && !/<(img|iframe)/.test(contentHtml)) {
     return { error: "Boş bir yazı yayınlanamaz. İçerik ekleyin ya da taslak olarak kaydedin." };
+  }
+
+  // Alt text is mandatory for anything that goes public (accessibility + image SEO).
+  // Drafts may be saved incomplete.
+  if (status === "published") {
+    if (str("coverImage") && !str("coverAlt").trim()) {
+      return { error: "Kapak görseli için açıklama (alt metin) girin. Yayınlamak için zorunludur." };
+    }
+    const missing = countImagesMissingAlt(contentHtml);
+    if (missing > 0) {
+      return {
+        error: `Yazıdaki ${missing} görselin açıklaması (alt metin) eksik. Görsele tıklayıp “Alt metin” alanını doldurun ya da taslak olarak kaydedin.`,
+      };
+    }
   }
 
   const input = {

@@ -3,11 +3,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PostCard } from "@/components/blog/post-card";
+import { AuthorBox } from "@/components/blog/author-box";
 import { PostCover } from "@/components/blog/post-cover";
 import { PostMeta } from "@/components/blog/post-meta";
 import { ReadingProgress } from "@/components/blog/reading-progress";
+import { RelatedServices } from "@/components/blog/related-services";
+import { ShareButtons } from "@/components/blog/share-buttons";
 import { ViewCounter } from "@/components/blog/view-counter";
 import { getPublishedPost, getPublishedPosts } from "@/lib/blog/queries";
+import { optimizeContentImages } from "@/lib/blog/render";
 import { site } from "@/lib/site";
 
 // Known posts are prerendered; posts published later render on first visit
@@ -42,6 +46,7 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
   if (!post) notFound();
 
   const others = (await getPublishedPosts()).filter((p) => p.id !== post.id).slice(0, 3);
+  const url = `${site.url}/blog/${post.slug}`;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -51,9 +56,16 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
     datePublished: post.publishedAt,
     dateModified: post.updatedAt,
     timeRequired: `PT${post.readingMinutes}M`,
-    author: { "@id": `${site.url}/#reyhan-eren` },
+    author: {
+      "@type": "Person",
+      "@id": `${site.url}/#reyhan-eren`,
+      name: site.person,
+      jobTitle: "Aile Danışmanı",
+      url: `${site.url}/hakkimda`,
+    },
+    ...(post.coverImage && { image: post.coverImage }),
     publisher: { "@id": `${site.url}/#clinic` },
-    mainEntityOfPage: `${site.url}/blog/${post.slug}`,
+    mainEntityOfPage: url,
     inLanguage: "tr-TR",
   };
 
@@ -78,7 +90,8 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
           <p className="mt-6 text-lg leading-relaxed text-ink-muted text-pretty md:text-xl">
             {post.excerpt}
           </p>
-          <div className="mt-8 flex items-center gap-4 border-t border-line pt-6">
+          <div className="mt-8 flex flex-col gap-3 border-t border-line pt-6 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex items-center gap-4">
             <Image
               src="/reyhan-eren-avatar.jpg"
               width={256}
@@ -88,10 +101,19 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
               className="size-11 shrink-0 rounded-full bg-sand-100 object-cover"
             />
             <div>
-              <p className="font-medium text-ink">{site.person}</p>
+              <Link
+                href="/hakkimda"
+                className="font-medium text-ink decoration-line-strong underline-offset-4 hover:underline relative after:absolute after:-inset-x-1 after:-inset-y-3.5 after:content-['']"
+              >
+                {site.person}
+              </Link>
               <PostMeta publishedAt={post.publishedAt} readingMinutes={post.readingMinutes}>
                 <ViewCounter slug={post.slug} />
               </PostMeta>
+            </div>
+            </div>
+            <div className="-mx-3 sm:-mr-2 sm:ml-0">
+              <ShareButtons url={url} title={post.title} variant="compact" />
             </div>
           </div>
         </header>
@@ -102,7 +124,8 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
               src={post.coverImage}
               alt={post.coverAlt}
               title={post.title}
-              priority
+              eager
+              sizes="(min-width: 1024px) 960px, 100vw"
               className="aspect-[16/9] w-full rounded-2xl md:rounded-3xl"
             />
           </div>
@@ -111,26 +134,20 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
         <div
           id="yazi-icerigi"
           className="prose-blog mx-auto mt-12 max-w-3xl px-5 sm:px-8 md:mt-14"
-          dangerouslySetInnerHTML={{ __html: post.contentHtml }}
+          dangerouslySetInnerHTML={{ __html: optimizeContentImages(post.contentHtml) }}
         />
 
-        <aside className="mx-auto mt-16 max-w-3xl px-5 sm:px-8">
-          <div className="rounded-3xl bg-sage-700 px-7 py-9 text-canvas sm:px-10">
-            <p className="font-serif text-2xl leading-snug text-balance sm:text-[1.75rem]">
-              Bu konuda birlikte çalışmak ister misiniz?
-            </p>
-            <p className="mt-3 max-w-lg leading-relaxed text-sage-100">
-              Bayraklı’daki ofiste yüz yüze ya da Türkiye’nin her yerinden online
-              görüşme için randevu oluşturabilirsiniz.
-            </p>
-            <Link
-              href="/iletisim#randevu"
-              className="mt-7 inline-flex min-h-12 items-center rounded-full bg-canvas px-6 font-medium text-ink transition-colors duration-150 hover:bg-surface"
-            >
-              Randevu Al
-            </Link>
+        <div className="mx-auto mt-14 max-w-3xl px-5 sm:px-8">
+          <div className="flex flex-col gap-4 border-y border-line py-6">
+            <p className="font-serif text-xl text-ink">Bu yazıyı paylaşın</p>
+            <ShareButtons url={url} title={post.title} />
           </div>
-        </aside>
+        </div>
+
+        <div className="mx-auto mt-14 max-w-3xl space-y-16 px-5 sm:px-8">
+          <AuthorBox />
+          <RelatedServices />
+        </div>
       </article>
 
       {others.length > 0 && (

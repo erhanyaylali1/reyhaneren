@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { AppointmentForm } from "@/components/appointment-form";
 import { credentials, steps } from "@/lib/content";
-import { site } from "@/lib/site";
+import { servicePages, site, type ServiceSlug } from "@/lib/site";
 
 const iconProps = {
   "aria-hidden": true,
@@ -17,9 +17,10 @@ const iconProps = {
   className: "size-6",
 } as const;
 
+// Titles and URLs come from servicePages (lib/site) so the home cards, the
+// service pages and the appointment form always use the same four names.
 type Service = {
-  title: string;
-  href: string;
+  slug: ServiceSlug;
   lead: string;
   body: string;
   tone: string;
@@ -28,8 +29,7 @@ type Service = {
 
 const services: Service[] = [
   {
-    title: "Birey Odaklı Aile Danışmanlığı",
-    href: "/hizmetler/aile-danismanligi",
+    slug: "bireysel-danismanlik",
     lead: "Duygusal ihtiyaçlarınızı keşfedin.",
     body: "Aile ve ilişki içinde yaşadığınız zorlanmaları bireysel seanslarda ele alıyor, kendinizi ve ihtiyaçlarınızı daha net görmenize destek oluyoruz.",
     tone: "bg-sage-100 text-sage-700",
@@ -41,8 +41,7 @@ const services: Service[] = [
     ),
   },
   {
-    title: "Çift Terapisi",
-    href: "/hizmetler/cift-terapisi",
+    slug: "cift-terapisi",
     lead: "Sağlıklı bir ilişki için adım atın.",
     body: "İletişim kopukluğu, güven sorunları ya da tekrar eden çatışmalar için çift odaklı seanslarla birbirinizi yeniden duymanın yolunu birlikte arıyoruz.",
     tone: "bg-clay-100 text-clay-700",
@@ -55,8 +54,7 @@ const services: Service[] = [
     ),
   },
   {
-    title: "Aile Terapisi",
-    href: "/hizmetler/aile-danismanligi",
+    slug: "aile-danismanligi",
     lead: "Aile dinamiklerinizi yeniden yapılandırın.",
     body: "Ebeveyn–çocuk ilişkileri, ergenlik dönemi ve aile içi roller üzerine çalışarak evdeki iletişimi daha sakin ve dengeli bir zemine taşıyoruz.",
     tone: "bg-mist-100 text-mist-700",
@@ -69,8 +67,7 @@ const services: Service[] = [
     ),
   },
   {
-    title: "Kurumsal Danışmanlık",
-    href: "/hizmetler/kurumsal-danismanlik",
+    slug: "kurumsal-danismanlik",
     lead: "Güçlü ekip ilişkileri için.",
     body: "Kurumlara yönelik çalışmalarla iş yerindeki iletişimi güçlendiriyor, daha tatmin edici bir çalışma deneyimine katkı sağlıyoruz.",
     tone: "bg-sand-100 text-sand-700",
@@ -221,12 +218,12 @@ export default function Home() {
               on mobile so the bio stays near the fold; stacked on desktop. */}
           <figure className="flex items-end gap-5 sm:gap-6 lg:col-span-4 lg:block">
             <Image
-              src="/reyhan-eren-profil.jpg"
+              src="/reyhan-eren-aile-danismani-izmir.jpg"
               width={1200}
-              height={1600}
+              height={1500}
               alt="İzmir aile danışmanı Reyhan Eren’in portresi"
-              sizes="(min-width: 1152px) 352px, (min-width: 1024px) 30vw, 192px"
-              className="aspect-[4/5] w-40 shrink-0 rounded-2xl bg-sand-100 object-cover object-top sm:w-48 lg:w-full lg:rounded-3xl"
+              sizes="(min-width: 1152px) 352px, (min-width: 1024px) 30vw, (min-width: 640px) 224px, 176px"
+              className="aspect-[4/5] w-44 shrink-0 rounded-2xl bg-sand-100 object-cover object-top sm:w-56 lg:w-full lg:rounded-3xl"
             />
             <figcaption className="pb-1 lg:mt-6 lg:flex lg:items-baseline lg:justify-between lg:gap-4 lg:pb-0">
               <span className="block">
@@ -329,7 +326,7 @@ export default function Home() {
               İzmir’de aile danışmanlığı ve çift terapisi hizmetleri
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-ink-muted text-pretty">
-              Bireysel seanslardan çift terapisine, aile terapisinden kurumsal
+              Bireysel danışmanlıktan çift terapisine, aile danışmanlığından kurumsal
               çalışmalara kadar her süreci ihtiyacınıza göre şekillendiriyorum.
               Tüm hizmetler{" "}
               <Link
@@ -343,9 +340,9 @@ export default function Home() {
           </div>
 
           <ul className="mt-14 grid gap-5 sm:grid-cols-2 md:mt-16 md:gap-6">
-            {services.map((s) => (
+            {services.map((s) => ({ ...s, ...servicePages.find((p) => p.slug === s.slug)! })).map((s) => (
               <li
-                key={s.title}
+                key={s.slug}
                 className="group relative flex flex-col rounded-3xl border border-line bg-surface p-7 transition-colors duration-150 hover:border-line-strong sm:p-8"
               >
                 <span
@@ -355,7 +352,7 @@ export default function Home() {
                 </span>
                 <h3 className="mt-8 text-xl font-semibold tracking-[-0.01em] text-ink">
                   <Link
-                    href={s.href}
+                    href={`/hizmetler/${s.slug}`}
                     className="after:absolute after:inset-0 after:rounded-3xl"
                   >
                     {s.title}

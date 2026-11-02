@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Figtree, Newsreader } from "next/font/google";
-import { site } from "@/lib/site";
+import { servicePages, site } from "@/lib/site";
 import "./globals.css";
 
 // latin-ext is required for Turkish glyphs (ğ, ş, ı, İ).
@@ -74,7 +74,9 @@ export const viewport: Viewport = {
 // Google only accepts it on the page where the questions are visible.
 const businessId = `${site.url}/#clinic`;
 const personId = `${site.url}/#reyhan-eren`;
-const sameAs = site.social.map((s) => s.href);
+// Social accounts + verified expert profiles: tells Google these are the same
+// person/business (a trust signal). Used by both Person and LocalBusiness.
+const sameAs = [...site.social, ...site.platforms].map((s) => s.href);
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -88,7 +90,7 @@ const structuredData = {
       url: site.url,
       telephone: site.phone.e164,
       email: site.email,
-      image: `${site.url}/reyhan-eren-profil.jpg`,
+      image: `${site.url}/reyhan-eren-aile-danismani-izmir.jpg`,
       logo: `${site.url}/icon.png`,
       address: {
         "@type": "PostalAddress",
@@ -102,10 +104,11 @@ const structuredData = {
         { "@type": "Country", name: "Türkiye" },
       ],
       availableService: [
-        { "@type": "MedicalTherapy", name: "Birey Odaklı Aile Danışmanlığı" },
-        { "@type": "MedicalTherapy", name: "Çift Terapisi" },
-        { "@type": "MedicalTherapy", name: "Aile Terapisi" },
-        { "@type": "MedicalTherapy", name: "Kurumsal Danışmanlık" },
+        ...servicePages.map((s) => ({
+          "@type": "MedicalTherapy",
+          name: s.title,
+          url: `${site.url}/hizmetler/${s.slug}`,
+        })),
       ],
       knowsLanguage: "tr",
       founder: { "@id": personId },
@@ -117,8 +120,9 @@ const structuredData = {
       "@id": personId,
       name: site.person,
       jobTitle: site.title,
-      url: site.url,
-      image: `${site.url}/reyhan-eren-profil.jpg`,
+      // The profile page is the authoritative "about the author" page (E-E-A-T).
+      url: `${site.url}/hakkimda`,
+      image: `${site.url}/reyhan-eren-aile-danismani-izmir.jpg`,
       worksFor: { "@id": businessId },
       alumniOf: [
         { "@type": "CollegeOrUniversity", name: "Akdeniz Üniversitesi" },

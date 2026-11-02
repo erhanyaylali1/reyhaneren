@@ -58,3 +58,9 @@ export function formatDate(iso: string): string {
 
 const numberFormat = new Intl.NumberFormat("tr-TR");
 export const formatNumber = (n: number) => numberFormat.format(n);
+
+/** Number of <img> tags with no or blank alt text (shared by editor and server). */
+export function countImagesMissingAlt(html: string): number {
+  return [...html.matchAll(/<img\b[^>]*>/g)].filter((m) => !/\salt="\s*[^"\s][^"]*"/.test(m[0]))
+    .length;
+}

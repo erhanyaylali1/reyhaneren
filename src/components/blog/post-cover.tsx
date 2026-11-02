@@ -1,6 +1,5 @@
-/* eslint-disable @next/next/no-img-element --
-   Covers can be any URL (and data: URLs in the demo). Switch to next/image
-   with remotePatterns once images live in a known storage bucket. */
+import Image from "next/image";
+import { canOptimizeImage } from "@/lib/image-hosts";
 
 const TILES = [
   "bg-sage-100 text-sage-700",
@@ -19,21 +18,31 @@ type Props = {
   src: string | null;
   alt: string;
   title: string;
+  /** Sizing/shape classes for the frame, e.g. "aspect-[3/2] w-full rounded-2xl". */
   className?: string;
-  priority?: boolean;
+  /** Rendered width hint for responsive srcset. */
+  sizes: string;
+  /** The page's LCP image: load immediately with high priority. */
+  eager?: boolean;
 };
 
-export function PostCover({ src, alt, title, className = "", priority }: Props) {
+export function PostCover({ src, alt, title, className = "", sizes, eager }: Props) {
   if (src) {
     return (
-      <img
-        src={src}
-        alt={alt}
-        loading={priority ? "eager" : "lazy"}
-        fetchPriority={priority ? "high" : undefined}
-        decoding="async"
-        className={`bg-sand-100 object-cover ${className}`}
-      />
+      <div className={`relative overflow-hidden bg-sand-100 ${className}`}>
+        <Image
+          src={src}
+          // Posts saved before alt text became mandatory fall back to the title.
+          alt={alt || title}
+          fill
+          sizes={sizes}
+          // Hosts outside image-hosts.ts are shown as-is rather than proxied.
+          unoptimized={!canOptimizeImage(src)}
+          loading={eager ? "eager" : "lazy"}
+          fetchPriority={eager ? "high" : undefined}
+          className="object-cover"
+        />
+      </div>
     );
   }
   // No cover: a calm typographic tile in one of the brand tints.

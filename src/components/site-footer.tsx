@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { navLinks, servicePages, site } from "@/lib/site";
+import { navLinks, onlinePage, servicePages, site } from "@/lib/site";
 
 // Every footer link is at least 44px tall (mobile touch-target minimum);
 // the underline stays on the text, the extra height is invisible padding.
@@ -48,6 +48,11 @@ export function SiteFooter() {
                 </Link>
               </li>
             ))}
+            <li className="mt-2 border-t border-line pt-2">
+              <Link href={`/hizmetler/${onlinePage.slug}`} className={linkClass}>
+                {onlinePage.title}
+              </Link>
+            </li>
           </ul>
         </nav>
 
@@ -94,6 +99,24 @@ export function SiteFooter() {
                 >
                   {s.label}
                   <span className="sr-only"> (yeni sekmede açılır)</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+          <h2 className="mt-8 text-xs font-medium uppercase tracking-[0.18em] text-ink-muted">
+            Platformlar
+          </h2>
+          <ul className="mt-3 flex flex-wrap gap-x-4">
+            {site.platforms.map((p) => (
+              <li key={p.href}>
+                <a
+                  href={p.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${linkClass} min-w-11`}
+                >
+                  {p.label}
+                  <span className="sr-only"> profili (yeni sekmede açılır)</span>
                 </a>
               </li>
             ))}

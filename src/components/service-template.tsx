@@ -2,10 +2,12 @@ import Link from "next/link";
 import { JsonLd, ArrowIcon, CtaBand, FaqList, PageHero, WhatsAppIcon, bodyText, eyebrow, h2Class, primaryCta, secondaryCta } from "@/components/page-ui";
 import { ServiceMark } from "@/components/service-mark";
 import { SESSION_LENGTH, steps, type ServiceContent } from "@/lib/content";
-import { servicePages, site } from "@/lib/site";
+import { onlinePage, serviceLikePages, servicePages, site } from "@/lib/site";
 
 export function ServiceTemplate({ content: c }: { content: ServiceContent }) {
-  const page = servicePages.find((s) => s.slug === c.slug)!;
+  const page = serviceLikePages.find((s) => s.slug === c.slug)!;
+  const isOnline = c.slug === onlinePage.slug;
+  // On a service page: the other three. On the online page: all four services.
   const others = servicePages.filter((s) => s.slug !== c.slug);
   const url = `${site.url}/hizmetler/${c.slug}`;
   const facts = c.facts ?? [
@@ -106,6 +108,18 @@ export function ServiceTemplate({ content: c }: { content: ServiceContent }) {
                   </div>
                 ))}
               </dl>
+              {!isOnline && (
+                <Link
+                  href={`/hizmetler/${onlinePage.slug}`}
+                  className="group mt-6 flex items-center justify-between gap-3 rounded-2xl bg-sage-50 px-4 py-3.5 text-[0.9375rem] text-sage-800 transition-colors duration-150 hover:bg-sage-100"
+                >
+                  <span>
+                    <span className="block font-medium">Online da sunulur</span>
+                    <span className="block text-sm text-ink-muted">Online görüşmeler nasıl işler?</span>
+                  </span>
+                  <ArrowIcon />
+                </Link>
+              )}
               <a
                 href={site.phone.href}
                 className="mt-7 flex min-h-12 items-center justify-center rounded-full border border-line-strong font-medium text-ink tabular-nums transition-colors duration-150 hover:border-ink hover:bg-surface"
@@ -155,8 +169,8 @@ export function ServiceTemplate({ content: c }: { content: ServiceContent }) {
       {/* ─── Other services ─── */}
       <section className="border-t border-line">
         <div className="mx-auto max-w-6xl px-5 pt-20 sm:px-8 md:pt-24">
-          <p className={eyebrow}>Diğer hizmetler</p>
-          <ul className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <p className={eyebrow}>{isOnline ? "Online alabileceğiniz hizmetler" : "Diğer hizmetler"}</p>
+          <ul className={`mt-6 grid gap-5 sm:grid-cols-2 ${isOnline ? "lg:grid-cols-4" : "lg:grid-cols-3"}`}>
             {others.map((o) => (
               <li key={o.slug}>
                 <Link

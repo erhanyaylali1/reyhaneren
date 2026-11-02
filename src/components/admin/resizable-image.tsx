@@ -4,7 +4,7 @@
 
 import Image from "@tiptap/extension-image";
 import { NodeViewWrapper, ReactNodeViewRenderer, type ReactNodeViewProps } from "@tiptap/react";
-import { useRef, useState, type PointerEvent as ReactPointerEvent } from "react";
+import { useId, useRef, useState, type PointerEvent as ReactPointerEvent } from "react";
 import { Icon } from "./icons";
 
 // Image width is stored as a PERCENTAGE of the text column (not pixels), so
@@ -59,6 +59,17 @@ function ImageView({ node, updateAttributes, selected, editor }: ReactNodeViewPr
   const align = (node.attrs.align as Align) ?? "center";
 
   const columnRef = useRef<HTMLDivElement>(null);
+  const altId = useId();
+  // Alt text is edited in a local draft and committed on blur/Enter, so typing
+  // doesn't dispatch a transaction per keystroke (which could drop the node
+  // selection and unmount the field mid-word).
+  const [altOpen, setAltOpen] = useState(false);
+  const [altDraft, setAltDraft] = useState("");
+  const missingAlt = !alt?.trim();
+  const commitAlt = () => {
+    if (altDraft.trim() !== (alt ?? "")) updateAttributes({ alt: altDraft.trim() });
+    setAltOpen(false);
+  };
   const [dragWidth, setDragWidth] = useState<number | null>(null);
   const shown = dragWidth ?? width;
   const editable = editor.isEditable;
@@ -123,6 +134,46 @@ function ImageView({ node, updateAttributes, selected, editor }: ReactNodeViewPr
                 <Handle side="right" visible={selected} onPointerDown={(e) => startDrag(e, 1)} />
               )}
             </>
+          )}
+
+          {editable && (selected || altOpen) && (
+            <div
+              contentEditable={false}
+              className="absolute inset-x-3 bottom-3 z-10 flex items-center gap-2 rounded-xl border border-line bg-surface py-1.5 pl-3 pr-1.5 font-sans shadow-[0_8px_24px_-8px_rgb(31_42_37/0.25)]"
+            >
+              <label htmlFor={altId} className="shrink-0 text-xs font-medium text-ink-muted">
+                Alt metin
+              </label>
+              <input
+                id={altId}
+                value={altOpen ? altDraft : (alt ?? "")}
+                onFocus={() => {
+                  setAltDraft(alt ?? "");
+                  setAltOpen(true);
+                }}
+                onChange={(e) => setAltDraft(e.target.value)}
+                onBlur={commitAlt}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    e.preventDefault();
+                    commitAlt();
+                    e.currentTarget.blur();
+                  }
+                }}
+                placeholder="Görselde ne var? (zorunlu)"
+                aria-invalid={missingAlt && !altDraft.trim()}
+                className="h-8 min-w-0 flex-1 rounded-lg border border-line-strong bg-canvas px-2.5 text-sm text-ink placeholder:text-ink-muted/70 transition-colors duration-150 focus-visible:border-sage-700 focus-visible:outline-none aria-invalid:border-clay-700"
+              />
+            </div>
+          )}
+
+          {editable && missingAlt && !selected && !altOpen && (
+            <span
+              contentEditable={false}
+              className="pointer-events-none absolute bottom-3 left-3 rounded-full bg-clay-700 px-2.5 py-1 font-sans text-xs font-medium text-canvas"
+            >
+              Alt metin eksik
+            </span>
           )}
 
           {editable && (selected || dragWidth !== null) && (

@@ -28,6 +28,25 @@ export const site = {
     country: "TR",
     mapUrl: "https://maps.app.goo.gl/Xts7HiSaptfNrVx5A",
   },
+  // Verified expert profiles on third-party platforms (E-E-A-T). Also listed
+  // in the structured data's sameAs, next to the social accounts.
+  platforms: [
+    {
+      label: "Armut",
+      href: "https://armut.com/hizmetveren/reyhan-eren-izmir-bayrakli-iliski-terapisi_71514749",
+      note: "Hizmet veren profili",
+    },
+    {
+      label: "Doktorsitesi",
+      href: "https://www.doktorsitesi.com/reyhan-eren/aile-danismani/izmir",
+      note: "Uzman profili ve randevu",
+    },
+    {
+      label: "Clinictus",
+      href: "https://tr.clinictus.com/profile/reyhaneren-1d936382",
+      note: "Uzman profili",
+    },
+  ],
   social: [
     { label: "Instagram", href: "https://www.instagram.com/basicsociology/" },
     { label: "LinkedIn", href: "https://www.linkedin.com/in/reyhan-erenin/" },
@@ -42,32 +61,50 @@ export const navLinks = [
   { label: "İletişim", href: "/iletisim" },
 ] as const;
 
-/** Service pages under /hizmetler. Order = order shown everywhere. */
+/**
+ * The four services — the single source for the services pages, home cards,
+ * appointment form, footer, sitemap and structured data. Order = display order.
+ */
 export const servicePages = [
   {
+    slug: "bireysel-danismanlik",
+    title: "Bireysel Danışmanlık",
+    tone: "bg-mist-100 text-mist-700",
+    short: "İlişki ve aile yaşamındaki zorlanmalarınızı kendinizden başlayarak ele alan seanslar.",
+  },
+  {
     slug: "cift-terapisi",
-    tone: "bg-clay-100 text-clay-700",
     title: "Çift Terapisi",
+    tone: "bg-clay-100 text-clay-700",
     short: "İletişim, güven ve tekrarlayan çatışmalar için çift odaklı seanslar.",
   },
   {
     slug: "aile-danismanligi",
-    tone: "bg-sage-100 text-sage-700",
     title: "Aile Danışmanlığı",
-    short: "Bireysel, ebeveyn–çocuk ve tüm aileyle yapılan sistemik çalışmalar.",
-  },
-  {
-    slug: "online-danismanlik",
-    tone: "bg-mist-100 text-mist-700",
-    title: "Online Danışmanlık",
-    short: "Türkiye’nin ve dünyanın her yerinden güvenli görüntülü seanslar.",
+    tone: "bg-sage-100 text-sage-700",
+    short: "Ebeveyn–çocuk ilişkileri, ergenlik ve aile içi iletişim için sistemik çalışmalar.",
   },
   {
     slug: "kurumsal-danismanlik",
-    tone: "bg-sand-100 text-sand-700",
     title: "Kurumsal Danışmanlık",
+    tone: "bg-sand-100 text-sand-700",
     short: "Ekip içi iletişim ve iş–aile dengesi için kuruma özel çalışmalar.",
   },
 ] as const;
 
+/**
+ * Online is a way of meeting, not a separate service: every service above can
+ * be done online. It keeps its own page (and URL) because "online aile
+ * danışmanlığı" is searched for, but it is not listed among the services.
+ */
+export const onlinePage = {
+  slug: "online-danismanlik",
+  title: "Online Danışmanlık",
+  tone: "bg-sage-50 text-sage-700",
+  short: "Tüm hizmetler, Türkiye’nin ve dünyanın her yerinden güvenli görüntülü görüşmeyle.",
+} as const;
+
 export type ServiceSlug = (typeof servicePages)[number]["slug"];
+/** Any page rendered with the service template (the four services + online). */
+export type ServicePageSlug = ServiceSlug | typeof onlinePage.slug;
+export const serviceLikePages = [...servicePages, onlinePage] as const;
