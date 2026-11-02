@@ -70,7 +70,7 @@ const services: Service[] = [
   },
   {
     title: "Kurumsal Danışmanlık",
-    href: "/hizmetler",
+    href: "/hizmetler/kurumsal-danismanlik",
     lead: "Güçlü ekip ilişkileri için.",
     body: "Kurumlara yönelik çalışmalarla iş yerindeki iletişimi güçlendiriyor, daha tatmin edici bir çalışma deneyimine katkı sağlıyoruz.",
     tone: "bg-sand-100 text-sand-700",

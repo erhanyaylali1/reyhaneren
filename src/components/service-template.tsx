@@ -7,6 +7,11 @@ export function ServiceTemplate({ content: c }: { content: ServiceContent }) {
   const page = servicePages.find((s) => s.slug === c.slug)!;
   const others = servicePages.filter((s) => s.slug !== c.slug);
   const url = `${site.url}/hizmetler/${c.slug}`;
+  const facts = c.facts ?? [
+    { label: "Seans süresi", value: SESSION_LENGTH },
+    { label: "Görüşme şekli", value: "Yüz yüze · Online" },
+  ];
+  const processSteps = c.steps ?? steps;
 
   return (
     <>
@@ -92,14 +97,12 @@ export function ServiceTemplate({ content: c }: { content: ServiceContent }) {
                 ))}
               </ul>
               <dl className="mt-7 grid grid-cols-2 gap-5">
-                <div>
-                  <dt className="text-sm text-ink-muted">Seans süresi</dt>
-                  <dd className="mt-1 font-serif text-lg text-ink">{SESSION_LENGTH}</dd>
-                </div>
-                <div>
-                  <dt className="text-sm text-ink-muted">Görüşme şekli</dt>
-                  <dd className="mt-1 font-serif text-lg text-ink">Yüz yüze · Online</dd>
-                </div>
+                {facts.map((f) => (
+                  <div key={f.label}>
+                    <dt className="text-sm text-ink-muted">{f.label}</dt>
+                    <dd className="mt-1 font-serif text-lg text-ink">{f.value}</dd>
+                  </div>
+                ))}
               </dl>
               <a
                 href={site.phone.href}
@@ -118,7 +121,7 @@ export function ServiceTemplate({ content: c }: { content: ServiceContent }) {
           <p className={eyebrow}>Süreç</p>
           <h2 className={`mt-4 max-w-2xl ${h2Class}`}>Görüşmeler nasıl ilerler?</h2>
           <ol className="mt-12 grid gap-12 md:grid-cols-3 md:gap-10">
-            {steps.map((step, i) => (
+            {processSteps.map((step, i) => (
               <li key={step.title} className="border-t border-line-strong pt-6">
                 <span aria-hidden="true" className="font-serif text-[2.75rem] leading-none text-sage-700 tabular-nums">
                   {String(i + 1).padStart(2, "0")}
@@ -151,7 +154,7 @@ export function ServiceTemplate({ content: c }: { content: ServiceContent }) {
       <section className="border-t border-line">
         <div className="mx-auto max-w-6xl px-5 pt-20 sm:px-8 md:pt-24">
           <p className={eyebrow}>Diğer hizmetler</p>
-          <ul className="mt-6 grid gap-5 sm:grid-cols-2">
+          <ul className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {others.map((o) => (
               <li key={o.slug}>
                 <Link
@@ -170,7 +173,7 @@ export function ServiceTemplate({ content: c }: { content: ServiceContent }) {
         </div>
       </section>
 
-      <CtaBand />
+      <CtaBand {...c.cta} />
     </>
   );
 }

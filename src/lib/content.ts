@@ -51,6 +51,12 @@ export type ServiceContent = {
   topicsHeading: string;
   topics: string[];
   faqs: Faq[];
+  /** Sidebar facts; defaults to session length + format. */
+  facts?: { label: string; value: string }[];
+  /** Process section; defaults to the shared counselling `steps`. */
+  steps?: { title: string; body: string }[];
+  /** Closing band copy; defaults to the generic appointment text. */
+  cta?: { title: string; text: string };
 };
 
 export const serviceContent: Record<ServiceSlug, ServiceContent> = {
@@ -210,6 +216,83 @@ export const serviceContent: Record<ServiceSlug, ServiceContent> = {
       {
         q: "Online ve yüz yüze seanslar arasında geçiş yapılabilir mi?",
         a: "Evet. İzmir’de olduğunuz dönemlerde Bayraklı’daki ofiste yüz yüze, diğer zamanlarda online devam edebilirsiniz; süreç kesintisiz sürer.",
+      },
+    ],
+  },
+  "kurumsal-danismanlik": {
+    slug: "kurumsal-danismanlik",
+    metaTitle: "Kurumsal Danışmanlık — Ekip İletişimi ve İş–Aile Dengesi",
+    metaDescription:
+      "İzmir ve online kurumsal danışmanlık: ekip içi iletişim, çatışma yönetimi ve iş–aile dengesi üzerine kuruma özel seminer, atölye ve danışmanlık çalışmaları.",
+    serviceType: "Kurumsal danışmanlık",
+    kicker: "Hizmetler · Kurumsal danışmanlık",
+    title: "Kurumsal danışmanlık",
+    accent: "iş yerinde daha sağlıklı ilişkiler için",
+    lead: "Çalışanların iş yerindeki ilişkileri ve aile yaşamları birbirinden bağımsız değildir. Kurumlara yönelik çalışmalarla ekip içi iletişimi güçlendirmeyi, çatışmaları daha yapıcı yönetmeyi ve iş–aile dengesini gözeten daha tatmin edici bir çalışma deneyimini desteklemeyi amaçlıyorum.",
+    sections: [
+      {
+        heading: "Neden kurumsal danışmanlık?",
+        paragraphs: [
+          "Bir ekipteki iletişim sorunları, tıpkı ailelerde olduğu gibi çoğu zaman tek bir kişiden değil, kişiler arasında yerleşmiş alışkanlıklardan ve tekrar eden döngülerden kaynaklanır. Sistemik bakış, bu döngüleri suçlayıcı olmadan görünür kılmaya yardım eder.",
+          "Evde yaşanan zorlanmalar işe, iş yerindeki baskılar da eve taşınır. Bu nedenle çalışmalarda yalnızca ekip ilişkilerini değil, çalışanların iş ve aile yaşamı arasındaki dengeyi de ele alıyorum.",
+        ],
+      },
+      {
+        heading: "Kuruma özel planlama",
+        paragraphs: [
+          "Her kurumun ihtiyacı farklıdır. Çalışma, kurumun yetkilileriyle yapılan bir ön görüşmeyle başlar; hedefler, katılımcı grubu ve uygun format birlikte belirlenir. Çalışmalar İzmir’de kurumunuzda yüz yüze ya da online olarak planlanabilir.",
+        ],
+        list: [
+          "Seminer ve bilgilendirme sunumları",
+          "Küçük gruplarla interaktif atölyeler",
+          "Yöneticilere yönelik iletişim odaklı görüşmeler",
+          "Çalışanlara yönelik aile ve ilişki danışmanlığı yönlendirmesi",
+        ],
+      },
+    ],
+    topicsHeading: "Kurumsal çalışmalarda ele alınan konular",
+    topics: [
+      "Ekip içi iletişim ve geri bildirim kültürü",
+      "Çatışma yönetimi ve yapıcı tartışma becerileri",
+      "İş–aile dengesi ve sınır koyma",
+      "Ebeveyn çalışanlar ve aile yaşamındaki geçiş dönemleri",
+      "Stresli dönemlerde ekip içi destek",
+      "Yöneticiler için empatik ve açık iletişim",
+    ],
+    cta: {
+      title: "Kurumunuz için bir ön görüşme planlayalım",
+      text: "İhtiyaçlarınızı dinlemek ve size özel bir çalışma önermek için arayın, WhatsApp’tan yazın ya da formu doldurun.",
+    },
+    facts: [
+      { label: "Çalışma şekli", value: "Kuruma özel" },
+      { label: "Yer", value: "Kurumunuzda · Online" },
+    ],
+    steps: [
+      {
+        title: "Ön Görüşme",
+        body: "Kurum yetkilileriyle bir araya gelerek ekibin ihtiyaçlarını, beklentileri ve öncelikli konuları dinliyoruz.",
+      },
+      {
+        title: "Kuruma Özel Program",
+        body: "Hedeflere, katılımcı grubuna ve takviminize uygun format ve içerikte bir çalışma planı hazırlıyoruz.",
+      },
+      {
+        title: "Uygulama ve Değerlendirme",
+        body: "Çalışmaları yüz yüze ya da online olarak yürütüyor, sonunda kurumla birlikte genel bir değerlendirme yapıyoruz.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Kurumsal danışmanlık hangi kurumlar için uygun?",
+        a: "Ekip içi iletişimini güçlendirmek, çalışanlarının iş–aile dengesini desteklemek ya da belirli bir zorlu dönemi birlikte yönetmek isteyen her ölçekteki kurum için kuruma özel bir çalışma planlanabilir.",
+      },
+      {
+        q: "Çalışmalar kurumda mı, online mı yapılıyor?",
+        a: "Her ikisi de mümkündür. İzmir’deki kurumlarda yüz yüze, diğer şehirlerdeki ya da dağıtık çalışan ekiplerle online olarak planlanabilir.",
+      },
+      {
+        q: "Çalışanların paylaştıkları yönetimle paylaşılır mı?",
+        a: "Hayır. Çalışanların kişisel olarak paylaştıkları gizli tutulur. Kurumla yalnızca kimseyi tanımlamayan, genel bir değerlendirme paylaşılır.",
       },
     ],
   },

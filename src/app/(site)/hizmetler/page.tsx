@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/metadata";
 import Link from "next/link";
-import { ArrowIcon, CtaBand, PageHero, bodyText, eyebrow, h2Class } from "@/components/page-ui";
+import { ArrowIcon, CtaBand, PageHero } from "@/components/page-ui";
 import { servicePages } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
@@ -11,7 +11,12 @@ export const metadata: Metadata = pageMetadata({
   path: "/hizmetler",
 });
 
-const tones = ["bg-clay-100 text-clay-700", "bg-sage-100 text-sage-700", "bg-mist-100 text-mist-700"];
+const tones = [
+  "bg-clay-100 text-clay-700",
+  "bg-sage-100 text-sage-700",
+  "bg-mist-100 text-mist-700",
+  "bg-sand-100 text-sand-700",
+];
 
 export default function ServicesPage() {
   return (
@@ -32,7 +37,7 @@ export default function ServicesPage() {
 
       <section className="border-t border-line bg-surface">
         <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 md:py-24">
-          <ul className="grid gap-5 md:grid-cols-3 md:gap-6">
+          <ul className="grid gap-5 sm:grid-cols-2 md:gap-6">
             {servicePages.map((s, i) => (
               <li key={s.slug}>
                 <Link
@@ -55,22 +60,6 @@ export default function ServicesPage() {
             ))}
           </ul>
 
-          <div className="mt-16 grid gap-8 border-t border-line pt-14 md:grid-cols-12 md:gap-12">
-            <div className="md:col-span-5">
-              <p className={eyebrow}>Kurumlar için</p>
-              <h2 className={`mt-4 ${h2Class}`}>Kurumsal danışmanlık</h2>
-            </div>
-            <p className={`md:col-span-7 md:pt-8 ${bodyText}`}>
-              Kurumlara yönelik çalışmalarla iş yerindeki iletişimi güçlendiriyor,
-              çalışanların iş ve aile yaşamı arasındaki dengeyi gözeten, daha
-              tatmin edici bir çalışma deneyimine katkı sağlıyorum. Kurumunuza
-              özel bir çalışma için{" "}
-              <Link href="/iletisim" className="text-ink underline decoration-line-strong underline-offset-4 transition-colors duration-150 hover:decoration-ink">
-                iletişime geçebilirsiniz
-              </Link>
-              .
-            </p>
-          </div>
         </div>
       </section>
 

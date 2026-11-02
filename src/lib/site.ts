@@ -59,6 +59,11 @@ export const servicePages = [
     title: "Online Danışmanlık",
     short: "Türkiye’nin ve dünyanın her yerinden güvenli görüntülü seanslar.",
   },
+  {
+    slug: "kurumsal-danismanlik",
+    title: "Kurumsal Danışmanlık",
+    short: "Ekip içi iletişim ve iş–aile dengesi için kuruma özel çalışmalar.",
+  },
 ] as const;
 
 export type ServiceSlug = (typeof servicePages)[number]["slug"];

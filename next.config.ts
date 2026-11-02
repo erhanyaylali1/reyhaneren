@@ -24,6 +24,7 @@ const nextConfig: NextConfig = {
       { source: "/cift-terapisi", destination: "/hizmetler/cift-terapisi", permanent: true },
       { source: "/aile-danismanligi", destination: "/hizmetler/aile-danismanligi", permanent: true },
       { source: "/online-danismanlik", destination: "/hizmetler/online-danismanlik", permanent: true },
+      { source: "/kurumsal-danismanlik", destination: "/hizmetler/kurumsal-danismanlik", permanent: true },
     ];
   },
   turbopack: {
