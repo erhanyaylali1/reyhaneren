@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Image from "next/image";
 import { AppointmentForm } from "@/components/appointment-form";
@@ -168,6 +169,10 @@ const primaryCta =
   "group inline-flex min-h-13 items-center justify-center gap-2 rounded-full bg-sage-700 px-7 text-base font-medium text-canvas transition-colors duration-150 hover:bg-sage-800 active:bg-ink";
 const secondaryCta =
   "inline-flex min-h-13 items-center justify-center rounded-full border border-line-strong px-7 text-base font-medium text-ink transition-colors duration-150 hover:border-ink hover:bg-surface";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 export default function Home() {
   return (

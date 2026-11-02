@@ -16,6 +16,17 @@ const nextConfig: NextConfig = {
     },
   },
   partialPrefetching: true,
+  // Old/guessed URLs for sections that live on the home page. 301s pass their
+  // link value to the right section instead of serving thin placeholder pages.
+  async redirects() {
+    return [
+      { source: "/hakkimda", destination: "/#hakkimda", permanent: true },
+      { source: "/hizmetler", destination: "/#hizmetler", permanent: true },
+      { source: "/iletisim", destination: "/#iletisim", permanent: true },
+      { source: "/sss", destination: "/#sss", permanent: true },
+      { source: "/randevu", destination: "/#randevu", permanent: true },
+    ];
+  },
   turbopack: {
     rules: {
       "*.css": {

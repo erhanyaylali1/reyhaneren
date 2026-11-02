@@ -18,8 +18,7 @@ const newsreader = Newsreader({
   display: "swap",
 });
 
-const defaultTitle =
-  "İzmir Aile Danışmanı ve Çift Terapisi | Reyhan Eren · Bayraklı";
+const defaultTitle = "İzmir Aile Danışmanlığı | Reyhan Eren — Bayraklı, İzmir";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -40,7 +39,8 @@ export const metadata: Metadata = {
     "çift terapisi",
     "aile terapisi",
   ],
-  alternates: { canonical: "/" },
+  // Canonical is set per page (home, /blog, each post). A canonical here would
+  // be inherited by every route and point them all at the home page.
   openGraph: {
     type: "website",
     locale: "tr_TR",
@@ -50,8 +50,7 @@ export const metadata: Metadata = {
     description: site.description,
   },
   twitter: {
-    // Switch to "summary_large_image" once an opengraph-image is added.
-    card: "summary",
+    card: "summary_large_image", // image comes from app/opengraph-image.tsx
     site: "@reyhanerentr",
     creator: "@reyhanerentr",
     title: defaultTitle,
@@ -70,55 +69,79 @@ export const viewport: Viewport = {
   colorScheme: "light",
 };
 
-const clinicJsonLd = {
+// One linked graph: the business (LocalBusiness + MedicalClinic), the person
+// who works there, and the website. FAQPage lives on the home page because
+// Google only accepts it on the page where the questions are visible.
+const businessId = `${site.url}/#clinic`;
+const personId = `${site.url}/#reyhan-eren`;
+const sameAs = site.social.map((s) => s.href);
+
+const structuredData = {
   "@context": "https://schema.org",
-  "@type": "MedicalClinic",
-  "@id": `${site.url}/#clinic`,
-  name: site.name,
-  alternateName: `${site.person} — İzmir Aile Danışmanı`,
-  description: site.description,
-  url: site.url,
-  telephone: site.phone.e164,
-  email: site.email,
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: site.address.locality,
-    addressRegion: site.address.region,
-    addressCountry: site.address.country,
-  },
-  hasMap: site.address.mapUrl,
-  areaServed: [
-    { "@type": "City", name: "İzmir" },
-    { "@type": "Country", name: "Türkiye" },
-  ],
-  availableService: [
-    { "@type": "MedicalTherapy", name: "Birey Odaklı Aile Danışmanlığı" },
-    { "@type": "MedicalTherapy", name: "Çift Terapisi" },
-    { "@type": "MedicalTherapy", name: "Aile Terapisi" },
-    { "@type": "MedicalTherapy", name: "Kurumsal Danışmanlık" },
-  ],
-  knowsLanguage: "tr",
-  image: `${site.url}/reyhan-eren-aile-danismani.jpg`,
-  employee: {
-    "@type": "Person",
-    "@id": `${site.url}/#reyhan-eren`,
-    name: site.person,
-    jobTitle: site.title,
-    image: `${site.url}/reyhan-eren-aile-danismani.jpg`,
-    alumniOf: [
-      { "@type": "CollegeOrUniversity", name: "Akdeniz Üniversitesi" },
-      { "@type": "CollegeOrUniversity", name: "Marmara Üniversitesi" },
-    ],
-    hasCredential: {
-      "@type": "EducationalOccupationalCredential",
-      name: "Aile Danışmanlığı Eğitimi",
-      credentialCategory: "certificate",
-      recognizedBy: { "@type": "CollegeOrUniversity", name: "Marmara Üniversitesi" },
+  "@graph": [
+    {
+      "@type": ["LocalBusiness", "MedicalClinic"],
+      "@id": businessId,
+      name: site.name,
+      alternateName: `${site.person} — İzmir Aile Danışmanı`,
+      description: site.description,
+      url: site.url,
+      telephone: site.phone.e164,
+      email: site.email,
+      image: `${site.url}/reyhan-eren-aile-danismani.jpg`,
+      logo: `${site.url}/icon.png`,
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: site.address.locality,
+        addressRegion: site.address.region,
+        addressCountry: site.address.country,
+      },
+      hasMap: site.address.mapUrl,
+      areaServed: [
+        { "@type": "City", name: "İzmir" },
+        { "@type": "Country", name: "Türkiye" },
+      ],
+      availableService: [
+        { "@type": "MedicalTherapy", name: "Birey Odaklı Aile Danışmanlığı" },
+        { "@type": "MedicalTherapy", name: "Çift Terapisi" },
+        { "@type": "MedicalTherapy", name: "Aile Terapisi" },
+        { "@type": "MedicalTherapy", name: "Kurumsal Danışmanlık" },
+      ],
+      knowsLanguage: "tr",
+      founder: { "@id": personId },
+      employee: { "@id": personId },
+      sameAs,
     },
-    knowsAbout: ["Aile danışmanlığı", "Çift terapisi", "Aile terapisi", "Sosyoloji"],
-    sameAs: site.social.map((s) => s.href),
-  },
-  sameAs: site.social.map((s) => s.href),
+    {
+      "@type": "Person",
+      "@id": personId,
+      name: site.person,
+      jobTitle: site.title,
+      url: site.url,
+      image: `${site.url}/reyhan-eren-aile-danismani.jpg`,
+      worksFor: { "@id": businessId },
+      alumniOf: [
+        { "@type": "CollegeOrUniversity", name: "Akdeniz Üniversitesi" },
+        { "@type": "CollegeOrUniversity", name: "Marmara Üniversitesi" },
+      ],
+      hasCredential: {
+        "@type": "EducationalOccupationalCredential",
+        name: "Aile Danışmanlığı Eğitimi",
+        credentialCategory: "certificate",
+        recognizedBy: { "@type": "CollegeOrUniversity", name: "Marmara Üniversitesi" },
+      },
+      knowsAbout: ["Aile danışmanlığı", "Çift terapisi", "Aile terapisi", "Sosyoloji"],
+      sameAs,
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${site.url}/#website`,
+      url: site.url,
+      name: site.name,
+      inLanguage: "tr-TR",
+      publisher: { "@id": businessId },
+    },
+  ],
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -131,7 +154,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(clinicJsonLd).replace(/</g, "\\u003c"),
+            __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
           }}
         />
         {children}
