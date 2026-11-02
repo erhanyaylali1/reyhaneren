@@ -18,6 +18,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.9,
     })),
     { url: `${site.url}/iletisim`, changeFrequency: "yearly", priority: 0.8 },
+    { url: `${site.url}/kvkk-ve-gizlilik`, changeFrequency: "yearly", priority: 0.3 },
     {
       url: `${site.url}/blog`,
       ...(newest && { lastModified: newest }),

@@ -215,9 +215,9 @@ export default function Home() {
               on mobile so the bio stays near the fold; stacked on desktop. */}
           <figure className="flex items-end gap-5 sm:gap-6 lg:col-span-4 lg:block">
             <Image
-              src="/reyhan-eren-aile-danismani-portre.jpg"
+              src="/reyhan-eren-aile-danismani.jpg"
               width={828}
-              height={1035}
+              height={1472}
               alt="İzmir aile danışmanı Reyhan Eren’in portresi"
               sizes="(min-width: 1152px) 352px, (min-width: 1024px) 30vw, 192px"
               className="aspect-[4/5] w-40 shrink-0 rounded-2xl bg-sand-100 object-cover object-top sm:w-48 lg:w-full lg:rounded-3xl"
@@ -475,7 +475,7 @@ export default function Home() {
               <p className="text-sm text-ink-muted">Formla uğraşmak istemiyor musunuz?</p>
               <a
                 href={site.phone.href}
-                className="mt-1 inline-block font-serif text-[1.75rem] tracking-[-0.01em] text-ink tabular-nums underline decoration-transparent underline-offset-4 transition-colors duration-150 hover:decoration-ink"
+                className="mt-1 inline-flex min-h-11 items-center font-serif text-[1.75rem] tracking-[-0.01em] text-ink tabular-nums underline decoration-transparent underline-offset-4 transition-colors duration-150 hover:decoration-ink"
               >
                 {site.phone.display}
               </a>

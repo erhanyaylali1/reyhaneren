@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState, type FormEvent } from "react";
 import { site } from "@/lib/site";
 
@@ -325,9 +326,18 @@ export function AppointmentForm() {
               className="mt-1 size-5 shrink-0 accent-sage-700"
             />
             <span className="text-[0.9375rem] leading-relaxed text-ink-muted">
-              Paylaştığım kişisel verilerin, randevu talebim için benimle
-              iletişime geçilmesi amacıyla KVKK kapsamında işlenmesini kabul
-              ediyorum.
+              <Link
+                href="/kvkk-ve-gizlilik"
+                target="_blank"
+                className="text-ink underline decoration-line-strong underline-offset-4 transition-colors duration-150 hover:decoration-ink"
+              >
+                KVKK Aydınlatma Metni
+                <span className="sr-only"> (yeni sekmede açılır)</span>
+              </Link>
+              ’ni okudum. Paylaştığım kişisel verilerin, randevu talebim için
+              benimle iletişime geçilmesi amacıyla işlenmesine ve bu amaçla
+              yurt dışındaki e-posta hizmet sağlayıcılarına aktarılmasına açık
+              rıza veriyorum.
             </span>
           </label>
           <FieldError id="consent-hata" message={errors.consent} />

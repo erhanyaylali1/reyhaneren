@@ -18,7 +18,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps<"/blog/[slug]">): Promise<Metadata> {
   const post = await getPublishedPost((await params).slug);
-  if (!post) return {};
+  if (!post) return { title: "Sayfa bulunamadı" };
   return {
     title: post.title,
     description: post.excerpt,

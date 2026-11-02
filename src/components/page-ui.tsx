@@ -69,20 +69,20 @@ export function Breadcrumbs({ items }: { items: Crumb[] }) {
         }}
       />
       <nav aria-label="Sayfa konumu">
-        <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-ink-muted">
+        <ol className="flex flex-wrap items-center gap-x-2 text-sm text-ink-muted">
           {trail.map((c, i) => {
             const last = i === trail.length - 1;
             return (
               <li key={c.href} className="flex items-center gap-2">
                 {last ? (
-                  <span aria-current="page" className="text-ink">
+                  <span aria-current="page" className="inline-flex min-h-11 items-center text-ink">
                     {c.name}
                   </span>
                 ) : (
                   <>
                     <Link
                       href={c.href}
-                      className="underline decoration-transparent underline-offset-4 transition-colors duration-150 hover:text-ink hover:decoration-line-strong"
+                      className="inline-flex min-h-11 items-center underline decoration-transparent underline-offset-4 transition-colors duration-150 hover:text-ink hover:decoration-line-strong"
                     >
                       {c.name}
                     </Link>

@@ -12,7 +12,7 @@ export function SiteHeader() {
         aria-label="Ana menü"
         className="relative mx-auto flex h-18 max-w-6xl items-center justify-between px-5 sm:px-8"
       >
-        <HomeLink className="flex flex-col leading-none">
+        <HomeLink className="flex min-h-11 flex-col justify-center leading-none">
           <span className="font-serif text-[1.375rem] tracking-[-0.01em] text-ink">
             {site.person}
           </span>
