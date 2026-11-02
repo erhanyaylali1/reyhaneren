@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { AppointmentForm } from "@/components/appointment-form";
+import { credentials, steps } from "@/lib/content";
 import { site } from "@/lib/site";
 
 const iconProps = {
@@ -17,6 +19,7 @@ const iconProps = {
 
 type Service = {
   title: string;
+  href: string;
   lead: string;
   body: string;
   tone: string;
@@ -26,6 +29,7 @@ type Service = {
 const services: Service[] = [
   {
     title: "Birey Odaklı Aile Danışmanlığı",
+    href: "/hizmetler/aile-danismanligi",
     lead: "Duygusal ihtiyaçlarınızı keşfedin.",
     body: "Aile ve ilişki içinde yaşadığınız zorlanmaları bireysel seanslarda ele alıyor, kendinizi ve ihtiyaçlarınızı daha net görmenize destek oluyoruz.",
     tone: "bg-sage-100 text-sage-700",
@@ -38,6 +42,7 @@ const services: Service[] = [
   },
   {
     title: "Çift Terapisi",
+    href: "/hizmetler/cift-terapisi",
     lead: "Sağlıklı bir ilişki için adım atın.",
     body: "İletişim kopukluğu, güven sorunları ya da tekrar eden çatışmalar için çift odaklı seanslarla birbirinizi yeniden duymanın yolunu birlikte arıyoruz.",
     tone: "bg-clay-100 text-clay-700",
@@ -51,6 +56,7 @@ const services: Service[] = [
   },
   {
     title: "Aile Terapisi",
+    href: "/hizmetler/aile-danismanligi",
     lead: "Aile dinamiklerinizi yeniden yapılandırın.",
     body: "Ebeveyn–çocuk ilişkileri, ergenlik dönemi ve aile içi roller üzerine çalışarak evdeki iletişimi daha sakin ve dengeli bir zemine taşıyoruz.",
     tone: "bg-mist-100 text-mist-700",
@@ -64,6 +70,7 @@ const services: Service[] = [
   },
   {
     title: "Kurumsal Danışmanlık",
+    href: "/hizmetler",
     lead: "Güçlü ekip ilişkileri için.",
     body: "Kurumlara yönelik çalışmalarla iş yerindeki iletişimi güçlendiriyor, daha tatmin edici bir çalışma deneyimine katkı sağlıyoruz.",
     tone: "bg-sand-100 text-sand-700",
@@ -73,21 +80,6 @@ const services: Service[] = [
         <path d="M9 7.5V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1.5M3.5 12.5h17" />
       </svg>
     ),
-  },
-];
-
-const steps = [
-  {
-    title: "Ön Görüşme ve İhtiyaç Analizi",
-    body: "İlk seansta İzmir Bayraklı ofisimizde yüz yüze veya online ortamda bir araya gelerek sizi danışmanlığa getiren temel konuları, beklentilerinizi ve ilişki dinamiklerinizi yargısız bir çerçevede dinliyoruz.",
-  },
-  {
-    title: "Ortak Danışmanlık Hedeflerinin Belirlenmesi",
-    body: "İlişkinizde veya bireysel yaşamınızda tekrarlayan iletişim düğümlerini tespit ederek, her iki tarafın da duygusal ihtiyaçlarını gözeten şeffaf ve yapılandırılmış bir yol haritası oluşturuyoruz.",
-  },
-  {
-    title: "Güvenli İletişim ve Yeniden Yapılandırma",
-    body: "Seanslar ilerledikçe sağlıklı sınır koyma, empatik dinleme ve çatışma çözme becerilerini günlük yaşamınıza aktararak kalıcı ve huzurlu bir ilişki zemini inşa ediyoruz.",
   },
 ];
 
@@ -129,21 +121,6 @@ const faqJsonLd = {
 const sessionFormats = [
   { label: "Yüz yüze", detail: `${site.address.locality}, ${site.address.region}` },
   { label: "Online", detail: "Türkiye’nin her yerinden" },
-];
-
-const credentials = [
-  {
-    year: "2025",
-    title: "Aile Danışmanlığı Eğitimi",
-    institution: "Marmara Üniversitesi",
-    note: "Aile Danışmanı unvanı",
-  },
-  {
-    year: "2022",
-    title: "Sosyoloji Lisans",
-    institution: "Akdeniz Üniversitesi",
-    note: "Yüksek onur derecesi · Tez: Flört Kültürü",
-  },
 ];
 
 function ArrowIcon() {
@@ -209,9 +186,9 @@ export default function Home() {
                 Randevu Al
                 <ArrowIcon />
               </a>
-              <a href="#hizmetler" className={secondaryCta}>
+              <Link href="/hizmetler" className={secondaryCta}>
                 Hizmetleri inceleyin
-              </a>
+              </Link>
             </div>
 
             {/* Session formats: lets visitors self-select before they call. */}
@@ -309,10 +286,15 @@ export default function Home() {
               ))}
             </ol>
 
-            <a href="#randevu" className={`${primaryCta} mt-10 w-full sm:w-auto`}>
-              Reyhan Eren’den randevu alın
-              <ArrowIcon />
-            </a>
+            <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
+              <a href="#randevu" className={`${primaryCta} w-full sm:w-auto`}>
+                Reyhan Eren’den randevu alın
+                <ArrowIcon />
+              </a>
+              <Link href="/hakkimda" className={`${secondaryCta} w-full sm:w-auto`}>
+                Yaklaşımım ve eğitimim
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -335,6 +317,14 @@ export default function Home() {
             <p className="mt-5 text-lg leading-relaxed text-ink-muted text-pretty">
               Bireysel seanslardan çift terapisine, aile terapisinden kurumsal
               çalışmalara kadar her süreci ihtiyacınıza göre şekillendiriyorum.
+              Tüm hizmetler{" "}
+              <Link
+                href="/hizmetler/online-danismanlik"
+                className="text-ink underline decoration-line-strong underline-offset-4 transition-colors duration-150 hover:decoration-ink"
+              >
+                online olarak da
+              </Link>{" "}
+              sunulmaktadır.
             </p>
           </div>
 
@@ -342,7 +332,7 @@ export default function Home() {
             {services.map((s) => (
               <li
                 key={s.title}
-                className="flex flex-col rounded-3xl border border-line bg-surface p-7 sm:p-8"
+                className="group relative flex flex-col rounded-3xl border border-line bg-surface p-7 transition-colors duration-150 hover:border-line-strong sm:p-8"
               >
                 <span
                   className={`inline-flex size-12 items-center justify-center rounded-2xl ${s.tone}`}
@@ -350,10 +340,16 @@ export default function Home() {
                   {s.icon}
                 </span>
                 <h3 className="mt-8 text-xl font-semibold tracking-[-0.01em] text-ink">
-                  {s.title}
+                  <Link href={s.href} className="after:absolute after:inset-0 after:rounded-3xl">
+                    {s.title}
+                  </Link>
                 </h3>
                 <p className="mt-2 font-serif text-lg italic text-ink">{s.lead}</p>
-                <p className="mt-4 leading-relaxed text-ink-muted">{s.body}</p>
+                <p className="mt-4 flex-1 leading-relaxed text-ink-muted">{s.body}</p>
+                <span className="mt-6 inline-flex items-center gap-1.5 text-[0.9375rem] font-medium text-sage-700">
+                  Detaylı bilgi
+                  <ArrowIcon />
+                </span>
               </li>
             ))}
           </ul>

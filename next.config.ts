@@ -16,15 +16,14 @@ const nextConfig: NextConfig = {
     },
   },
   partialPrefetching: true,
-  // Old/guessed URLs for sections that live on the home page. 301s pass their
-  // link value to the right section instead of serving thin placeholder pages.
+  // Short URLs people may type or that old links may use.
   async redirects() {
     return [
-      { source: "/hakkimda", destination: "/#hakkimda", permanent: true },
-      { source: "/hizmetler", destination: "/#hizmetler", permanent: true },
-      { source: "/iletisim", destination: "/#iletisim", permanent: true },
       { source: "/sss", destination: "/#sss", permanent: true },
-      { source: "/randevu", destination: "/#randevu", permanent: true },
+      { source: "/randevu", destination: "/iletisim#randevu", permanent: true },
+      { source: "/cift-terapisi", destination: "/hizmetler/cift-terapisi", permanent: true },
+      { source: "/aile-danismanligi", destination: "/hizmetler/aile-danismanligi", permanent: true },
+      { source: "/online-danismanlik", destination: "/hizmetler/online-danismanlik", permanent: true },
     ];
   },
   turbopack: {

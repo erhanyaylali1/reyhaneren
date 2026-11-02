@@ -121,7 +121,7 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
               görüşme için randevu oluşturabilirsiniz.
             </p>
             <Link
-              href="/#randevu"
+              href="/iletisim#randevu"
               className="mt-7 inline-flex min-h-12 items-center rounded-full bg-canvas px-6 font-medium text-ink transition-colors duration-150 hover:bg-surface"
             >
               Randevu Al

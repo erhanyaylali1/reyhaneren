@@ -1,13 +1,14 @@
-import { site } from "@/lib/site";
+import Link from "next/link";
+import { navLinks, servicePages, site } from "@/lib/site";
 
 const linkClass =
   "text-ink underline decoration-line-strong underline-offset-4 transition-colors duration-150 hover:decoration-ink";
 
 export function SiteFooter() {
   return (
-    <footer id="iletisim" className="border-t border-line bg-surface">
+    <footer className="border-t border-line bg-surface">
       <div className="mx-auto grid max-w-6xl gap-12 px-5 py-16 sm:px-8 md:grid-cols-12 md:py-20">
-        <div className="md:col-span-5">
+        <div className="md:col-span-4">
           <p className="font-serif text-2xl text-ink">{site.person}</p>
           <p className="mt-1 text-xs font-medium uppercase tracking-[0.18em] text-ink-muted">
             {site.title}
@@ -18,7 +19,37 @@ export function SiteFooter() {
           </p>
         </div>
 
-        <div className="md:col-span-4">
+        <nav aria-label="Sayfalar" className="md:col-span-2">
+          <h2 className="text-xs font-medium uppercase tracking-[0.18em] text-ink-muted">
+            Sayfalar
+          </h2>
+          <ul className="mt-5 space-y-3">
+            {[{ label: "Ana sayfa", href: "/" }, ...navLinks].map((l) => (
+              <li key={l.href}>
+                <Link href={l.href} className={linkClass}>
+                  {l.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <nav aria-label="Hizmetler" className="md:col-span-3">
+          <h2 className="text-xs font-medium uppercase tracking-[0.18em] text-ink-muted">
+            Hizmetler
+          </h2>
+          <ul className="mt-5 space-y-3">
+            {servicePages.map((sp) => (
+              <li key={sp.slug}>
+                <Link href={`/hizmetler/${sp.slug}`} className={linkClass}>
+                  {sp.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <div className="md:col-span-3">
           <h2 className="text-xs font-medium uppercase tracking-[0.18em] text-ink-muted">
             İletişim
           </h2>
@@ -47,13 +78,10 @@ export function SiteFooter() {
               </a>
             </p>
           </address>
-        </div>
-
-        <div className="md:col-span-3">
-          <h2 className="text-xs font-medium uppercase tracking-[0.18em] text-ink-muted">
+          <h2 className="mt-10 text-xs font-medium uppercase tracking-[0.18em] text-ink-muted">
             Sosyal medya
           </h2>
-          <ul className="mt-5 space-y-3">
+          <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-3">
             {site.social.map((s) => (
               <li key={s.href}>
                 <a

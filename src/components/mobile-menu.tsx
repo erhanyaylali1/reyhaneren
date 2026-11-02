@@ -3,12 +3,14 @@
 import Link from "next/link";
 import { useEffect, useId, useRef, useState } from "react";
 import { navLinks } from "@/lib/site";
+import { useIsActive } from "./nav-links";
 
 export function MobileMenu() {
   const [open, setOpen] = useState(false);
   const panelId = useId();
   const buttonRef = useRef<HTMLButtonElement>(null);
   const rootRef = useRef<HTMLDivElement>(null);
+  const isActive = useIsActive();
 
   useEffect(() => {
     if (!open) return;
@@ -66,18 +68,22 @@ export function MobileMenu() {
         <ul className="mx-auto flex max-w-6xl flex-col px-5 pb-6 pt-2">
           {navLinks.map((link) => (
             <li key={link.href} className="border-b border-line">
-              <a
+              <Link
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="flex min-h-14 items-center text-lg text-ink"
+                aria-current={isActive(link.href) ? "page" : undefined}
+                className="flex min-h-14 items-center justify-between text-lg text-ink"
               >
                 {link.label}
-              </a>
+                {isActive(link.href) && (
+                  <span aria-hidden="true" className="size-1.5 rounded-full bg-sage-700" />
+                )}
+              </Link>
             </li>
           ))}
           <li className="pt-5">
             <Link
-              href="/#randevu"
+              href="/iletisim#randevu"
               onClick={() => setOpen(false)}
               className="flex min-h-12 items-center justify-center rounded-full bg-sage-700 px-6 font-medium text-canvas transition-colors duration-150 hover:bg-sage-800"
             >

@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import { PostCard } from "@/components/blog/post-card";
 import { getPublishedPosts } from "@/lib/blog/queries";
 
-export const metadata: Metadata = {
-  title: "Blog — Aile, İlişkiler ve Çift Terapisi Üzerine Yazılar",
+export const metadata: Metadata = pageMetadata({
+  title: "Blog — Aile, İlişkiler ve Çift Terapisi Üzerine Yazılar | Reyhan Eren",
   description:
     "Aile Danışmanı Reyhan Eren’den ilişkiler, ebeveynlik, iletişim ve çift terapisi üzerine yazılar.",
-  alternates: { canonical: "/blog" },
-};
+  path: "/blog",
+});
 
 export default async function BlogPage() {
   const posts = await getPublishedPosts();

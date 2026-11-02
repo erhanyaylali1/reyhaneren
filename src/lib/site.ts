@@ -16,6 +16,11 @@ export const site = {
     href: "tel:+905411620827",
     e164: "+905411620827",
   },
+  whatsapp: {
+    href: `https://wa.me/905411620827?text=${encodeURIComponent(
+      "Merhaba Reyhan Hanım, danışmanlık hakkında bilgi almak ve randevu oluşturmak istiyorum.",
+    )}`,
+  },
   email: "ailedanismanireyhaneren@gmail.com",
   address: {
     locality: "Bayraklı",
@@ -31,9 +36,29 @@ export const site = {
 } as const;
 
 export const navLinks = [
-  { label: "Hakkımda", href: "/#hakkimda" },
-  { label: "Hizmetler", href: "/#hizmetler" },
-  { label: "SSS", href: "/#sss" },
+  { label: "Hakkımda", href: "/hakkimda" },
+  { label: "Hizmetler", href: "/hizmetler" },
   { label: "Blog", href: "/blog" },
-  { label: "İletişim", href: "#iletisim" },
+  { label: "İletişim", href: "/iletisim" },
 ] as const;
+
+/** Service pages under /hizmetler. Order = order shown everywhere. */
+export const servicePages = [
+  {
+    slug: "cift-terapisi",
+    title: "Çift Terapisi",
+    short: "İletişim, güven ve tekrarlayan çatışmalar için çift odaklı seanslar.",
+  },
+  {
+    slug: "aile-danismanligi",
+    title: "Aile Danışmanlığı",
+    short: "Bireysel, ebeveyn–çocuk ve tüm aileyle yapılan sistemik çalışmalar.",
+  },
+  {
+    slug: "online-danismanlik",
+    title: "Online Danışmanlık",
+    short: "Türkiye’nin ve dünyanın her yerinden güvenli görüntülü seanslar.",
+  },
+] as const;
+
+export type ServiceSlug = (typeof servicePages)[number]["slug"];
