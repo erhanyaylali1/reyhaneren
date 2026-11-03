@@ -1,10 +1,14 @@
 import Link from "next/link";
+import { CookiePreferencesButton } from "@/components/cookie-consent";
 import { navLinks, onlinePage, servicePages, site } from "@/lib/site";
 
 // Every footer link is at least 44px tall (mobile touch-target minimum);
 // the underline stays on the text, the extra height is invisible padding.
 const linkClass =
   "inline-flex min-h-11 min-w-11 items-center text-ink underline decoration-line-strong underline-offset-4 transition-colors duration-150 hover:decoration-ink";
+
+const legalLinkClass =
+  "inline-flex min-h-11 items-center rounded-lg px-2 underline decoration-line-strong underline-offset-4 transition-colors duration-150 hover:text-ink hover:decoration-ink";
 
 export function SiteFooter() {
   return (
@@ -127,12 +131,12 @@ export function SiteFooter() {
       <div className="border-t border-line">
         <div className="mx-auto flex max-w-6xl flex-col gap-2 px-5 py-4 text-sm text-ink-muted sm:flex-row sm:items-center sm:justify-between sm:px-8">
           <p className="py-2">© 2026 {site.name}. Tüm hakları saklıdır.</p>
-          <Link
-            href="/kvkk-ve-gizlilik"
-            className="-mx-2 inline-flex min-h-11 items-center self-start rounded-lg px-2 underline decoration-line-strong underline-offset-4 transition-colors duration-150 hover:text-ink hover:decoration-ink sm:self-auto"
-          >
-            KVKK Aydınlatma Metni ve Gizlilik
-          </Link>
+          <div className="-mx-2 flex flex-wrap items-center self-start sm:self-auto">
+            <Link href="/kvkk-ve-gizlilik" className={legalLinkClass}>
+              KVKK Aydınlatma Metni ve Gizlilik
+            </Link>
+            <CookiePreferencesButton className={`${legalLinkClass} cursor-pointer`} />
+          </div>
         </div>
       </div>
     </footer>

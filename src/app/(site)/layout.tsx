@@ -1,3 +1,4 @@
+import { CookieConsent } from "@/components/cookie-consent";
 import { SiteFooter } from "@/components/site-footer";
 import { PageTransition } from "@/components/page-transition";
 import { ScrollToTop } from "@/components/scroll-to-top";
@@ -18,6 +19,9 @@ export default function SiteLayout({ children }: LayoutProps<"/">) {
       </main>
       <SiteFooter />
       <ScrollToTop />
+      {/* Consent banner + Google Analytics (loaded only after "Kabul et").
+          Public pages only, so admin visits don't pollute the stats. */}
+      <CookieConsent />
     </>
   );
 }

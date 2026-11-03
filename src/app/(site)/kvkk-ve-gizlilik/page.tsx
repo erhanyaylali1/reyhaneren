@@ -6,7 +6,7 @@ import { site } from "@/lib/site";
 
 // ⚠ Legal text drafted from how this website actually handles data
 // (EmailJS → Gmail for the form, Netlify hosting, Supabase for the blog,
-// no analytics/ad cookies). Have it reviewed by a lawyer before relying on it,
+// Google Analytics only after consent via the cookie banner, no ad cookies). Have it reviewed by a lawyer before relying on it,
 // and update it whenever a new service (analytics, booking tool…) is added.
 
 export const metadata: Metadata = pageMetadata({
@@ -16,7 +16,7 @@ export const metadata: Metadata = pageMetadata({
   path: "/kvkk-ve-gizlilik",
 });
 
-const LAST_UPDATED = "2 Kasım 2026";
+const LAST_UPDATED = "3 Kasım 2026";
 
 const sections = [
   { id: "veri-sorumlusu", title: "Veri sorumlusu" },
@@ -103,6 +103,13 @@ export default function KvkkPage() {
                 barındırma altyapısı tarafından tutulan IP adresi, tarayıcı ve erişim zamanı
                 gibi teknik kayıtlar.
               </li>
+              <li>
+                <strong>Ziyaret istatistikleri (yalnızca izin verirseniz):</strong> çerez
+                tercihlerinde “Kabul et”i seçmeniz hâlinde Google Analytics aracılığıyla
+                görüntülediğiniz sayfalar, siteye nereden geldiğiniz, ziyaret süresi, yaklaşık
+                konum (şehir/ülke), cihaz, işletim sistemi ve tarayıcı bilgileri ile çevrim içi
+                tanımlayıcılar (çerez kimliği).
+              </li>
             </ul>
 
             <h2 id="amaclar">3. Kişisel verilerin işlenme amaçları</h2>
@@ -111,7 +118,11 @@ export default function KvkkPage() {
               <li>Aile danışmanlığı, çift terapisi ve online danışmanlık hizmetini yürütmek,</li>
               <li>Hizmetin kalitesini ve sürekliliğini sağlamak, sorularınızı yanıtlamak,</li>
               <li>Mevzuattan doğan yükümlülükleri (ör. faturalandırma, yetkili mercilerin talepleri) yerine getirmek,</li>
-              <li>Web sitesinin güvenliğini sağlamak ve kötüye kullanımı önlemek.</li>
+              <li>Web sitesinin güvenliğini sağlamak ve kötüye kullanımı önlemek,</li>
+              <li>
+                İzin vermeniz hâlinde, sitenin nasıl kullanıldığını toplu istatistiklerle
+                anlamak ve içeriği ile kullanım kolaylığını geliştirmek.
+              </li>
             </ul>
             <p>
               Kişisel verileriniz reklam, pazarlama veya profil oluşturma amacıyla kullanılmaz ve
@@ -129,7 +140,11 @@ export default function KvkkPage() {
               <li>Bir sözleşmenin kurulması veya ifası için gerekli olması (randevu ve danışmanlık hizmeti),</li>
               <li>Veri sorumlusunun hukuki yükümlülüğünü yerine getirebilmesi,</li>
               <li>İlgili kişinin temel hak ve özgürlüklerine zarar vermemek kaydıyla meşru menfaat (ör. site güvenliği),</li>
-              <li>Gerekli hâllerde açık rızanız.</li>
+              <li>
+                Gerekli hâllerde açık rızanız; Google Analytics çerezleri ve bunlar aracılığıyla
+                yapılan ziyaret istatistiği işlemesi yalnızca çerez tercihlerinde verdiğiniz{" "}
+                <strong>açık rızaya</strong> dayanır.
+              </li>
             </ul>
             <p>
               Özel nitelikli kişisel verileriniz, KVKK’nın 6. maddesi uyarınca{" "}
@@ -153,13 +168,20 @@ export default function KvkkPage() {
                 altyapısı sağlayıcıları (EmailJS ve Google/Gmail) ile web sitesinin barındırma ve
                 altyapı hizmeti sağlayıcıları (Netlify, Supabase).
               </li>
+              <li>
+                <strong>Ziyaret istatistikleri sağlayıcısı:</strong> izin vermeniz hâlinde,
+                ziyaret istatistiklerinin oluşturulması için Google Analytics hizmetini sunan
+                Google LLC / Google Ireland Limited.
+              </li>
             </ul>
             <p>
               Bu hizmet sağlayıcıların sunucuları yurt dışında bulunabilir. Randevu formunu
               göndermeniz hâlinde form içeriği, talebinizin Danışmana iletilmesi amacıyla bu
               sağlayıcılar üzerinden yurt dışına aktarılır; bu aktarım KVKK’nın 9. maddesi
               kapsamında formdaki onay kutusuyla verdiğiniz <strong>açık rızanıza</strong>{" "}
-              dayanır. Formu kullanmak istemezseniz bize telefonla ulaşabilirsiniz. WhatsApp
+              dayanır. Google Analytics verileri de yalnızca çerez tercihlerinde “Kabul et”i
+              seçmeniz hâlinde, verdiğiniz açık rızaya dayanılarak Google’ın yurt dışındaki
+              sunucularına aktarılır; “Reddet”i seçerseniz bu aktarım yapılmaz. Formu kullanmak istemezseniz bize telefonla ulaşabilirsiniz. WhatsApp
               üzerinden yazmayı tercih ederseniz, yazışmalarınız WhatsApp’ın kendi gizlilik
               koşullarına tabi olur.
             </p>
@@ -203,10 +225,28 @@ export default function KvkkPage() {
 
             <h2 id="cerezler">9. Çerezler ve benzeri teknolojiler</h2>
             <p>
-              Bu web sitesinde reklam, pazarlama veya ziyaretçi analizi amaçlı çerez
-              kullanılmaz.
+              Bu web sitesinde reklam veya pazarlama amaçlı çerez kullanılmaz. Ziyaret
+              istatistikleri için kullanılan analitik çerezler ise <strong>yalnızca açık
+              rızanızla</strong> çalışır: siteye ilk girişinizde çıkan bilgilendirmede
+              “Kabul et”i seçmediğiniz sürece bu çerezler yüklenmez.
             </p>
             <ul>
+              <li>
+                <strong>Analitik çerezler (Google Analytics):</strong> <code>_ga</code> ve{" "}
+                <code>_ga_*</code> çerezleri, ziyaretleri ayırt etmek ve sayfa görüntüleme
+                istatistiklerini oluşturmak için kullanılır; en fazla 2 yıl saklanır. Google
+                Analytics’in IP adreslerini kaydetmediği ve verileri toplu raporlar hâlinde
+                sunduğu belirtilmektedir. Ayrıntılar için{" "}
+                <a href="https://policies.google.com/privacy?hl=tr" target="_blank" rel="noopener noreferrer">
+                  Google Gizlilik Politikası
+                </a>
+                ’na bakabilirsiniz.
+              </li>
+              <li>
+                <strong>Tercih kaydı:</strong> çerez tercihinizin (kabul/ret) tekrar sorulmaması
+                için tarayıcınızın yerel depolamasında (localStorage) kişisel veri içermeyen bir
+                kayıt tutulur.
+              </li>
               <li>
                 Blog yazılarındaki görüntülenme sayısı, aynı ziyaretin tekrar sayılmaması için
                 tarayıcınızın oturum depolamasında (sessionStorage) kişisel veri içermeyen bir
@@ -222,6 +262,13 @@ export default function KvkkPage() {
                 koşulları geçerli olur. Harita bağlantıları Google Haritalar’da açılır.
               </li>
             </ul>
+            <p>
+              Tercihinizi dilediğiniz zaman sayfanın en altındaki <strong>“Çerez
+              tercihleri”</strong> bağlantısından değiştirebilirsiniz. İzninizi geri
+              aldığınızda Google Analytics durdurulur ve tarayıcınızdaki analitik çerezler
+              silinir. Ayrıca tarayıcınızın ayarlarından çerezleri silebilir veya
+              engelleyebilirsiniz.
+            </p>
 
             <p className="!mt-12 border-t border-line pt-6 text-base text-ink-muted">
               Bu metin, mevzuattaki ve sitedeki değişikliklere bağlı olarak güncellenebilir.
