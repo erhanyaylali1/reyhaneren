@@ -90,7 +90,7 @@ const structuredData = {
       url: site.url,
       telephone: site.phone.e164,
       email: site.email,
-      image: `${site.url}/reyhan-eren-aile-danismani-izmir.jpg`,
+      image: `${site.url}/reyhan-eren-aile-danismani-izmir-portre.jpg`,
       logo: `${site.url}/icon.png`,
       address: {
         "@type": "PostalAddress",
@@ -121,7 +121,7 @@ const structuredData = {
       jobTitle: site.title,
       // The profile page is the authoritative "about the author" page (E-E-A-T).
       url: `${site.url}/hakkimda`,
-      image: `${site.url}/reyhan-eren-aile-danismani-izmir.jpg`,
+      image: `${site.url}/reyhan-eren-aile-danismani-izmir-portre.jpg`,
       worksFor: { "@id": businessId },
       alumniOf: [
         { "@type": "CollegeOrUniversity", name: "Akdeniz Üniversitesi" },

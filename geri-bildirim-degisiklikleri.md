@@ -204,3 +204,16 @@ Gerçek bir ofis olmadığı için Google Haritalar konumuna giden bağlantılar
 
 ## Alınan kararlar
 - **Yüz yüze vurgusu:** Hero, kapanış bandı ve diğer metinler yüz yüze seanslardan bahsetmeye devam ediyor. **Yüz yüze seansların şu an kapalı olduğu sadece randevu formunda yazıyor** (bkz. 2.3). Bu bilinçli bir tercih: yüz yüze hizmet sunuluyor ama şu an yeni randevu alınmıyor.
+
+---
+
+## 9. Profil fotoğrafı — *Reyhan'ın isteği*
+**İstek:** Fotoğraf çok fazla kırpılmış ve yüz ortalanmamıştı. Orijinal fotoğraf gönderildi.
+
+**Yeni:**
+- **Ana portre** (ana sayfa, Hakkımda, sosyal medya paylaşım görseli): Sitenin kullandığı 4:5 oranında, yüzü yatayda ortalanmış ve çok daha geniş bir kadraj. Saç, omuzlar ve koltuk görünüyor; kenarlardaki lambalar az kırpıldı.
+- **Blog yazar fotoğrafı (küçük yuvarlak):** Yüz ortalandı. Duvardaki priz kadraj dışında kalacak şekilde ayarlandı.
+- Sağ kenarda duvardaki priz ve kablolar görünüyor. Bunlar orijinal fotoğrafta omza çok yakın olduğu için tamamen çıkarmak, fotoğrafı yeniden sıkı kırpmak anlamına geliyordu. Bu yüzden bırakıldı.
+- Dosya adları değiştirildi (`…-portre.jpg`). Böylece tarayıcı ve CDN önbelleği eski fotoğrafı göstermiyor, yeni fotoğraf deploy'dan hemen sonra görünür.
+
+📄 `public/reyhan-eren-aile-danismani-izmir-portre.jpg`, `public/reyhan-eren-avatar-portre.jpg`, ve bu dosyaları kullanan sayfalar

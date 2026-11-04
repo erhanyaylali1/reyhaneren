@@ -15,7 +15,7 @@ export function AuthorBox() {
       <p className="text-xs font-medium uppercase tracking-[0.18em] text-ink-muted">Yazar hakkında</p>
       <div className="mt-5 flex flex-col gap-6 sm:flex-row sm:items-start">
         <Image
-          src="/reyhan-eren-avatar.jpg"
+          src="/reyhan-eren-avatar-portre.jpg"
           width={256}
           height={256}
           alt="Aile Danışmanı Reyhan Eren"

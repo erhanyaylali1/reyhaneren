@@ -66,7 +66,7 @@ export default function AboutPage() {
         <div className="mx-auto grid max-w-6xl gap-12 px-5 py-20 sm:px-8 md:py-24 lg:grid-cols-12 lg:gap-16">
           <figure className="lg:col-span-5">
             <Image
-              src="/reyhan-eren-aile-danismani-izmir.jpg"
+              src="/reyhan-eren-aile-danismani-izmir-portre.jpg"
               width={1200}
               height={1500}
               alt="Aile Danışmanı Reyhan Eren’in portresi"

@@ -222,7 +222,7 @@ export default function Home() {
               on mobile so the bio stays near the fold; stacked on desktop. */}
           <figure className="flex items-end gap-5 sm:gap-6 lg:col-span-4 lg:block">
             <Image
-              src="/reyhan-eren-aile-danismani-izmir.jpg"
+              src="/reyhan-eren-aile-danismani-izmir-portre.jpg"
               width={1200}
               height={1500}
               alt="İzmir aile danışmanı Reyhan Eren’in portresi"

@@ -93,7 +93,7 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
           <div className="mt-8 flex flex-col gap-3 border-t border-line pt-6 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-center gap-4">
             <Image
-              src="/reyhan-eren-avatar.jpg"
+              src="/reyhan-eren-avatar-portre.jpg"
               width={256}
               height={256}
               alt=""
