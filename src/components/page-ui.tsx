@@ -180,7 +180,7 @@ export function FaqList({ faqs, name }: { faqs: Faq[]; name: string }) {
 
 export function CtaBand({
   title = "İlk adımı birlikte atalım",
-  text = "Bayraklı’daki ofiste yüz yüze ya da Türkiye’nin her yerinden online görüşme için randevu oluşturabilirsiniz.",
+  text = "Bayraklı’da yüz yüze ya da Türkiye’nin her yerinden online görüşme için randevu oluşturabilirsiniz.",
 }: {
   title?: string;
   text?: string;

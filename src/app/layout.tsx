@@ -98,7 +98,6 @@ const structuredData = {
         addressRegion: site.address.region,
         addressCountry: site.address.country,
       },
-      hasMap: site.address.mapUrl,
       areaServed: [
         { "@type": "City", name: "İzmir" },
         { "@type": "Country", name: "Türkiye" },

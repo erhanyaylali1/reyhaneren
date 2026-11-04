@@ -18,7 +18,7 @@ export function RelatedServices() {
         Bu konuda destek almak ister misiniz?
       </h2>
       <p className="mt-3 max-w-xl leading-relaxed text-ink-muted text-pretty">
-        Bayraklı’daki ofiste yüz yüze ya da Türkiye’nin her yerinden online görüşmelerle
+        Bayraklı’da yüz yüze ya da Türkiye’nin her yerinden online görüşmelerle
         size eşlik edebilirim.
       </p>
       <ul className="mt-7 grid gap-4 sm:grid-cols-3">

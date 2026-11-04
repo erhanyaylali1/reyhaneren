@@ -289,3 +289,18 @@
     animation-duration: 0s !important;
   }
 }
+
+/* Hero line art draws itself once on load; skipped for reduced motion. */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-line-draw {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: hero-line-draw 2.6s cubic-bezier(0.45, 0, 0.2, 1) 0.2s forwards;
+  }
+}
+@keyframes hero-line-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+

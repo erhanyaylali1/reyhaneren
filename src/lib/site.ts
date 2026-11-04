@@ -26,7 +26,6 @@ export const site = {
     locality: "Bayraklı",
     region: "İzmir",
     country: "TR",
-    mapUrl: "https://maps.app.goo.gl/Xts7HiSaptfNrVx5A",
   },
   // Verified expert profiles on third-party platforms (E-E-A-T). Also listed
   // in the structured data's sameAs, next to the social accounts.
@@ -68,7 +67,7 @@ export const navLinks = [
 export const servicePages = [
   {
     slug: "bireysel-danismanlik",
-    title: "Bireysel Danışmanlık",
+    title: "İlişki Odaklı Bireysel Danışmanlık",
     tone: "bg-mist-100 text-mist-700",
     short: "İlişki ve aile yaşamındaki zorlanmalarınızı kendinizden başlayarak ele alan seanslar.",
   },

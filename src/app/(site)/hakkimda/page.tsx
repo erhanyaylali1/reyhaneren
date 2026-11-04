@@ -53,9 +53,10 @@ export default function AboutPage() {
         lead={
           <p>
             İzmir Bayraklı’da yüz yüze, Türkiye genelinde online olarak aile
-            danışmanlığı ve çift terapisi sunuyorum. İnsanların birbirine nasıl
-            bağlandığını anlamaya duyduğum merak, beni sosyolojiden aile
-            danışmanlığına taşıdı.
+            danışmanlığı ve çift terapisi seansları yürütüyorum. İnsanların yaşam
+            boyu gelişimine ve ilişki süreçlerine duyduğum merak, beni kimya
+            mühendisliğinden sosyolojiye, oradan da aile danışmanlığına
+            yönlendirdi.
           </p>
         }
       />
@@ -89,27 +90,52 @@ export default function AboutPage() {
           </figure>
 
           <div className="lg:col-span-7 lg:pt-2">
-            <h2 className={h2Class}>Sosyolojiden aile danışmanlığına</h2>
+            <h2 className={h2Class}>Mühendislikten insan ilişkilerine uzanan yolculuk</h2>
             <div className={`mt-6 space-y-5 ${bodyText}`}>
               <p>
-                Akdeniz Üniversitesi Sosyoloji bölümünden 2022 yılında yüksek onur
-                derecesiyle mezun oldum. Lisans eğitimim boyunca ilişkilerin nasıl
-                kurulduğu ve ailelerin nasıl oluştuğu üzerine düşündüm; bitirme
-                tezimi de bu merakla <em>Flört Kültürü</em> üzerine yazdım.
+                Her şey 2018 yılında, rasyonel ve sistem odaklı mühendislik
+                dünyasından ayrılıp insan zihninin ve ilişkilerinin karmaşık
+                dokusunu anlama arzusuyla başladı. Bu karar, beni Ege Üniversitesi
+                Kimya Mühendisliği’ni bırakıp{" "}
+                <strong className="font-medium text-ink">Akdeniz Üniversitesi Sosyoloji</strong>{" "}
+                lisans eğitimine başlamaya yöneltti.
               </p>
               <p>
-                Ardından Marmara Üniversitesi’nde Aile Danışmanlığı eğitimini
-                tamamlayarak 2025 yılında Aile Danışmanı unvanını aldım. Bugün bu
-                iki alanı bir araya getiriyorum: bir ilişkide yaşananları, o
-                ilişkinin içinde bulunduğu aile ve toplumsal koşullarla birlikte
-                anlamaya çalışıyorum.
+                İlişkilerdeki krizlerin ve aile içi dinamiklerin arka planındaki
+                toplumsal, kültürel ve ekonomik yapıları okumayı öğrendiğim bu
+                süreci,{" "}
+                <strong className="font-medium text-ink">Marmara Üniversitesi Aile Danışmanlığı</strong>{" "}
+                eğitimimle birleştirdim. Bugün bilgi birikimimi{" "}
+                <strong className="font-medium text-ink">Sosyoloji Yüksek Lisans</strong>{" "}
+                çalışmalarımla akademik düzeyde derinleştirmeye devam ediyorum.
+              </p>
+              <p>Seanslarıma taşıdığım bu çok yönlü arka plan, bana iki temel güç sunuyor:</p>
+              <ul className="space-y-4 border-l-2 border-sage-100 pl-5">
+                <li>
+                  <strong className="font-medium text-ink">Analitik bakış açısı:</strong>{" "}
+                  Mühendislik eğitimiyle başlayan analitik düşünme alışkanlığımla,
+                  karmaşık ve içinden çıkılmaz görünen ilişki sorunlarını parçalarına
+                  ayırıyor, net ve anlaşılır bir yapıya kavuşturuyorum.
+                </li>
+                <li>
+                  <strong className="font-medium text-ink">Geniş ve empatik perspektif:</strong>{" "}
+                  Sosyoloji ve aile danışmanlığı birikimimle bireyi ve ilişkiyi
+                  yargılamadan, içinde bulunduğu koşullarla birlikte değerlendirerek
+                  güvenli ve şefkatli bir alan açıyorum.
+                </li>
+              </ul>
+              <p>
+                Bugün seanslarımda analitik zihnin düzenleyici gücünü insan odaklı
+                bir anlayışla birleştiriyor; çiftlerin ve bireylerin kendi ilişkisel
+                dengelerini ve kendilerine uygun iletişim yollarını keşfetmelerine
+                rehberlik ediyorum.
               </p>
             </div>
 
             <h3 className="mt-14 text-lg font-semibold text-ink">Eğitim ve uzmanlık</h3>
             <ol className="mt-4 divide-y divide-line border-y border-line">
               {credentials.map((c) => (
-                <li key={c.year} className="grid grid-cols-[4.5rem_1fr] gap-x-4 py-5 sm:grid-cols-[5.5rem_1fr]">
+                <li key={c.year} className="grid grid-cols-[5rem_1fr] gap-x-4 py-5 sm:grid-cols-[5.5rem_1fr]">
                   <span className="font-serif text-xl text-sage-700 tabular-nums">{c.year}</span>
                   <div>
                     <p className="font-medium text-ink">
@@ -131,7 +157,7 @@ export default function AboutPage() {
         <div className="mx-auto grid max-w-6xl gap-12 px-5 py-20 sm:px-8 md:py-24 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
             <p className={eyebrow}>Yaklaşımım</p>
-            <h2 className={`mt-4 ${h2Class}`}>Sistemik yaklaşım: sorunu ilişkinin içinde görmek</h2>
+            <h2 className={`mt-4 ${h2Class}`}>Sistemik yaklaşım: ilişkiyi bir bütün olarak görmek</h2>
           </div>
           <div className={`space-y-5 lg:col-span-7 lg:pt-8 ${bodyText}`}>
             <p>
@@ -144,9 +170,10 @@ export default function AboutPage() {
             <p>
               Bu bakış, suçlamanın yerini merakın almasını sağlar. Seanslarda
               “kim haklı?” sorusu yerine “aramızda ne oluyor ve bunu nasıl
-              değiştirebiliriz?” sorusuna odaklanırız. Sosyoloji eğitimim de bu
-              resme kuşaklar arası aktarılan alışkanlıkları, toplumsal beklentileri
-              ve gündelik hayatın baskılarını ekler.
+              değiştirebiliriz?” sorusuna odaklanırız. Sosyoloji birikimim de bu
+              tabloya kuşaklar arası aktarılan alışkanlıkları, toplumsal
+              beklentileri ve gündelik hayatın çeşitli baskılarını katmamı
+              kolaylaştırıyor.
             </p>
           </div>
 

@@ -6,6 +6,12 @@ import type { ServicePageSlug } from "./site";
 
 export const credentials = [
   {
+    year: "Devam Ediyor",
+    title: "Sosyoloji Yüksek Lisans",
+    institution: "Akdeniz Üniversitesi",
+    note: "Tez: Ekonomik Prekaritenin Romantik Pratiklere Etkisi",
+  },
+  {
     year: "2025",
     title: "Aile Danışmanlığı Eğitimi",
     institution: "Marmara Üniversitesi",
@@ -15,14 +21,14 @@ export const credentials = [
     year: "2022",
     title: "Sosyoloji Lisans",
     institution: "Akdeniz Üniversitesi",
-    note: "Yüksek onur derecesi · Tez: Flört Kültürü",
+    note: "Yüksek onur derecesi · Tez: Dijital Flört Kültürü",
   },
 ];
 
 export const steps = [
   {
-    title: "Ön Görüşme ve İhtiyaç Analizi",
-    body: "İlk seansta İzmir Bayraklı ofisimizde yüz yüze veya online ortamda bir araya gelerek sizi danışmanlığa getiren temel konuları, beklentilerinizi ve ilişki dinamiklerinizi yargısız bir çerçevede dinliyoruz.",
+    title: "İlk Seans ve İhtiyaç Analizi",
+    body: "İlk seansta yüz yüze veya online olarak bir araya gelerek sizi danışmanlığa getiren temel konuları, beklentilerinizi ve ilişki dinamiklerinizi yargısız bir çerçevede dinliyoruz.",
   },
   {
     title: "Ortak Danışmanlık Hedeflerinin Belirlenmesi",
@@ -67,9 +73,9 @@ export const serviceContent: Record<ServicePageSlug, ServiceContent> = {
       "İzmir Bayraklı’da yüz yüze ve online bireysel danışmanlık: ilişki, aile ve yaşam geçişlerindeki zorlanmalarınızı Aile Danışmanı Reyhan Eren ile güvenli bir alanda ele alın.",
     serviceType: "Bireysel danışmanlık",
     kicker: "Hizmetler · Bireysel danışmanlık",
-    title: "Bireysel danışmanlık",
+    title: "İlişki odaklı bireysel danışmanlık",
     accent: "ilişkilerinize kendinizden başlayarak",
-    lead: "İlişkinizde, ailenizde ya da hayatınızın bir geçiş döneminde zorlandığınızda, her zaman diğer kişilerle birlikte başvurmanız gerekmez. Bireysel danışmanlıkta ihtiyaçlarınızı, ilişki kurma biçiminizi ve sınırlarınızı birlikte ele alıyoruz. Seanslar İzmir Bayraklı’daki ofiste yüz yüze ya da online olarak yapılır.",
+    lead: "İlişkinizde, ailenizde ya da hayatınızın bir geçiş döneminde zorlandığınızda, her zaman diğer kişilerle birlikte başvurmanız gerekmez. Bireysel danışmanlıkta ihtiyaçlarınızı, ilişki kurma biçiminizi ve sınırlarınızı birlikte ele alıyoruz. Seanslar İzmir Bayraklı’da yüz yüze ya da online olarak yapılır.",
     sections: [
       {
         heading: "Birey odaklı aile danışmanlığı nedir?",
@@ -106,7 +112,7 @@ export const serviceContent: Record<ServicePageSlug, ServiceContent> = {
       },
       {
         q: "Bireysel seanslar online yapılabilir mi?",
-        a: "Evet. Bireysel danışmanlık, Bayraklı’daki ofiste yüz yüze olduğu gibi Türkiye’nin ve dünyanın her yerinden güvenli görüntülü görüşmeyle online olarak da yürütülebilir.",
+        a: "Evet. Bireysel danışmanlık, Bayraklı’da yüz yüze olduğu gibi Türkiye’nin ve dünyanın her yerinden güvenli görüntülü görüşmeyle online olarak da yürütülebilir.",
       },
     ],
   },
@@ -119,7 +125,7 @@ export const serviceContent: Record<ServicePageSlug, ServiceContent> = {
     kicker: "Hizmetler · Çift terapisi",
     title: "İzmir çift terapisi",
     accent: "birbirinizi yeniden duymak için",
-    lead: "İletişimin koptuğu, aynı tartışmaların döndüğü ya da güvenin sarsıldığı dönemlerde çift terapisi, iki tarafın da kendini güvende hissederek konuşabileceği yapılandırılmış bir alan sunar. Seanslar İzmir Bayraklı’daki ofiste yüz yüze ya da online olarak yapılır.",
+    lead: "İletişimin koptuğu, aynı tartışmaların döndüğü ya da güvenin sarsıldığı dönemlerde çift terapisi, iki tarafın da kendini güvende hissederek konuşabileceği yapılandırılmış bir alan sunar. Seanslar İzmir Bayraklı’da yüz yüze ya da online olarak yapılır.",
     sections: [
       {
         heading: "Çift terapisi nedir?",
@@ -131,7 +137,7 @@ export const serviceContent: Record<ServicePageSlug, ServiceContent> = {
       {
         heading: "Bayraklı’da yüz yüze ya da online seanslar",
         paragraphs: [
-          "Yüz yüze seanslar İzmir Bayraklı’daki danışmanlık ofisinde, gizliliğin korunduğu sakin bir ortamda yapılır. Farklı şehirlerde yaşayan, yoğun çalışan ya da ofise gelmesi zor olan çiftler için aynı süreç güvenli görüntülü görüşmeyle online olarak da yürütülebilir.",
+          "Yüz yüze seanslar İzmir Bayraklı’da, gizliliğin korunduğu sakin bir ortamda yapılır. Farklı şehirlerde yaşayan, yoğun çalışan ya da yüz yüze seanslara gelmesi zor olan çiftler için aynı süreç güvenli görüntülü görüşmeyle online olarak da yürütülebilir.",
           "Partnerinizin henüz hazır olmadığı durumlarda sürece bireysel görüşmelerle başlamak da mümkündür; uygun olduğunda ortak seanslara geçilir.",
         ],
       },
@@ -184,7 +190,7 @@ export const serviceContent: Record<ServicePageSlug, ServiceContent> = {
         heading: "Bireysel, ebeveyn ve aile seansları",
         paragraphs: [
           "Her aile için aynı format uygun olmayabilir. Kimi zaman süreç bir ebeveynin bireysel görüşmeleriyle başlar, kimi zaman anne ve babanın birlikte katıldığı ebeveyn seanslarıyla ilerler, gerektiğinde çocukların ya da diğer aile üyelerinin katıldığı ortak görüşmeler planlanır.",
-          "Seanslar İzmir Bayraklı’daki ofiste yüz yüze ya da online olarak yapılabilir.",
+          "Seanslar İzmir Bayraklı’da yüz yüze ya da online olarak yapılabilir.",
         ],
       },
     ],
@@ -208,7 +214,7 @@ export const serviceContent: Record<ServicePageSlug, ServiceContent> = {
       },
       {
         q: "Aile danışmanlığı seansları nerede yapılıyor?",
-        a: "Yüz yüze seanslar İzmir Bayraklı’daki danışmanlık ofisinde yapılır. Şehir dışında yaşayan aileler için online görüşme seçeneği de vardır.",
+        a: "Yüz yüze seanslar İzmir Bayraklı’da yapılır. Şehir dışında yaşayan aileler için online görüşme seçeneği de vardır.",
       },
     ],
   },
@@ -252,7 +258,7 @@ export const serviceContent: Record<ServicePageSlug, ServiceContent> = {
       "Online kurumsal çalışmalar",
       "Uzak mesafe ilişkileri",
       "Yurt dışında yaşayan aileler ve çiftler",
-      "Ofise gelmesi zor olan, yoğun çalışan danışanlar",
+      "Yüz yüze seanslara gelmesi zor olan, yoğun çalışan danışanlar",
     ],
     faqs: [
       {
@@ -265,7 +271,7 @@ export const serviceContent: Record<ServicePageSlug, ServiceContent> = {
       },
       {
         q: "Online ve yüz yüze seanslar arasında geçiş yapılabilir mi?",
-        a: "Evet. İzmir’de olduğunuz dönemlerde Bayraklı’daki ofiste yüz yüze, diğer zamanlarda online devam edebilirsiniz; süreç kesintisiz sürer.",
+        a: "Evet. İzmir’de olduğunuz dönemlerde Bayraklı’da yüz yüze, diğer zamanlarda online devam edebilirsiniz; süreç kesintisiz sürer.",
       },
     ],
   },
@@ -290,7 +296,7 @@ export const serviceContent: Record<ServicePageSlug, ServiceContent> = {
       {
         heading: "Kuruma özel planlama",
         paragraphs: [
-          "Her kurumun ihtiyacı farklıdır. Çalışma, kurumun yetkilileriyle yapılan bir ön görüşmeyle başlar; hedefler, katılımcı grubu ve uygun format birlikte belirlenir. Çalışmalar İzmir’de kurumunuzda yüz yüze ya da online olarak planlanabilir.",
+          "Her kurumun ihtiyacı farklıdır. Hedefler, katılımcı grubu ve uygun format kurumun yetkilileriyle birlikte belirlenir. Çalışmalar İzmir’de kurumunuzda yüz yüze ya da online olarak planlanabilir.",
         ],
         list: [
           "Seminer ve bilgilendirme sunumları",
@@ -310,7 +316,7 @@ export const serviceContent: Record<ServicePageSlug, ServiceContent> = {
       "Yöneticiler için empatik ve açık iletişim",
     ],
     cta: {
-      title: "Kurumunuz için bir ön görüşme planlayalım",
+      title: "Kurumunuz için bir çalışma planlayalım",
       text: "İhtiyaçlarınızı dinlemek ve size özel bir çalışma önermek için arayın, WhatsApp’tan yazın ya da formu doldurun.",
     },
     facts: [
@@ -319,8 +325,8 @@ export const serviceContent: Record<ServicePageSlug, ServiceContent> = {
     ],
     steps: [
       {
-        title: "Ön Görüşme",
-        body: "Kurum yetkilileriyle bir araya gelerek ekibin ihtiyaçlarını, beklentileri ve öncelikli konuları dinliyoruz.",
+        title: "İhtiyaçların Belirlenmesi",
+        body: "Ekibin ihtiyaçlarını, beklentileri ve öncelikli konuları kurum yetkilileriyle birlikte belirliyoruz.",
       },
       {
         title: "Kuruma Özel Program",

@@ -26,7 +26,8 @@ type Channel = {
   label: string;
   value: string;
   note: string;
-  href: string;
+  /** Omit for an info-only card (no link). */
+  href?: string;
   external?: boolean;
   icon: ReactNode;
   tone: string;
@@ -36,7 +37,7 @@ const channels: Channel[] = [
   {
     label: "Telefon",
     value: site.phone.display,
-    note: "Arayın, kısa bir ön görüşme yapalım.",
+    note: "Arayın ya da WhatsApp’tan yazın.",
     href: site.phone.href,
     tone: "bg-sage-100 text-sage-700",
     icon: (
@@ -61,9 +62,7 @@ const channels: Channel[] = [
   {
     label: "Konum",
     value: `${site.address.locality}, ${site.address.region}`,
-    note: "Yüz yüze seanslar için ofis — haritada açın.",
-    href: site.address.mapUrl,
-    external: true,
+    note: "Yüz yüze seanslar İzmir Bayraklı’da.",
     tone: "bg-clay-100 text-clay-700",
     icon: (
       <svg {...iconProps}>
@@ -92,9 +91,8 @@ export default function ContactPage() {
         title="İletişim ve randevu"
         lead={
           <p>
-            Size en kolay gelen yoldan ulaşın. Kısa bir ön görüşmede başvuru
-            konunuzu dinleyip yüz yüze mi yoksa online mı ilerlemenin daha uygun
-            olacağını birlikte belirleyelim.
+            Size en kolay gelen yoldan ulaşın; başvuru konunuzu dinleyip
+            seanslarınızın planlamasını birlikte yapalım.
           </p>
         }
       >
@@ -114,25 +112,37 @@ export default function ContactPage() {
       <section className="border-t border-line bg-surface">
         <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 md:py-20">
           <ul className="grid gap-5 md:grid-cols-3">
-            {channels.map((c) => (
-              <li key={c.label}>
-                <a
-                  href={c.href}
-                  {...(c.external && { target: "_blank", rel: "noopener noreferrer" })}
-                  className="group flex h-full flex-col rounded-3xl border border-line bg-canvas p-7 transition-colors duration-150 hover:border-line-strong"
-                >
+            {channels.map((c) => {
+              const body = (
+                <>
                   <span className={`inline-flex size-12 items-center justify-center rounded-2xl ${c.tone}`}>
                     {c.icon}
                   </span>
                   <span className="mt-7 text-sm text-ink-muted">{c.label}</span>
-                  <span className="mt-1 break-all font-serif text-[1.375rem] leading-snug text-ink tabular-nums decoration-line-strong underline-offset-4 group-hover:underline">
+                  <span className={`mt-1 break-all font-serif text-[1.375rem] leading-snug text-ink tabular-nums decoration-line-strong underline-offset-4 ${c.href ? "group-hover:underline" : ""}`}>
                     {c.value}
                   </span>
                   <span className="mt-3 text-[0.9375rem] leading-relaxed text-ink-muted">{c.note}</span>
                   {c.external && <span className="sr-only"> (yeni sekmede açılır)</span>}
-                </a>
-              </li>
-            ))}
+                </>
+              );
+              const card = "group flex h-full flex-col rounded-3xl border border-line bg-canvas p-7";
+              return (
+                <li key={c.label}>
+                  {c.href ? (
+                    <a
+                      href={c.href}
+                      {...(c.external && { target: "_blank", rel: "noopener noreferrer" })}
+                      className={`${card} transition-colors duration-150 hover:border-line-strong`}
+                    >
+                      {body}
+                    </a>
+                  ) : (
+                    <div className={card}>{body}</div>
+                  )}
+                </li>
+              );
+            })}
           </ul>
         </div>
       </section>
@@ -145,9 +155,8 @@ export default function ContactPage() {
               Randevu talebi
             </h2>
             <p className={`mt-5 ${bodyText}`}>
-              Formu doldurun, size uygun bir zaman planlamak için sizi arayalım.
-              Hangi hizmetin size uygun olduğundan emin değilseniz, bunu da ilk
-              görüşmede birlikte belirleriz.
+              Formu doldurun, danışmanlık hizmetleri ile ilgili size ulaşalım ve
+              seanslarınızın uygun planlamasını beraber yapalım.
             </p>
             <dl className="mt-10 grid grid-cols-2 gap-6 border-t border-line-strong pt-6">
               <div>

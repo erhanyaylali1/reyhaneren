@@ -22,10 +22,10 @@ export default function ServicesPage() {
         title="Aile danışmanlığı ve çift terapisi hizmetleri"
         lead={
           <p>
-            Bireysel danışmanlıktan çift terapisine, aile danışmanlığından kurumsal
-            çalışmalara kadar her süreci ihtiyacınıza göre şekillendiriyorum.
-            Hangisinin size uygun olduğundan emin değilseniz, bunu ilk görüşmede
-            birlikte belirleriz.
+            İlişki odaklı bireysel görüşmelerden çift ve aile seanslarına kadar her
+            süreci ihtiyacınıza göre birlikte şekillendiriyoruz. Hangisinin size
+            uygun olduğundan emin değilseniz randevu formunu doldurun, birlikte
+            planlayalım.
           </p>
         }
       />

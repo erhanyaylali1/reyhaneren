@@ -18,10 +18,19 @@ const AUTOREPLY_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_AUTOREPLY_TEMPLATE
 // Same four services, same names as the service pages (single source).
 const services = [...servicePages.map((s) => s.title), "Henüz emin değilim"];
 
+// Face-to-face sessions are paused for now: shown (so visitors know they
+// exist) but not selectable. To reopen them, set `disabled: false` and
+// restore the hint to "Bayraklı, İzmir".
 const formats = [
-  { value: "Yüz yüze (Bayraklı, İzmir)", label: "Yüz yüze", hint: "Bayraklı, İzmir" },
-  { value: "Online", label: "Online", hint: "Görüntülü görüşme" },
+  {
+    value: "Yüz yüze (Bayraklı, İzmir)",
+    label: "Yüz yüze",
+    hint: "Şu an yeni yüz yüze randevu alamıyoruz",
+    disabled: true,
+  },
+  { value: "Online", label: "Online", hint: "Görüntülü görüşme", disabled: false },
 ] as const;
+const faceToFacePaused = formats.some((f) => f.disabled);
 
 type Field = "name" | "phone" | "email" | "service" | "consent";
 type Errors = Partial<Record<Field, string>>;
@@ -278,21 +287,30 @@ export function AppointmentForm() {
             {formats.map((f) => (
               <label
                 key={f.value}
-                className="flex min-h-14 cursor-pointer items-center gap-3 rounded-xl border border-line-strong bg-surface px-4 transition-colors duration-150 hover:border-ink-muted has-[:checked]:border-sage-700 has-[:checked]:bg-sage-50 has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-sage-700"
+                className="flex min-h-14 cursor-pointer items-center gap-3 rounded-xl border border-line-strong bg-surface px-4 py-3 transition-colors duration-150 hover:border-ink-muted has-[:checked]:border-sage-700 has-[:checked]:bg-sage-50 has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-sage-700 has-[:disabled]:cursor-not-allowed has-[:disabled]:border-dashed has-[:disabled]:border-line has-[:disabled]:bg-canvas has-[:disabled]:hover:border-line"
               >
                 <input
                   type="radio"
                   name="format"
                   value={f.value}
-                  className="size-4 accent-sage-700 focus-visible:outline-none"
+                  disabled={f.disabled}
+                  defaultChecked={!f.disabled && faceToFacePaused}
+                  aria-describedby={f.disabled ? "format-not" : undefined}
+                  className="size-4 accent-sage-700 focus-visible:outline-none disabled:opacity-50"
                 />
-                <span className="text-ink">
+                <span className={f.disabled ? "text-ink-muted" : "text-ink"}>
                   {f.label}
                   <span className="block text-sm text-ink-muted">{f.hint}</span>
                 </span>
               </label>
             ))}
           </div>
+          {faceToFacePaused && (
+            <p id="format-not" className="mt-2 text-sm text-ink-muted">
+              Yüz yüze seanslar geçici olarak kapalı; online seanslarımız tüm
+              Türkiye’den devam ediyor.
+            </p>
+          )}
         </fieldset>
 
         <div className="sm:col-span-2">

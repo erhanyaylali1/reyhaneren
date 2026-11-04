@@ -20,7 +20,7 @@ export function SiteFooter() {
             {site.title}
           </p>
           <p className="mt-6 max-w-sm leading-relaxed text-ink-muted">
-            İzmir Bayraklı’daki ofiste yüz yüze, Türkiye’nin her yerinden
+            İzmir Bayraklı’da yüz yüze, Türkiye’nin her yerinden
             online olarak aile danışmanlığı ve çift terapisi seansları.
           </p>
         </div>
@@ -75,18 +75,8 @@ export function SiteFooter() {
                 {site.email}
               </a>
             </p>
-            <p className="flex flex-wrap items-center gap-x-1.5 text-ink">
+            <p className="flex min-h-11 items-center text-ink">
               {site.address.locality}, {site.address.region}
-              <span aria-hidden="true" className="text-ink-muted">·</span>
-              <a
-                href={site.address.mapUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={linkClass}
-              >
-                Haritada aç
-                <span className="sr-only"> (yeni sekmede açılır)</span>
-              </a>
             </p>
           </address>
           <h2 className="mt-8 text-xs font-medium uppercase tracking-[0.18em] text-ink-muted">

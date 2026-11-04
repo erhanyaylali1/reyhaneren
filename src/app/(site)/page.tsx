@@ -3,6 +3,8 @@ import type { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { AppointmentForm } from "@/components/appointment-form";
+import { HeroLine } from "@/components/hero-line";
+import { WhatsAppIcon } from "@/components/page-ui";
 import { credentials, steps } from "@/lib/content";
 import { servicePages, site, type ServiceSlug } from "@/lib/site";
 
@@ -85,7 +87,7 @@ const services: Service[] = [
 const faqs = [
   {
     q: "İzmir Bayraklı’da yüz yüze ve online çift terapisi seansları nasıl işliyor?",
-    a: "Yüz yüze görüşmelerimiz İzmir Bayraklı’daki danışmanlık ofisimizde, sessiz ve gizliliğin tam korunduğu bir ortamda 50–60 dakika olarak gerçekleştirilir. Şehir dışında veya yurt dışında yaşayan danışanlarımız için ise güvenli görüntülü görüşme altyapısıyla online aile danışmanlığı ve çift terapisi sunulmaktadır.",
+    a: "Yüz yüze görüşmeler İzmir Bayraklı’da, sessiz ve gizliliğin tam korunduğu bir ortamda 50–60 dakika olarak gerçekleştirilir. Şehir dışında veya yurt dışında yaşayan danışanlarımız için ise güvenli görüntülü görüşme altyapısıyla online aile danışmanlığı ve çift terapisi sunulmaktadır.",
   },
   {
     q: "Çift terapisine eşim veya partnerim olmadan tek başıma başvurabilir miyim?",
@@ -101,7 +103,7 @@ const faqs = [
   },
   {
     q: "Randevu almak için ne yapmalıyım?",
-    a: `Sayfanın altındaki randevu formunu doldurabilir ya da ${site.phone.display} numaralı telefondan arayabilirsiniz. Kısa bir ön görüşmede başvuru konunuzu dinleyip yüz yüze mi yoksa online mı ilerlemenin daha uygun olacağını birlikte belirliyoruz.`,
+    a: `Sayfanın altındaki randevu formunu doldurabilir ya da ${site.phone.display} numaralı telefondan arayabilirsiniz. Size ulaştığımızda başvuru konunuzu dinleyip seanslarınızın planlamasını birlikte yapıyoruz.`,
   },
 ];
 
@@ -121,6 +123,7 @@ const sessionFormats = [
     detail: `${site.address.locality}, ${site.address.region}`,
   },
   { label: "Online", detail: "Türkiye’nin her yerinden" },
+  { label: "Bireysel · Çift · Aile", detail: "İlişki odaklı seanslar" },
 ];
 
 function ArrowIcon() {
@@ -157,8 +160,9 @@ export default function Home() {
       {/* ───────────── Hero ───────────── */}
       <section
         aria-labelledby="hero-baslik"
-        className="mx-auto max-w-6xl px-5 pb-20 pt-12 sm:px-8 md:pb-28 md:pt-20"
+        className="relative mx-auto max-w-6xl px-5 pb-20 pt-12 sm:px-8 md:pb-28 md:pt-20"
       >
+        <HeroLine className="absolute right-8 top-8 hidden h-[30rem] w-auto lg:block xl:right-4" />
         <div className="max-w-3xl">
           <p className="flex items-center gap-2.5 text-sm font-medium text-ink-muted">
             <span
@@ -179,9 +183,9 @@ export default function Home() {
           </h1>
 
           <p className="mt-7 max-w-[34rem] text-lg leading-relaxed text-ink-muted text-pretty">
-            Aile Danışmanı {site.person} ile güvenli ve yargısız bir ortamda
-            ilişkinizdeki düğümleri birlikte çözün. Sorunlar çözüme kavuşurken
-            yeni bir bakış açısı ve farkındalık kazanın.
+            Aile Danışmanı {site.person} ile tarafsız ve güvenli bir ortamda
+            ilişkilerinizdeki tekrar eden döngüleri fark edin. Kendinize ve
+            ilişkinize yeni bir yerden bakarken çözümleri birlikte arayalım.
           </p>
 
           <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
@@ -195,7 +199,7 @@ export default function Home() {
           </div>
 
           {/* Session formats: lets visitors self-select before they call. */}
-          <dl className="mt-12 grid max-w-md grid-cols-2 gap-6 border-t border-line pt-6">
+          <dl className="mt-12 grid max-w-2xl grid-cols-2 gap-6 border-t border-line pt-6 sm:grid-cols-[auto_auto_1fr] sm:gap-x-10">
             {sessionFormats.map((f) => (
               <div key={f.label}>
                 <dt className="font-serif text-xl text-ink">{f.label}</dt>
@@ -258,7 +262,7 @@ export default function Home() {
                 Reyhan Eren, Akdeniz Üniversitesi Sosyoloji bölümünden 2022
                 yılında yüksek onur derecesiyle mezun olmuştur. Lisans döneminde
                 ilişkilerin gelişimine ve aile oluşumuna duyduğu merakla tezini
-                Flört Kültürü üzerine yapmıştır.
+                Dijital Flört Kültürü üzerine yapmıştır.
               </p>
               <p>
                 2025 itibarıyla Marmara Üniversitesi Aile Danışmanlığı eğitimini
@@ -326,8 +330,10 @@ export default function Home() {
               İzmir’de aile danışmanlığı ve çift terapisi hizmetleri
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-ink-muted text-pretty">
-              Bireysel danışmanlıktan çift terapisine, aile danışmanlığından kurumsal
-              çalışmalara kadar her süreci ihtiyacınıza göre şekillendiriyorum.
+              İlişki odaklı bireysel görüşmelerden çift ve aile seanslarına kadar her
+              süreci ihtiyacınıza göre birlikte şekillendiriyoruz. Hangisinin size
+              uygun olduğundan emin değilseniz randevu formunu doldurun, birlikte
+              planlayalım.
               Tüm hizmetler{" "}
               <Link
                 href="/hizmetler/online-danismanlik"
@@ -490,20 +496,23 @@ export default function Home() {
               Randevu talebi
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-ink-muted text-pretty">
-              Formu doldurun, size uygun bir zaman planlamak için sizi arayalım.
-              Hangi hizmetin size uygun olduğundan emin değilseniz, bunu da ilk
-              görüşmede birlikte belirleriz.
+              Formu doldurun, danışmanlık hizmetleri ile ilgili size ulaşalım ve
+              seanslarınızın uygun planlamasını beraber yapalım.
             </p>
 
             <div className="mt-10 border-t border-line-strong pt-6">
               <p className="text-sm text-ink-muted">
-                Formla uğraşmak istemiyor musunuz?
+                Dilerseniz doğrudan WhatsApp’tan yazın
               </p>
               <a
-                href={site.phone.href}
-                className="mt-1 inline-flex min-h-11 items-center font-serif text-[1.75rem] tracking-[-0.01em] text-ink tabular-nums underline decoration-transparent underline-offset-4 transition-colors duration-150 hover:decoration-ink"
+                href={site.whatsapp.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-1 inline-flex min-h-11 items-center gap-3 font-serif text-[1.75rem] tracking-[-0.01em] text-ink tabular-nums underline decoration-transparent underline-offset-4 transition-colors duration-150 hover:decoration-ink"
               >
+                <WhatsAppIcon className="size-6 shrink-0 text-sage-700" />
                 {site.phone.display}
+                <span className="sr-only"> (WhatsApp, yeni sekmede açılır)</span>
               </a>
             </div>
           </div>
