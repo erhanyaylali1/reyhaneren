@@ -16,7 +16,7 @@ export const metadata: Metadata = pageMetadata({
   path: "/kvkk-ve-gizlilik",
 });
 
-const LAST_UPDATED = "3 Kasım 2026";
+const LAST_UPDATED = "4 Kasım 2026";
 
 const sections = [
   { id: "veri-sorumlusu", title: "Veri sorumlusu" },
@@ -106,9 +106,12 @@ export default function KvkkPage() {
               <li>
                 <strong>Ziyaret istatistikleri (yalnızca izin verirseniz):</strong> çerez
                 tercihlerinde “Kabul et”i seçmeniz hâlinde Google Analytics aracılığıyla
-                görüntülediğiniz sayfalar, siteye nereden geldiğiniz, ziyaret süresi, yaklaşık
-                konum (şehir/ülke), cihaz, işletim sistemi ve tarayıcı bilgileri ile çevrim içi
-                tanımlayıcılar (çerez kimliği).
+                görüntülediğiniz sayfalar, siteye nereden geldiğiniz, ziyaret süresi, randevu
+                formunu gönderme ve telefon, WhatsApp veya e-posta bağlantısına tıklama gibi site
+                içi işlemler, yaklaşık konum (şehir/ülke), cihaz, işletim sistemi ve tarayıcı
+                bilgileri ile çevrim içi tanımlayıcılar (çerez kimliği). Bu işlemlerin yalnızca
+                gerçekleştiği bilgisi kaydedilir; formda yazdığınız ad, telefon, e-posta, seçtiğiniz
+                hizmet ve mesaj içeriği Google Analytics’e gönderilmez.
               </li>
             </ul>
 
@@ -120,8 +123,9 @@ export default function KvkkPage() {
               <li>Mevzuattan doğan yükümlülükleri (ör. faturalandırma, yetkili mercilerin talepleri) yerine getirmek,</li>
               <li>Web sitesinin güvenliğini sağlamak ve kötüye kullanımı önlemek,</li>
               <li>
-                İzin vermeniz hâlinde, sitenin nasıl kullanıldığını toplu istatistiklerle
-                anlamak ve içeriği ile kullanım kolaylığını geliştirmek.
+                İzin vermeniz hâlinde, sitenin nasıl kullanıldığını ve hangi sayfaların randevu
+                talebine yol açtığını toplu istatistiklerle anlamak, içeriği ve kullanım
+                kolaylığını geliştirmek.
               </li>
             </ul>
             <p>

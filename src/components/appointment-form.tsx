@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState, type FormEvent } from "react";
+import { trackEvent } from "@/lib/analytics";
 import { servicePages, site } from "@/lib/site";
 
 // Public by design: EmailJS keys are meant to live in the browser. Abuse is
@@ -142,6 +143,14 @@ export function AppointmentForm() {
         console.error("EmailJS otomatik yanıt hatası", err);
       }
     }
+
+    // Key event for Analytics. Only the meeting format — never the name,
+    // phone, message or chosen service (relationship topics are sensitive).
+    trackEvent("generate_lead", {
+      form_name: "randevu",
+      meeting_format:
+        params.format === "Online" ? "online" : params.format === "Belirtilmedi" ? "belirtilmedi" : "yuz_yuze",
+    });
 
     form.reset();
     setStatus("success");

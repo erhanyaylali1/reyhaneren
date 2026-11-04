@@ -1,3 +1,4 @@
+import { ContactTracking } from "@/components/contact-tracking";
 import { CookieConsent } from "@/components/cookie-consent";
 import { SiteFooter } from "@/components/site-footer";
 import { PageTransition } from "@/components/page-transition";
@@ -22,6 +23,7 @@ export default function SiteLayout({ children }: LayoutProps<"/">) {
       {/* Consent banner + Google Analytics (loaded only after "Kabul et").
           Public pages only, so admin visits don't pollute the stats. */}
       <CookieConsent />
+      <ContactTracking />
     </>
   );
 }
