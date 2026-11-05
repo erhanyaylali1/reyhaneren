@@ -185,7 +185,8 @@ export default function Home() {
           <p className="mt-7 max-w-[34rem] text-lg leading-relaxed text-ink-muted text-pretty">
             Aile Danışmanı {site.person} ile tarafsız ve güvenli bir ortamda
             ilişkilerinizdeki tekrar eden döngüleri fark edin. Kendinize ve
-            ilişkinize yeni bir yerden bakarken çözümleri birlikte arayalım.
+            ilişkinize dair yeni bir bakış açısı kazanırken çözümleri beraber
+            keşfedelim.
           </p>
 
           <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
@@ -330,11 +331,10 @@ export default function Home() {
               İzmir’de aile danışmanlığı ve çift terapisi hizmetleri
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-ink-muted text-pretty">
-              İlişki odaklı bireysel görüşmelerden çift ve aile seanslarına kadar her
-              süreci ihtiyacınıza göre birlikte şekillendiriyoruz. Hangisinin size
-              uygun olduğundan emin değilseniz randevu formunu doldurun, birlikte
-              planlayalım.
-              Tüm hizmetler{" "}
+              İlişki odaklı bireysel görüşmelerden çift ve aile seanslarına
+              kadar her süreci ihtiyacınıza göre birlikte şekillendiriyoruz.
+              Hangisinin size uygun olduğundan emin değilseniz randevu formunu
+              doldurun, birlikte planlayalım. Tüm hizmetler{" "}
               <Link
                 href="/hizmetler/online-danismanlik"
                 className="text-ink underline decoration-line-strong underline-offset-4 transition-colors duration-150 hover:decoration-ink"
@@ -346,36 +346,41 @@ export default function Home() {
           </div>
 
           <ul className="mt-14 grid gap-5 sm:grid-cols-2 md:mt-16 md:gap-6">
-            {services.map((s) => ({ ...s, ...servicePages.find((p) => p.slug === s.slug)! })).map((s) => (
-              <li
-                key={s.slug}
-                className="group relative flex flex-col rounded-3xl border border-line bg-surface p-7 transition-colors duration-150 hover:border-line-strong sm:p-8"
-              >
-                <span
-                  className={`inline-flex size-12 items-center justify-center rounded-2xl ${s.tone}`}
+            {services
+              .map((s) => ({
+                ...s,
+                ...servicePages.find((p) => p.slug === s.slug)!,
+              }))
+              .map((s) => (
+                <li
+                  key={s.slug}
+                  className="group relative flex flex-col rounded-3xl border border-line bg-surface p-7 transition-colors duration-150 hover:border-line-strong sm:p-8"
                 >
-                  {s.icon}
-                </span>
-                <h3 className="mt-8 text-xl font-semibold tracking-[-0.01em] text-ink">
-                  <Link
-                    href={`/hizmetler/${s.slug}`}
-                    className="after:absolute after:inset-0 after:rounded-3xl"
+                  <span
+                    className={`inline-flex size-12 items-center justify-center rounded-2xl ${s.tone}`}
                   >
-                    {s.title}
-                  </Link>
-                </h3>
-                <p className="mt-2 font-serif text-lg italic text-ink">
-                  {s.lead}
-                </p>
-                <p className="mt-4 flex-1 leading-relaxed text-ink-muted">
-                  {s.body}
-                </p>
-                <span className="mt-6 inline-flex items-center gap-1.5 text-[0.9375rem] font-medium text-sage-700">
-                  Detaylı bilgi
-                  <ArrowIcon />
-                </span>
-              </li>
-            ))}
+                    {s.icon}
+                  </span>
+                  <h3 className="mt-8 text-xl font-semibold tracking-[-0.01em] text-ink">
+                    <Link
+                      href={`/hizmetler/${s.slug}`}
+                      className="after:absolute after:inset-0 after:rounded-3xl"
+                    >
+                      {s.title}
+                    </Link>
+                  </h3>
+                  <p className="mt-2 font-serif text-lg italic text-ink">
+                    {s.lead}
+                  </p>
+                  <p className="mt-4 flex-1 leading-relaxed text-ink-muted">
+                    {s.body}
+                  </p>
+                  <span className="mt-6 inline-flex items-center gap-1.5 text-[0.9375rem] font-medium text-sage-700">
+                    Detaylı bilgi
+                    <ArrowIcon />
+                  </span>
+                </li>
+              ))}
           </ul>
         </div>
       </section>
@@ -512,7 +517,10 @@ export default function Home() {
               >
                 <WhatsAppIcon className="size-6 shrink-0 text-sage-700" />
                 {site.phone.display}
-                <span className="sr-only"> (WhatsApp, yeni sekmede açılır)</span>
+                <span className="sr-only">
+                  {" "}
+                  (WhatsApp, yeni sekmede açılır)
+                </span>
               </a>
             </div>
           </div>
