@@ -1,585 +1,306 @@
-:root {
-    --background: #FDF9F6;
-    --foreground: #333333;
-    --spacingXs: 4px;
-    --spacingSm: 8px;
-    --spacingMd: 12px;
-    --spacingLg: 16px;
-    --spacingXl: 20px;
-    --spacing2Xl: 24px;
-    --spacing3Xl: 32px;
+@import "tailwindcss";
+
+/*
+  Design tokens — warm clinical calm.
+  Neutrals share one warm hue; ink is sage-tinted near-black (never #000),
+  canvas is a warm off-white (never #fff). Contrast ratios are noted on the
+  pairs that carry text.
+*/
+@theme {
+  --font-sans: var(--font-figtree), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-newsreader), ui-serif, Georgia, serif;
+
+  --color-canvas: #f6f2ec; /* page background */
+  --color-surface: #fbf9f5; /* cards, panels */
+  --color-line: #e3dcd1; /* hairlines, from the same warm ramp */
+  --color-line-strong: #cfc6b8;
+
+  --color-ink: #1f2a25; /* 13.3:1 on canvas */
+  --color-ink-muted: #55605a; /* 5.9:1 on canvas */
+
+  --color-sage-50: #eef2ec;
+  --color-sage-100: #e2e9e1;
+  --color-sage-700: #3f5b4c; /* primary — canvas text on it: 6.7:1 */
+  --color-sage-800: #324a3d;
+
+  --color-clay-100: #f2e5da;
+  --color-clay-700: #8a5239; /* 5.1:1 on clay-100 */
+  --color-mist-100: #e0e8ec;
+  --color-mist-700: #3e5a68;
+  --color-sand-100: #ede4d3;
+  --color-sand-700: #6e5a35;
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --background: #0a0a0a;
-        --foreground: #ededed;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* sticky header height + breathing room for #anchor jumps */
+    scroll-padding-top: 6rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
     }
+    *,
+    *::before,
+    *::after {
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background-color: var(--color-sage-100);
+    color: var(--color-ink);
+  }
+
+  /* One focus language for every interactive element. */
+  :focus-visible {
+    outline: 2px solid var(--color-sage-700);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
 }
 
-html,
-body {
-    max-width: 100vw;
-    height: 100vh;
-    overflow-x: hidden;
-}
-
-body {
-    color: var(--foreground);
-    background: var(--background);
-    font-family: Arial, Helvetica, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-}
-
-a {
+/*
+  Article typography — shared by the public post page and the admin editor
+  so what's written is exactly what's published.
+*/
+@layer components {
+  .prose-blog {
+    font-size: 1.125rem;
+    line-height: 1.75;
+    color: var(--color-ink);
+    overflow-wrap: break-word;
+  }
+  .prose-blog > * + * {
+    margin-top: 1.25em;
+  }
+  .prose-blog h2,
+  .prose-blog h3,
+  .prose-blog h4 {
+    font-family: var(--font-serif);
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+    text-wrap: balance;
+  }
+  .prose-blog h2 {
+    font-size: 1.875rem;
+    margin-top: 2em;
+  }
+  .prose-blog h3 {
+    font-size: 1.5rem;
+    margin-top: 1.75em;
+  }
+  .prose-blog h4 {
+    font-size: 1.25rem;
+    margin-top: 1.5em;
+  }
+  .prose-blog h2 + *,
+  .prose-blog h3 + *,
+  .prose-blog h4 + * {
+    margin-top: 0.75em;
+  }
+  .prose-blog p {
+    text-wrap: pretty;
+  }
+  .prose-blog a {
+    color: var(--color-sage-700);
+    text-decoration: underline;
+    text-decoration-color: var(--color-line-strong);
+    text-underline-offset: 4px;
+    transition: text-decoration-color 150ms;
+  }
+  .prose-blog a:hover {
+    text-decoration-color: currentColor;
+  }
+  .prose-blog strong {
+    font-weight: 600;
+  }
+  .prose-blog mark {
+    background-color: #fde68a;
     color: inherit;
-    text-decoration: none;
-}
-
-.container {
-    width: 80%;
-    margin-inline: auto;
-}
-
-/* Width Classes */
-
-.w-100 {
+    border-radius: 3px;
+    padding: 0.05em 0.15em;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+  .prose-blog ul,
+  .prose-blog ol {
+    padding-left: 1.4em;
+  }
+  .prose-blog ul {
+    list-style: disc;
+  }
+  .prose-blog ol {
+    list-style: decimal;
+  }
+  .prose-blog li + li {
+    margin-top: 0.5em;
+  }
+  .prose-blog li::marker {
+    color: var(--color-ink-muted);
+  }
+  .prose-blog li > p {
+    margin: 0;
+  }
+  .prose-blog blockquote {
+    border-left: 2px solid var(--color-sage-700);
+    padding-left: 1.25em;
+    font-family: var(--font-serif);
+    font-size: 1.375rem;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--color-sage-800);
+  }
+  .prose-blog hr {
+    border: 0;
+    border-top: 1px solid var(--color-line);
+    margin: 2.5em 0;
+  }
+  /* Width comes from the editor as an inline % (data-width); default full. */
+  .prose-blog img {
+    display: block;
     width: 100%;
+    min-width: min(100%, 18rem); /* small images stay readable on phones */
+    height: auto;
+    margin-inline: auto;
+    border-radius: 1rem;
+    background-color: var(--color-sand-100);
+  }
+  .prose-blog img[data-align="left"] {
+    margin-inline: 0 auto;
+  }
+  .prose-blog img[data-align="right"] {
+    margin-inline: auto 0;
+  }
+  .prose-blog code {
+    font-size: 0.9em;
+    background-color: var(--color-sand-100);
+    border-radius: 4px;
+    padding: 0.1em 0.3em;
+  }
+  .prose-blog div[data-youtube-video] iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    border-radius: 1rem;
+    background-color: var(--color-ink);
+  }
+}
+
+/* Editor-only affordances (Tiptap). */
+@layer components {
+  /* Resizable image node view: sizing is handled by the inner wrapper. */
+  .tiptap .rt-image img {
+    min-width: 0;
+    margin: 0;
+  }
+  .tiptap p.is-editor-empty:first-child::before {
+    content: attr(data-placeholder);
+    float: left;
+    height: 0;
+    pointer-events: none;
+    color: var(--color-ink-muted);
+    opacity: 0.6;
+  }
+  .tiptap div[data-youtube-video].ProseMirror-selectednode iframe {
+    outline: 2px solid var(--color-sage-700);
+    outline-offset: 3px;
+  }
+}
+
+/*
+  Page transitions (React <ViewTransition>, see components/page-transition).
+  Calm, clinical motion: the header stays put as the spatial anchor, the old
+  page fades out quickly, the new one fades in while rising 12px.
+*/
+::view-transition {
+  pointer-events: none; /* clicks during the animation reach the live page */
+}
+
+/* The rest of the page (footer, background) swaps instantly underneath. */
+::view-transition-old(root) {
+  display: none;
+}
+::view-transition-new(root) {
+  animation: none;
+}
+
+/* Header: never moves or flashes. */
+::view-transition-group(site-header) {
+  animation: none;
+  z-index: 100;
+}
+::view-transition-old(site-header) {
+  display: none;
+}
+::view-transition-new(site-header) {
+  animation: none;
+}
+
+/* Sequential, not overlapping: two pages of text crossfading looks muddy. */
+::view-transition-old(.page-exit) {
+  animation: 120ms cubic-bezier(0.4, 0, 1, 1) both vt-fade-out;
+}
+::view-transition-new(.page-enter) {
+  animation:
+    240ms cubic-bezier(0, 0, 0.2, 1) 120ms both vt-fade-in,
+    380ms cubic-bezier(0.2, 0.7, 0.2, 1) 100ms both vt-rise;
+}
+
+/* Shared elements (e.g. service tile → service page) morph a little slower
+   than the page fade so the eye can follow them. */
+::view-transition-group(.service-mark) {
+  animation-duration: 420ms;
+  animation-timing-function: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+@keyframes vt-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes vt-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes vt-rise {
+  from {
+    translate: 0 12px;
+  }
+}
+
+/* Reduced motion: keep a plain crossfade, drop all movement. */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-new(.page-enter) {
+    animation: 200ms ease-out 120ms both vt-fade-in;
+  }
+  ::view-transition-group(*) {
+    animation-duration: 0s !important;
+  }
+}
+
+/* Hero line art draws itself once on load; skipped for reduced motion. */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-line-draw {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: hero-line-draw 2.6s cubic-bezier(0.45, 0, 0.2, 1) 0.2s forwards;
+  }
+}
+@keyframes hero-line-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
-.w-75 {
-    width: 75%;
-}
-
-.w-66 {
-    width: 66%;
-}
-
-.w-50 {
-    width: 50%;
-}
-
-.w-33 {
-    width: 33%;
-}
-
-.w-25 {
-    width: 25%;
-}
-
-/* Flex Classes */
-
-.d-flex {
-    display: flex;
-}
-
-/* Flex Direction Classes */
-
-.flex-row {
-    flex-direction: row;
-}
-
-.flex-column {
-    flex-direction: column;
-}
-
-/* Flex Align Items Classes */
-
-.flex-align-center {
-    align-items: center;
-}
-
-.flex-align-start {
-    align-items: flex-start;
-}
-
-.flex-align-end {
-    align-items: flex-end;
-}
-
-/* Flex Justify Content Classes */
-
-.flex-justify-center {
-    justify-content: center;
-}
-
-.flex-justify-start {
-    justify-content: flex-start;
-}
-
-.flex-justify-end {
-    justify-content: flex-end;
-}
-
-.flex-justify-between {
-    justify-content: space-between;
-}
-
-.flex-justify-around {
-    justify-content: space-around;
-}
-
-.flex-justify-evenly {
-    justify-content: space-evenly;
-}
-
-.flex-justify-stretch {
-    justify-content: stretch;
-}
-
-/* Gap Classes */
-
-.gap-xs {
-    gap: var(--spacingXs);
-}
-
-.gap-sm {
-    gap: var(--spacingSm);
-}
-
-.gap-md {
-    gap: var(--spacingMd);
-}
-
-.gap-lg {
-    gap: var(--spacingLg);
-}
-
-.gap-xl {
-    gap: var(--spacingXl);
-}
-
-.gap-2xl {
-    gap: var(--spacing2Xl);
-}
-
-.gap-3xl {
-    gap: var(--spacing3Xl);
-}
-
-/* Margin Classes */
-
-.ui-m-xs {
-    margin: var(--spacingXs);
-}
-
-.ui-m-sm {
-    margin: var(--spacingSm);
-}
-
-.ui-m-md {
-    margin: var(--spacingMd);
-}
-
-.ui-m-lg {
-    margin: var(--spacingLg);
-}
-
-.ui-m-xl {
-    margin: var(--spacingXl);
-}
-
-.ui-m-2xl {
-    margin: var(--spacing2Xl);
-}
-
-.ui-m-3xl {
-    margin: var(--spacing3Xl);
-}
-
-/* Margin X Classes */
-
-.ui-mx-xs {
-    margin-inline: var(--spacingXs);
-}
-
-.ui-mx-sm {
-    margin-inline: var(--spacingSm);
-}
-
-.ui-mx-md {
-    margin-inline: var(--spacingMd);
-}
-
-.ui-mx-lg {
-    margin-inline: var(--spacingLg);
-}
-
-.ui-mx-xl {
-    margin-inline: var(--spacingXl);
-}
-
-.ui-mx-2xl {
-    margin-inline: var(--spacing2Xl);
-}
-
-.ui-mx-3xl {
-    margin-inline: var(--spacing3Xl);
-}
-
-/* Margin Y Classes */
-
-.ui-my-xs {
-    margin-block: var(--spacingXs);
-}
-
-.ui-my-sm {
-    margin-block: var(--spacingSm);
-}
-
-.ui-my-md {
-    margin-block: var(--spacingMd);
-}
-
-.ui-my-lg {
-    margin-block: var(--spacingLg);
-}
-
-.ui-my-xl {
-    margin-block: var(--spacingXl);
-}
-
-.ui-my-2xl {
-    margin-block: var(--spacing2Xl);
-}
-
-.ui-my-3xl {
-    margin-block: var(--spacing3Xl);
-}
-
-/* Margin Top Classes */
-
-.ui-mt-xs {
-    margin-top: var(--spacingXs);
-}
-
-.ui-mt-sm {
-    margin-top: var(--spacingSm);
-}
-
-.ui-mt-md {
-    margin-top: var(--spacingMd);
-}
-
-.ui-mt-lg {
-    margin-top: var(--spacingLg);
-}
-
-.ui-mt-xl {
-    margin-top: var(--spacingXl);
-}
-
-.ui-mt-2xl {
-    margin-top: var(--spacing2Xl);
-}
-
-.ui-mt-3xl {
-    margin-top: var(--spacing3Xl);
-}
-
-/* Margin Bottom Classes */
-
-.ui-mb-xs {
-    margin-bottom: var(--spacingXs);
-}
-
-.ui-mb-sm {
-    margin-bottom: var(--spacingSm);
-}
-
-.ui-mb-md {
-    margin-bottom: var(--spacingMd);
-}
-
-.ui-mb-lg {
-    margin-bottom: var(--spacingLg);
-}
-
-.ui-mb-xl {
-    margin-bottom: var(--spacingXl);
-}
-
-.ui-mb-2xl {
-    margin-bottom: var(--spacing2Xl);
-}
-
-.ui-mb-3xl {
-    margin-bottom: var(--spacing3Xl);
-}
-
-/* Margin Left Classes */
-
-.ui-ml-xs {
-    margin-left: var(--spacingXs);
-}
-
-.ui-ml-sm {
-    margin-left: var(--spacingSm);
-}
-
-.ui-ml-md {
-    margin-left: var(--spacingMd);
-}
-
-.ui-ml-lg {
-    margin-left: var(--spacingLg);
-}
-
-.ui-ml-xl {
-    margin-left: var(--spacingXl);
-}
-
-.ui-ml-2xl {
-    margin-left: var(--spacing2Xl);
-}
-
-.ui-ml-3xl {
-    margin-left: var(--spacing3Xl);
-}
-
-/* Margin Right Classes */
-
-.ui-mr-xs {
-    margin-right: var(--spacingXs);
-}
-
-.ui-mr-sm {
-    margin-right: var(--spacingSm);
-}
-
-.ui-mr-md {
-    margin-right: var(--spacingMd);
-}
-
-.ui-mr-lg {
-    margin-right: var(--spacingLg);
-}
-
-.ui-mr-xl {
-    margin-right: var(--spacingXl);
-}
-
-.ui-mr-2xl {
-    margin-right: var(--spacing2Xl);
-}
-
-.ui-mr-3xl {
-    margin-right: var(--spacing3Xl);
-}
-
-/* Padding Classes */
-
-.ui-p-xs {
-    padding: var(--spacingXs);
-}
-
-.ui-p-sm {
-    padding: var(--spacingSm);
-}
-
-.ui-p-md {
-    padding: var(--spacingMd);
-}
-
-.ui-p-lg {
-    padding: var(--spacingLg);
-}
-
-.ui-p-xl {
-    padding: var(--spacingXl);
-}
-
-.ui-p-2xl {
-    padding: var(--spacing2Xl);
-}
-
-.ui-p-3xl {
-    padding: var(--spacing3Xl);
-}
-
-/* Padding X Classes */
-
-.ui-px-xs {
-    padding-inline: var(--spacingXs);
-}
-
-.ui-px-sm {
-    padding-inline: var(--spacingSm);
-}
-
-.ui-px-md {
-    padding-inline: var(--spacingMd);
-}
-
-.ui-px-lg {
-    padding-inline: var(--spacingLg);
-}
-
-.ui-px-xl {
-    padding-inline: var(--spacingXl);
-}
-
-.ui-px-2xl {
-    padding-inline: var(--spacing2Xl);
-}
-
-.ui-px-3xl {
-    padding-inline: var(--spacing3Xl);
-}
-
-/* Padding Y Classes */
-
-.ui-py-xs {
-    padding-block: var(--spacingXs);
-}
-
-.ui-py-sm {
-    padding-block: var(--spacingSm);
-}
-
-.ui-py-md {
-    padding-block: var(--spacingMd);
-}
-
-.ui-py-lg {
-    padding-block: var(--spacingLg);
-}
-
-.ui-py-xl {
-    padding-block: var(--spacingXl);
-}
-
-.ui-py-2xl {
-    padding-block: var(--spacing2Xl);
-}
-
-.ui-py-3xl {
-    padding-block: var(--spacing3Xl);
-}
-
-/* Padding Top Classes */
-
-.ui-pt-xs {
-    padding-top: var(--spacingXs);
-}
-
-.ui-pt-sm {
-    padding-top: var(--spacingSm);
-}
-
-.ui-pt-md {
-    padding-top: var(--spacingMd);
-}
-
-.ui-pt-lg {
-    padding-top: var(--spacingLg);
-}
-
-.ui-pt-xl {
-    padding-top: var(--spacingXl);
-}
-
-.ui-pt-2xl {
-    padding-top: var(--spacing2Xl);
-}
-
-.ui-pt-3xl {
-    padding-top: var(--spacing3Xl);
-}
-
-/* Padding Bottom Classes */
-
-.ui-pb-xs {
-    padding-bottom: var(--spacingXs);
-}
-
-.ui-pb-sm {
-    padding-bottom: var(--spacingSm);
-}
-
-.ui-pb-md {
-    padding-bottom: var(--spacingMd);
-}
-
-.ui-pb-lg {
-    padding-bottom: var(--spacingLg);
-}
-
-.ui-pb-xl {
-    padding-bottom: var(--spacingXl);
-}
-
-.ui-pb-2xl {
-    padding-bottom: var(--spacing2Xl);
-}
-
-.ui-pb-3xl {
-    padding-bottom: var(--spacing3Xl);
-}
-
-/* Padding Left Classes */
-
-.ui-pl-xs {
-    padding-left: var(--spacingXs);
-}
-
-.ui-pl-sm {
-    padding-left: var(--spacingSm);
-}
-
-.ui-pl-md {
-    padding-left: var(--spacingMd);
-}
-
-.ui-pl-lg {
-    padding-left: var(--spacingLg);
-}
-
-.ui-pl-xl {
-    padding-left: var(--spacingXl);
-}
-
-.ui-pl-2xl {
-    padding-left: var(--spacing2Xl);
-}
-
-.ui-pl-3xl {
-    padding-left: var(--spacing3Xl);
-}
-
-/* Padding Right Classes */
-
-.ui-pr-xs {
-    padding-right: var(--spacingXs);
-}
-
-.ui-pr-sm {
-    padding-right: var(--spacingSm);
-}
-
-.ui-pr-md {
-    padding-right: var(--spacingMd);
-}
-
-.ui-pr-lg {
-    padding-right: var(--spacingLg);
-}
-
-.ui-pr-xl {
-    padding-right: var(--spacingXl);
-}
-
-.ui-pr-2xl {
-    padding-right: var(--spacing2Xl);
-}
-
-.ui-pr-3xl {
-    padding-right: var(--spacing3Xl);
-}

@@ -1,4 +1,0 @@
-User-agent: *
-Disallow:
-
-Sitemap: https://www.reyhaneren.com.tr/sitemap.xml
