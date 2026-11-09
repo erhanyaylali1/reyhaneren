@@ -33,7 +33,7 @@ const services: Service[] = [
   {
     slug: "bireysel-danismanlik",
     lead: "Duygusal ihtiyaçlarınızı keşfedin.",
-    body: "Aile ve ilişki içinde yaşadığınız zorlanmaları bireysel seanslarda ele alıyor, kendinizi ve ihtiyaçlarınızı daha net görmenize destek oluyoruz.",
+    body: "Aile ve ilişki içinde yaşadığınız zorlanmaları bireysel seanslarda ele alıyor, kendinizi ve ihtiyaçlarınızı daha net görebilmeniz için şefkatli bir alan yaratıyoruz.",
     tone: "bg-sage-100 text-sage-700",
     icon: (
       <svg {...iconProps}>

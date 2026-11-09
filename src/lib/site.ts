@@ -27,25 +27,6 @@ export const site = {
     region: "İzmir",
     country: "TR",
   },
-  // Verified expert profiles on third-party platforms (E-E-A-T). Also listed
-  // in the structured data's sameAs, next to the social accounts.
-  platforms: [
-    {
-      label: "Armut",
-      href: "https://armut.com/hizmetveren/reyhan-eren-izmir-bayrakli-iliski-terapisi_71514749",
-      note: "Hizmet veren profili",
-    },
-    {
-      label: "Doktorsitesi",
-      href: "https://www.doktorsitesi.com/reyhan-eren/aile-danismani/izmir",
-      note: "Uzman profili ve randevu",
-    },
-    {
-      label: "Clinictus",
-      href: "https://tr.clinictus.com/profile/reyhaneren-1d936382",
-      note: "Uzman profili",
-    },
-  ],
   social: [
     { label: "Instagram", href: "https://www.instagram.com/basicsociology/" },
     { label: "LinkedIn", href: "https://www.linkedin.com/in/reyhan-erenin/" },

@@ -195,63 +195,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ─── Verified profiles (E-E-A-T trust section) ─── */}
-      <section aria-labelledby="platformlar" className="border-t border-line bg-surface">
-        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 md:py-20">
-          <div className="grid gap-8 rounded-3xl border border-line bg-canvas p-6 sm:p-10 lg:grid-cols-12 lg:items-center lg:gap-14">
-            <div className="lg:col-span-5">
-              <p className={eyebrow}>Bağlantılı platformlar</p>
-              <h2
-                id="platformlar"
-                className="mt-3 font-serif text-[1.75rem] leading-snug tracking-[-0.01em] text-ink text-balance"
-              >
-                Danışan değerlendirmeleri için profillerim
-              </h2>
-              <p className="mt-3 max-w-md leading-relaxed text-ink-muted">
-                Uzman profillerimi ve danışan yorumlarını bağımsız platformlarda da
-                inceleyebilirsiniz.
-              </p>
-            </div>
-
-            <ul className="space-y-1 lg:col-span-7">
-              {site.platforms.map((p, i) => (
-                <li key={p.href}>
-                  <a
-                    href={p.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group -mx-3 flex min-h-16 items-center gap-4 rounded-2xl px-3 py-3 transition-colors duration-150 hover:bg-surface"
-                  >
-                    <span
-                      aria-hidden="true"
-                      className={`inline-flex size-11 shrink-0 items-center justify-center rounded-xl font-serif text-xl italic ${
-                        ["bg-clay-100 text-clay-700", "bg-mist-100 text-mist-700", "bg-sage-100 text-sage-700"][i % 3]
-                      }`}
-                    >
-                      {p.label.charAt(0)}
-                    </span>
-                    <span className="min-w-0 flex-1">
-                      <span className="block font-medium text-ink">{p.label}</span>
-                      <span className="block text-sm text-ink-muted">{p.note}</span>
-                    </span>
-                    <span
-                      aria-hidden="true"
-                      className="inline-flex size-9 shrink-0 items-center justify-center rounded-full border border-line-strong text-ink-muted transition-colors duration-150 group-hover:border-sage-700 group-hover:bg-sage-700 group-hover:text-canvas"
-                    >
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="size-4">
-                        <path d="M7 17 17 7" />
-                        <path d="M8 7h9v9" />
-                      </svg>
-                    </span>
-                    <span className="sr-only"> profili (yeni sekmede açılır)</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
-
       <CtaBand title="Tanışmak için bir görüşme planlayalım" />
     </>
   );

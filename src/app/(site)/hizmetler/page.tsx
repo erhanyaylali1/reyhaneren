@@ -12,7 +12,6 @@ export const metadata: Metadata = pageMetadata({
   path: "/hizmetler",
 });
 
-
 export default function ServicesPage() {
   return (
     <>
@@ -22,7 +21,7 @@ export default function ServicesPage() {
         title="Aile danışmanlığı ve çift terapisi hizmetleri"
         lead={
           <p>
-            İlişki odaklı bireysel görüşmelerden çift ve aile seanslarına kadar her
+            İlişki odaklı bireysel görüşmelerden çift ve aile seanslarına her
             süreci ihtiyacınıza göre birlikte şekillendiriyoruz. Hangisinin size
             uygun olduğundan emin değilseniz randevu formunu doldurun, birlikte
             planlayalım.
@@ -40,8 +39,12 @@ export default function ServicesPage() {
                   className="group flex h-full flex-col rounded-3xl border border-line bg-canvas p-7 transition-colors duration-150 hover:border-line-strong sm:p-8"
                 >
                   <ServiceMark slug={s.slug} />
-                  <h2 className="mt-8 text-xl font-semibold tracking-[-0.01em] text-ink">{s.title}</h2>
-                  <p className="mt-3 flex-1 leading-relaxed text-ink-muted">{s.short}</p>
+                  <h2 className="mt-8 text-xl font-semibold tracking-[-0.01em] text-ink">
+                    {s.title}
+                  </h2>
+                  <p className="mt-3 flex-1 leading-relaxed text-ink-muted">
+                    {s.short}
+                  </p>
                   <span className="mt-6 inline-flex items-center gap-1.5 text-[0.9375rem] font-medium text-sage-700">
                     Detaylı bilgi <ArrowIcon />
                   </span>
@@ -61,7 +64,8 @@ export default function ServicesPage() {
                 Tüm hizmetler online olarak da sunulur
               </span>
               <span className="mt-1.5 block leading-relaxed text-ink-muted">
-                Türkiye’nin ve dünyanın her yerinden, güvenli görüntülü görüşmeyle.
+                Türkiye’nin ve dünyanın her yerinden, güvenli görüntülü
+                görüşmeyle.
               </span>
             </span>
             <span className="inline-flex items-center gap-1.5 text-[0.9375rem] font-medium text-sage-700">

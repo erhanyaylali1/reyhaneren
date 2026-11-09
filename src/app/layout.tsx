@@ -76,7 +76,7 @@ const businessId = `${site.url}/#clinic`;
 const personId = `${site.url}/#reyhan-eren`;
 // Social accounts + verified expert profiles: tells Google these are the same
 // person/business (a trust signal). Used by both Person and LocalBusiness.
-const sameAs = [...site.social, ...site.platforms].map((s) => s.href);
+const sameAs = site.social.map((s) => s.href);
 
 const structuredData = {
   "@context": "https://schema.org",

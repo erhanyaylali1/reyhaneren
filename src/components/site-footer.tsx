@@ -97,24 +97,6 @@ export function SiteFooter() {
               </li>
             ))}
           </ul>
-          <h2 className="mt-8 text-xs font-medium uppercase tracking-[0.18em] text-ink-muted">
-            Platformlar
-          </h2>
-          <ul className="mt-3 flex flex-wrap gap-x-4">
-            {site.platforms.map((p) => (
-              <li key={p.href}>
-                <a
-                  href={p.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`${linkClass} min-w-11`}
-                >
-                  {p.label}
-                  <span className="sr-only"> profili (yeni sekmede açılır)</span>
-                </a>
-              </li>
-            ))}
-          </ul>
         </div>
       </div>
 
