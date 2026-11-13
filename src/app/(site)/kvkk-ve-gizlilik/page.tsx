@@ -5,7 +5,8 @@ import { pageMetadata } from "@/lib/metadata";
 import { site } from "@/lib/site";
 
 // ⚠ Legal text drafted from how this website actually handles data
-// (EmailJS → Gmail for the form, Netlify hosting, Supabase for the blog,
+// (EmailJS → Gmail for the form, Vercel hosting, Supabase for the blog,
+// Resend for the blog newsletter,
 // Google Analytics only after consent via the cookie banner, no ad cookies). Have it reviewed by a lawyer before relying on it,
 // and update it whenever a new service (analytics, booking tool…) is added.
 
@@ -16,7 +17,7 @@ export const metadata: Metadata = pageMetadata({
   path: "/kvkk-ve-gizlilik",
 });
 
-const LAST_UPDATED = "4 Kasım 2026";
+const LAST_UPDATED = "13 Kasım 2026";
 
 const sections = [
   { id: "veri-sorumlusu", title: "Veri sorumlusu" },
@@ -27,6 +28,7 @@ const sections = [
   { id: "saklama", title: "Saklama ve güvenlik" },
   { id: "haklariniz", title: "Haklarınız" },
   { id: "basvuru", title: "Başvuru yolu" },
+  { id: "bulten", title: "Blog bülteni" },
   { id: "cerezler", title: "Çerezler" },
 ];
 
@@ -99,6 +101,11 @@ export default function KvkkPage() {
                 <em>özel nitelikli kişisel veriler</em> içerebilir.
               </li>
               <li>
+                <strong>Bülten bilgileri (yalnızca abone olursanız):</strong> e-posta adresiniz,
+                abonelik ve onay tarihleriniz, abonelik durumunuz ile bülten e-postalarındaki
+                bağlantılara tıklayıp tıklamadığınız ve tıklama zamanı.
+              </li>
+              <li>
                 <strong>İşlem güvenliği bilgileri:</strong> web sitesine erişim sırasında
                 barındırma altyapısı tarafından tutulan IP adresi, tarayıcı ve erişim zamanı
                 gibi teknik kayıtlar.
@@ -122,6 +129,10 @@ export default function KvkkPage() {
               <li>Hizmetin kalitesini ve sürekliliğini sağlamak, sorularınızı yanıtlamak,</li>
               <li>Mevzuattan doğan yükümlülükleri (ör. faturalandırma, yetkili mercilerin talepleri) yerine getirmek,</li>
               <li>Web sitesinin güvenliğini sağlamak ve kötüye kullanımı önlemek,</li>
+              <li>
+                Abone olmanız hâlinde, yeni blog yazılarını e-posta ile size bildirmek ve
+                bültenin ilgi görüp görmediğini anlamak için bağlantı tıklamalarını ölçmek,
+              </li>
               <li>
                 İzin vermeniz hâlinde, sitenin nasıl kullanıldığını ve hangi sayfaların randevu
                 talebine yol açtığını toplu istatistiklerle anlamak, içeriği ve kullanım
@@ -147,7 +158,8 @@ export default function KvkkPage() {
               <li>
                 Gerekli hâllerde açık rızanız; Google Analytics çerezleri ve bunlar aracılığıyla
                 yapılan ziyaret istatistiği işlemesi yalnızca çerez tercihlerinde verdiğiniz{" "}
-                <strong>açık rızaya</strong> dayanır.
+                <strong>açık rızaya</strong> dayanır; blog bülteni gönderimi de abonelik
+                formunda verdiğiniz açık rızaya dayanır.
               </li>
             </ul>
             <p>
@@ -170,7 +182,8 @@ export default function KvkkPage() {
               <li>
                 <strong>Hizmet sağlayıcılar:</strong> randevu formunun iletilmesi için e-posta
                 altyapısı sağlayıcıları (EmailJS ve Google/Gmail) ile web sitesinin barındırma ve
-                altyapı hizmeti sağlayıcıları (Netlify, Supabase).
+                altyapı hizmeti sağlayıcıları (Vercel, Supabase); bültene abone olmanız
+                hâlinde bülten e-postalarının gönderimi için Resend (Resend, Inc.).
               </li>
               <li>
                 <strong>Ziyaret istatistikleri sağlayıcısı:</strong> izin vermeniz hâlinde,
@@ -183,7 +196,9 @@ export default function KvkkPage() {
               göndermeniz hâlinde form içeriği, talebinizin Danışmana iletilmesi amacıyla bu
               sağlayıcılar üzerinden yurt dışına aktarılır; bu aktarım KVKK’nın 9. maddesi
               kapsamında formdaki onay kutusuyla verdiğiniz <strong>açık rızanıza</strong>{" "}
-              dayanır. Google Analytics verileri de yalnızca çerez tercihlerinde “Kabul et”i
+              dayanır. Bülten için verdiğiniz e-posta adresi de abonelik formundaki onay
+              kutusuyla verdiğiniz açık rızaya dayanılarak Resend’in yurt dışındaki
+              sunucularına aktarılır. Google Analytics verileri de yalnızca çerez tercihlerinde “Kabul et”i
               seçmeniz hâlinde, verdiğiniz açık rızaya dayanılarak Google’ın yurt dışındaki
               sunucularına aktarılır; “Reddet”i seçerseniz bu aktarım yapılmaz. Formu kullanmak istemezseniz bize telefonla ulaşabilirsiniz. WhatsApp
               üzerinden yazmayı tercih ederseniz, yazışmalarınız WhatsApp’ın kendi gizlilik
@@ -227,7 +242,29 @@ export default function KvkkPage() {
               kısa sürede ve en geç 30 gün içinde ücretsiz olarak sonuçlandırılır.
             </p>
 
-            <h2 id="cerezler">9. Çerezler ve benzeri teknolojiler</h2>
+            <h2 id="bulten">9. Blog bülteni</h2>
+            <p>
+              Blog sayfasındaki formdan abone olursanız, e-posta adresiniz yalnızca yeni blog
+              yazılarını size bildirmek için kullanılır. Abonelik iki adımlıdır: formu
+              gönderdikten sonra adresinize gelen onay bağlantısına tıklamadığınız sürece size
+              bülten gönderilmez. Bülten e-postaları yeni yazının başlığını, kısa bir özetini,
+              kapak görselini ve bağlantısını içerir; reklam içermez.
+            </p>
+            <p>
+              Her bülten e-postasının altındaki <strong>“Abonelikten çık”</strong> bağlantısıyla
+              dilediğiniz an, gerekçe göstermeden ayrılabilirsiniz; ayrıldığınızda size bülten
+              gönderimi hemen durur. E-posta adresinizin tamamen silinmesini isterseniz{" "}
+              <a href={`mailto:${site.email}`}>{site.email}</a> adresine yazabilirsiniz.
+              Bülten e-postalarındaki bağlantılar, e-posta hizmet sağlayıcımız Resend üzerinden
+              yönlendirilir. Bu sayede bir bağlantıya tıkladığınızda, tıklamanın hangi e-posta
+              adresine gönderilen bültenden geldiği ve tıklama zamanı Resend tarafından kaydedilir;
+              bu bilgi yalnızca bültenin ilgi görüp görmediğini anlamak için kullanılır ve
+              reklam veya profil oluşturma amacıyla kullanılmaz. E-postayı açıp açmadığınız
+              izlenmez. Bağlantılar ayrıca ziyaretin bültenden geldiğini gösteren kişisel veri
+              içermeyen etiketler (utm) taşır.
+            </p>
+
+            <h2 id="cerezler">10. Çerezler ve benzeri teknolojiler</h2>
             <p>
               Bu web sitesinde reklam veya pazarlama amaçlı çerez kullanılmaz. Ziyaret
               istatistikleri için kullanılan analitik çerezler ise <strong>yalnızca açık

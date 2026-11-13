@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PostCard } from "@/components/blog/post-card";
 import { AuthorBox } from "@/components/blog/author-box";
+import { NewsletterSignup } from "@/components/blog/newsletter-signup";
 import { PostCover } from "@/components/blog/post-cover";
 import { PostMeta } from "@/components/blog/post-meta";
 import { ReadingProgress } from "@/components/blog/reading-progress";
@@ -145,6 +146,7 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
         </div>
 
         <div className="mx-auto mt-14 max-w-3xl space-y-16 px-5 sm:px-8">
+          <NewsletterSignup />
           <AuthorBox />
           <RelatedServices />
         </div>

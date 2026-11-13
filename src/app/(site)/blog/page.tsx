@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/metadata";
+import { NewsletterSignup } from "@/components/blog/newsletter-signup";
 import { PostCard } from "@/components/blog/post-card";
 import { getPublishedPosts } from "@/lib/blog/queries";
 
@@ -49,6 +50,8 @@ export default async function BlogPage() {
           )}
         </>
       )}
+
+      <NewsletterSignup className="mt-20 md:mt-28" />
     </div>
   );
 }
