@@ -3,7 +3,7 @@
 // identical business details everywhere — inconsistent NAP hurts local SEO.
 
 export const site = {
-  // Live domain (Netlify). www.reyhaneren.com.tr 301s here. NOT reyhaneren.com
+  // Live domain (Vercel). www.reyhaneren.com.tr 301s here. NOT reyhaneren.com
   // — that domain belongs to someone else (a parked lander page).
   url: "https://reyhaneren.com.tr",
   name: "Reyhan Eren Aile Danışmanlığı",

@@ -76,3 +76,34 @@ values (
   array['image/jpeg', 'image/png', 'image/webp', 'image/gif']
 )
 on conflict (id) do nothing;
+
+-- ─── Newsletter ─────────────────────────────────────────────────────────────
+-- Double opt-in: a row starts as 'pending' and becomes 'confirmed' only after
+-- the visitor clicks the link in the confirmation e-mail. `token` is a random
+-- secret used in the confirm and unsubscribe links (no login needed).
+create table if not exists public.subscribers (
+  id               uuid primary key default gen_random_uuid(),
+  email            text not null unique check (email = lower(email) and char_length(email) <= 254),
+  status           text not null default 'pending' check (status in ('pending', 'confirmed', 'unsubscribed')),
+  token            text not null unique,
+  consent_at       timestamptz not null default now(),
+  confirm_sent_at  timestamptz,
+  confirmed_at     timestamptz,
+  unsubscribed_at  timestamptz,
+  created_at       timestamptz not null default now()
+);
+
+create index if not exists subscribers_status_idx on public.subscribers (status);
+
+alter table public.subscribers enable row level security;
+
+-- When a post was e-mailed to subscribers. Set once, so editing a published
+-- post never sends it again.
+alter table public.posts add column if not exists newsletter_sent_at timestamptz;
+
+-- Posts already published before the newsletter existed must not be mailed
+-- out the next time someone edits them.
+update public.posts
+   set newsletter_sent_at = coalesce(published_at, now())
+ where status = 'published'
+   and newsletter_sent_at is null;

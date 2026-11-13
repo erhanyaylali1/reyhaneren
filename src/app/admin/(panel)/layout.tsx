@@ -30,6 +30,9 @@ export default function PanelLayout({ children }: { children: React.ReactNode })
             <Link href="/admin/blog" className={navItem}>
               Yazılar
             </Link>
+            <Link href="/admin/bulten" className={navItem}>
+              Bülten
+            </Link>
             <Link href="/admin/ayarlar" className={navItem}>
               Ayarlar
             </Link>

@@ -1,7 +1,7 @@
 "use server";
 
 import { cookies, headers } from "next/headers";
-import { updateTag } from "next/cache";
+import { revalidatePath, updateTag } from "next/cache";
 import { redirect } from "next/navigation";
 import { requireAdmin } from "@/lib/auth/dal";
 import { SESSION_COOKIE, SESSION_TTL_MS, createSessionToken } from "@/lib/auth/session";
@@ -21,6 +21,8 @@ import {
 } from "@/lib/blog/store";
 import { countImagesMissingAlt, htmlToText } from "@/lib/blog/text";
 import type { PostStatus } from "@/lib/blog/types";
+import { notifySubscribers } from "@/lib/newsletter/notify";
+import { remove as removeSubscriber } from "@/lib/newsletter/store";
 
 export type FormState = { error?: string; ok?: string } | undefined;
 
@@ -118,13 +120,32 @@ export async function savePost(_: FormState, formData: FormData): Promise<FormSt
   if (!post) return { error: "Yazı bulunamadı. Silinmiş olabilir." };
 
   updateTag(POSTS_TAG);
-  redirect(`/admin/blog?kaydedildi=${encodeURIComponent(post.title)}`);
+
+  // First publish → e-mail confirmed subscribers (no-op for drafts and for
+  // posts that were already sent).
+  const mail = await notifySubscribers(post).catch((err) => {
+    console.error("[bülten]", err);
+    return { kind: "failed" } as const;
+  });
+  const params = new URLSearchParams({ kaydedildi: post.title });
+  if (mail.kind === "sent") params.set("bulten", `${mail.sent}/${mail.total}`);
+  if (mail.kind === "failed" || mail.kind === "not-configured") params.set("bulten", mail.kind);
+  redirect(`/admin/blog?${params}`);
 }
 
 export async function deletePost(id: string) {
   await requireAdmin();
   await removePost(id);
   updateTag(POSTS_TAG);
+}
+
+// ─── Newsletter ─────────────────────────────────────────────────────────────
+
+export async function deleteSubscriber(email: string) {
+  await requireAdmin();
+  if (typeof email !== "string" || !email.includes("@")) return;
+  await removeSubscriber(email.toLowerCase());
+  revalidatePath("/admin/bulten");
 }
 
 // ─── Images ─────────────────────────────────────────────────────────────────

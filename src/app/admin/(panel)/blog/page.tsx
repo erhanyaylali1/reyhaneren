@@ -5,13 +5,15 @@ import { Icon } from "@/components/admin/icons";
 import { requireAdmin } from "@/lib/auth/dal";
 import { listPosts } from "@/lib/blog/store";
 import { countImagesMissingAlt, formatDate, formatNumber } from "@/lib/blog/text";
+import { countConfirmed } from "@/lib/newsletter/store";
 
 export const metadata = { title: "Yazılar" };
 
 export default async function AdminPostsPage({ searchParams }: PageProps<"/admin/blog">) {
   await requireAdmin();
   const posts = await listPosts({ includeDrafts: true });
-  const saved = (await searchParams).kaydedildi;
+  const { kaydedildi: saved, bulten } = await searchParams;
+  const subscribers = await countConfirmed().catch(() => null);
 
   const published = posts.filter((p) => p.status === "published");
   const stats = [
@@ -19,7 +21,26 @@ export default async function AdminPostsPage({ searchParams }: PageProps<"/admin
     { label: "Yayında", value: published.length },
     { label: "Taslak", value: posts.length - published.length },
     { label: "Toplam görüntülenme", value: posts.reduce((n, p) => n + p.views, 0) },
+    ...(subscribers === null ? [] : [{ label: "Bülten abonesi", value: subscribers }]),
   ];
+
+  const newsletterNotice =
+    typeof bulten !== "string"
+      ? null
+      : bulten === "failed"
+        ? { tone: "error", text: "Yazı yayımlandı ama bülten e-postaları gönderilemedi. Yazıyı tekrar kaydederseniz yeniden denenir." }
+        : bulten === "not-configured"
+          ? { tone: "error", text: "Yazı yayımlandı. Bülten gönderimi ayarlı olmadığı için abonelere e-posta gitmedi." }
+          : (() => {
+              const [sent, total] = bulten.split("/").map(Number);
+              return {
+                tone: "ok",
+                text:
+                  sent === total
+                    ? `Yazı ${sent} aboneye e-postayla gönderildi.`
+                    : `Yazı ${total} abonenin ${sent} kişisine gönderildi; kalanlara gönderilemedi.`,
+              };
+            })();
 
   return (
     <>
@@ -42,10 +63,20 @@ export default async function AdminPostsPage({ searchParams }: PageProps<"/admin
           “{saved}” kaydedildi.
         </p>
       )}
+      {newsletterNotice && (
+        <p
+          role="status"
+          className={`mt-3 rounded-xl px-4 py-3 text-sm ${
+            newsletterNotice.tone === "ok" ? "bg-sage-50 text-sage-800" : "bg-clay-100 text-clay-700"
+          }`}
+        >
+          {newsletterNotice.text}
+        </p>
+      )}
 
-      <dl className="mt-8 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-4">
+      <dl className={`mt-8 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line ${stats.length > 4 ? "lg:grid-cols-5" : "md:grid-cols-4"}`}>
         {stats.map((s) => (
-          <div key={s.label} className="bg-surface px-5 py-4">
+          <div key={s.label} className="bg-surface px-5 py-4 last:odd:col-span-2 lg:last:odd:col-span-1">
             <dt className="text-sm text-ink-muted">{s.label}</dt>
             <dd className="mt-1 font-serif text-[1.75rem] tabular-nums text-ink">{formatNumber(s.value)}</dd>
           </div>
