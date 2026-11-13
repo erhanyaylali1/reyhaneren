@@ -10,7 +10,7 @@ export const site = {
   person: "Reyhan Eren",
   title: "Aile Danışmanı",
   description:
-    "İzmir Bayraklı’da yüz yüze ve Türkiye genelinde online aile danışmanlığı ve çift terapisi. Reyhan Eren ile güvenli, yargısız bir seansta ilişkinizi keşfedin. ☎ 0541 162 08 27",
+    "İzmir Bayraklı’da yüz yüze ve Türkiye genelinde online aile danışmanlığı ve çift terapisi. Aile Danışmanı Reyhan Eren ile güvenli, yargısız ve tarafsız seanslarda ilişkilerinizdeki döngüleri keşfedin. ☎ 0541 162 08 27",
   phone: {
     display: "0541 162 08 27",
     href: "tel:+905411620827",
@@ -18,7 +18,7 @@ export const site = {
   },
   whatsapp: {
     href: `https://wa.me/905411620827?text=${encodeURIComponent(
-      "Merhaba Reyhan Hanım, danışmanlık hakkında bilgi almak ve randevu oluşturmak istiyorum.",
+      "Merhaba Reyhan Hanım, danışmanlık hakkında bilgi almak ve randevu oluşturmak istiyorum."
     )}`,
   },
   email: "ailedanismanireyhaneren@gmail.com",
@@ -50,19 +50,22 @@ export const servicePages = [
     slug: "bireysel-danismanlik",
     title: "İlişki Odaklı Bireysel Danışmanlık",
     tone: "bg-mist-100 text-mist-700",
-    short: "İlişki ve aile yaşamındaki zorlanmalarınızı kendinizden başlayarak ele alan seanslar.",
+    short:
+      "İlişki ve aile yaşamındaki zorlanmalarınızı kendinizden başlayarak ele alan seanslar.",
   },
   {
     slug: "cift-terapisi",
     title: "Çift Terapisi",
     tone: "bg-clay-100 text-clay-700",
-    short: "İletişim, güven ve tekrarlayan çatışmalar için çift odaklı seanslar.",
+    short:
+      "İletişim, güven ve tekrarlayan çatışmalar için çift odaklı seanslar.",
   },
   {
     slug: "aile-danismanligi",
     title: "Aile Danışmanlığı",
     tone: "bg-sage-100 text-sage-700",
-    short: "Ebeveyn–çocuk ilişkileri, ergenlik ve aile içi iletişim için sistemik çalışmalar.",
+    short:
+      "Ebeveyn–çocuk ilişkileri, ergenlik ve aile içi iletişim için sistemik çalışmalar.",
   },
   {
     slug: "kurumsal-danismanlik",
@@ -81,7 +84,8 @@ export const onlinePage = {
   slug: "online-danismanlik",
   title: "Online Danışmanlık",
   tone: "bg-sage-50 text-sage-700",
-  short: "Tüm hizmetler, Türkiye’nin ve dünyanın her yerinden güvenli görüntülü görüşmeyle.",
+  short:
+    "Tüm hizmetler, Türkiye’nin ve dünyanın her yerinden güvenli görüntülü görüşmeyle.",
 } as const;
 
 export type ServiceSlug = (typeof servicePages)[number]["slug"];

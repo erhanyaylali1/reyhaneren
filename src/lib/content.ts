@@ -25,6 +25,28 @@ export const credentials = [
   },
 ];
 
+export const certificates = [
+  { title: "Aile Danışmanlığı", institution: "Marmara Üniversitesi" },
+  { title: "Kısa Süreli Çözüm Odaklı Terapi", institution: "Tal Akademi" },
+  { title: "Pedagojik Formasyon", institution: "Dokuz Eylül Üniversitesi" },
+  {
+    title: "Proje Yönetimi",
+    institution: "Ümmühan Elginkan Mesleki ve Teknik Eğitim Merkezi",
+  },
+  {
+    title: "Sağlıklı Yaşam Yönetimi",
+    institution: "Ümmühan Elginkan Mesleki ve Teknik Eğitim Merkezi",
+  },
+  {
+    title: "Doğru ve Etkili Konuşmanın Temelleri",
+    institution: "İstanbul İşletme Enstitüsü",
+  },
+  {
+    title: "İnsan Kaynakları Eğitimi",
+    institution: "İstanbul İşletme Enstitüsü",
+  },
+];
+
 export const steps = [
   {
     title: "İlk Seans ve İhtiyaç Analizi",

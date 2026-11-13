@@ -3,7 +3,7 @@ import { pageMetadata } from "@/lib/metadata";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowIcon, CtaBand, JsonLd, PageHero, bodyText, eyebrow, h2Class, primaryCta } from "@/components/page-ui";
-import { credentials } from "@/lib/content";
+import { certificates, credentials } from "@/lib/content";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
@@ -148,6 +148,35 @@ export default function AboutPage() {
                 </li>
               ))}
             </ol>
+
+            <div className="mt-14 flex items-baseline justify-between gap-4">
+              <h3 className="text-lg font-semibold text-ink">Sertifikalar</h3>
+              <span className="text-xs font-medium uppercase tracking-[0.18em] text-ink-muted tabular-nums">
+                {certificates.length} program
+              </span>
+            </div>
+            <ul className="mt-4 grid gap-px overflow-hidden rounded-3xl border border-line bg-line sm:grid-cols-2">
+              {certificates.map((c, i) => (
+                <li
+                  key={c.title}
+                  className="group relative flex flex-col bg-surface p-6 transition-colors duration-200 hover:bg-canvas sm:last:odd:col-span-2"
+                >
+                  <span
+                    aria-hidden="true"
+                    className="font-serif text-sm text-sage-700 tabular-nums"
+                  >
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <p className="mt-3 font-serif text-xl leading-snug tracking-[-0.01em] text-ink text-balance">
+                    {c.title}
+                  </p>
+                  <p className="mt-auto flex items-start gap-2 pt-4 text-sm leading-snug text-ink-muted text-pretty">
+                    <span aria-hidden="true" className="mt-[0.45em] h-px w-4 shrink-0 bg-sage-700/50" />
+                    {c.institution}
+                  </p>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
