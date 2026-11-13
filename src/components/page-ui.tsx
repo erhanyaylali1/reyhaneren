@@ -14,6 +14,25 @@ export const h2Class =
   "font-serif text-[2rem] leading-[1.15] tracking-[-0.015em] text-ink text-balance md:text-[2.5rem]";
 export const bodyText = "text-lg leading-relaxed text-ink-muted text-pretty";
 
+/**
+ * "Bayraklı, İzmir" linked to the Google Business Profile on Maps. Inherits
+ * the surrounding text style; the invisible ::after pad keeps the tap target
+ * ≥44px without changing the line height.
+ */
+export function MapLink({ className = "" }: { className?: string }) {
+  return (
+    <a
+      href={site.address.maps}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`relative underline decoration-line-strong underline-offset-4 transition-colors duration-150 after:absolute after:-inset-x-1 after:-inset-y-3 after:content-[''] hover:text-ink hover:decoration-ink ${className}`}
+    >
+      {site.address.locality}, {site.address.region}
+      <span className="sr-only"> (Google Haritalar’da, yeni sekmede açılır)</span>
+    </a>
+  );
+}
+
 export function ArrowIcon() {
   return (
     <svg

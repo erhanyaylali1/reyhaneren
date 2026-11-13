@@ -42,7 +42,10 @@ async function resend(path: string, body: unknown) {
   if (!res.ok) throw new Error(`Resend ${res.status}: ${await res.text()}`);
 }
 
-const withFrom = (e: Email) => ({ from: process.env.NEWSLETTER_FROM, reply_to: site.email, ...e });
+// Dashboards (e.g. Vercel) keep literal quotes/whitespace that .env files strip — normalize.
+const fromAddress = () => process.env.NEWSLETTER_FROM?.trim().replace(/^(["'])(.*)\1$/, "$2").trim();
+
+const withFrom = (e: Email) => ({ from: fromAddress(), reply_to: site.email, ...e });
 
 export async function sendOne(email: Email) {
   if (!isMailConfigured()) {

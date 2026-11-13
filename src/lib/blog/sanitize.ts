@@ -11,6 +11,7 @@ export function sanitizePostHtml(html: string): string {
       "p", "br", "h2", "h3", "h4", "strong", "b", "em", "i", "u", "s",
       "a", "ul", "ol", "li", "blockquote", "code", "pre", "hr",
       "mark", "span", "img", "div", "iframe",
+      "table", "colgroup", "col", "thead", "tbody", "tr", "th", "td",
     ],
     allowedAttributes: {
       a: ["href", "target", "rel"],
@@ -25,11 +26,20 @@ export function sanitizePostHtml(html: string): string {
       h2: ["style"],
       h3: ["style"],
       h4: ["style"],
-      div: ["data-youtube-video"],
+      div: ["data-youtube-video", "class"],
+      table: ["style"],
+      col: ["style"],
+      th: ["colspan", "rowspan", "data-colwidth"],
+      td: ["colspan", "rowspan", "data-colwidth"],
       iframe: ["src", "width", "height", "allowfullscreen", "allow", "title", "frameborder"],
     },
+    // Tables are wrapped in <div class="tableWrapper"> so wide ones scroll
+    // sideways on phones instead of breaking the layout.
+    allowedClasses: { div: ["tableWrapper"] },
     allowedStyles: {
       img: { width: [/^(1[5-9]|[2-9]\d)%$/] },
+      table: { "min-width": [/^\d{1,4}px$/], width: [/^\d{1,4}px$/] },
+      col: { "min-width": [/^\d{1,4}px$/], width: [/^\d{1,4}px$/] },
       "*": {
         color: COLOR,
         "background-color": COLOR,

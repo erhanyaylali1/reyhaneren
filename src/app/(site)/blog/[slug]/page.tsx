@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PostCard } from "@/components/blog/post-card";
 import { AuthorBox } from "@/components/blog/author-box";
+import { NewsletterNudge } from "@/components/blog/newsletter-nudge";
 import { NewsletterSignup } from "@/components/blog/newsletter-signup";
 import { PostCover } from "@/components/blog/post-cover";
 import { PostMeta } from "@/components/blog/post-meta";
@@ -145,8 +146,14 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
           </div>
         </div>
 
+        {/* Fixed-position nudge; kept outside the space-y stack below, whose
+            margins would otherwise push it up from the screen edge. */}
+        <NewsletterNudge />
+
         <div className="mx-auto mt-14 max-w-3xl space-y-16 px-5 sm:px-8">
-          <NewsletterSignup />
+          <div id="bulten" className="scroll-mt-28">
+            <NewsletterSignup />
+          </div>
           <AuthorBox />
           <RelatedServices />
         </div>

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/metadata";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowIcon, CtaBand, JsonLd, PageHero, bodyText, eyebrow, h2Class, primaryCta } from "@/components/page-ui";
+import { ArrowIcon, CtaBand, JsonLd, MapLink, PageHero, bodyText, eyebrow, h2Class, primaryCta } from "@/components/page-ui";
 import { certificates, credentials } from "@/lib/content";
 import { site } from "@/lib/site";
 
@@ -84,7 +84,7 @@ export default function AboutPage() {
               </span>
               <span className="flex items-center gap-2 text-sm text-ink-muted">
                 <span aria-hidden="true" className="size-1.5 rounded-full bg-sage-700" />
-                {site.address.locality}, {site.address.region}
+                <MapLink />
               </span>
             </figcaption>
           </figure>

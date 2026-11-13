@@ -26,6 +26,8 @@ export const site = {
     locality: "Bayraklı",
     region: "İzmir",
     country: "TR",
+    // Google Business Profile ("Reyhan Eren Aile Danışmanlığı") on Google Maps.
+    maps: "https://maps.app.goo.gl/rBWDDddpLQ4T4Jfk9",
   },
   social: [
     { label: "Instagram", href: "https://www.instagram.com/basicsociology/" },

@@ -6,6 +6,7 @@ import { Color, TextStyle } from "@tiptap/extension-text-style";
 import Highlight from "@tiptap/extension-highlight";
 import Youtube from "@tiptap/extension-youtube";
 import TextAlign from "@tiptap/extension-text-align";
+import { TableKit } from "@tiptap/extension-table";
 import { Placeholder } from "@tiptap/extensions";
 import { useEffect, useId, useRef, useState, type KeyboardEvent as ReactKeyboardEvent, type ReactNode } from "react";
 import { uploadImageFile } from "@/lib/image";
@@ -54,6 +55,8 @@ export function RichTextEditor({
       ResizableImage,
       Youtube.configure({ nocookie: true, width: 640, height: 360 }),
       TextAlign.configure({ types: ["heading", "paragraph"] }),
+      // renderWrapper → <div class="tableWrapper"> so wide tables scroll on phones.
+      TableKit.configure({ table: { resizable: false, renderWrapper: true } }),
       Placeholder.configure({ placeholder: "Yazmaya başlayın…" }),
     ],
     content: initialHtml,
@@ -103,6 +106,10 @@ function Toolbar({ editor }: { editor: Editor }) {
         : e.isActive({ textAlign: "right" })
           ? "right"
           : "left",
+      inTable: e.isActive("table"),
+      headerRow: e.isActive("tableHeader"),
+      canMerge: e.can().mergeCells(),
+      canSplit: e.can().splitCell(),
       canUndo: e.can().undo(),
       canRedo: e.can().redo(),
     }),
@@ -212,6 +219,9 @@ function Toolbar({ editor }: { editor: Editor }) {
       <Popover label="Video ekle (YouTube)" trigger={<Icon name="video" />}>
         {(close) => <VideoForm editor={editor} close={close} />}
       </Popover>
+      <Popover label="Tablo ekle" active={s.inTable} trigger={<Icon name="table" />}>
+        {(close) => <TablePicker editor={editor} close={close} />}
+      </Popover>
       <Sep />
 
       <Btn label="Madde işaretli liste" icon="bulletList" active={s.bulletList} onClick={() => chain().toggleBulletList().run()} />
@@ -230,6 +240,135 @@ function Toolbar({ editor }: { editor: Editor }) {
         icon="clear"
         onClick={() => chain().unsetAllMarks().clearNodes().run()}
       />
+
+      {s.inTable && (
+        <div
+          role="group"
+          aria-label="Tablo"
+          className="-mx-2 -mb-2 mt-1.5 flex basis-full flex-wrap items-center gap-1 border-t border-line bg-sage-50/60 px-2 py-1.5"
+        >
+          <span className="mr-1 inline-flex items-center gap-1.5 px-1.5 text-xs font-medium uppercase tracking-[0.12em] text-sage-800">
+            <Icon name="table" className="size-4" />
+            Tablo
+          </span>
+          <TableBtn onClick={() => chain().addRowBefore().run()}>↑ Satır ekle</TableBtn>
+          <TableBtn onClick={() => chain().addRowAfter().run()}>↓ Satır ekle</TableBtn>
+          <TableBtn onClick={() => chain().addColumnBefore().run()}>← Sütun ekle</TableBtn>
+          <TableBtn onClick={() => chain().addColumnAfter().run()}>→ Sütun ekle</TableBtn>
+          <Sep />
+          <TableBtn onClick={() => chain().deleteRow().run()}>Satırı sil</TableBtn>
+          <TableBtn onClick={() => chain().deleteColumn().run()}>Sütunu sil</TableBtn>
+          <Sep />
+          <TableBtn active={s.headerRow} onClick={() => chain().toggleHeaderRow().run()}>
+            Başlık satırı
+          </TableBtn>
+          <TableBtn disabled={!s.canMerge} onClick={() => chain().mergeCells().run()}>
+            Hücreleri birleştir
+          </TableBtn>
+          <TableBtn disabled={!s.canSplit} onClick={() => chain().splitCell().run()}>
+            Hücreyi ayır
+          </TableBtn>
+          <span className="ml-auto" />
+          <TableBtn danger onClick={() => chain().deleteTable().run()}>
+            Tabloyu sil
+          </TableBtn>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function TableBtn({
+  onClick,
+  active,
+  disabled,
+  danger,
+  children,
+}: {
+  onClick: () => void;
+  active?: boolean;
+  disabled?: boolean;
+  danger?: boolean;
+  children: ReactNode;
+}) {
+  return (
+    <button
+      type="button"
+      aria-pressed={active}
+      disabled={disabled}
+      onMouseDown={(e) => e.preventDefault()} // keep the cell selection
+      onClick={onClick}
+      className={`inline-flex h-8 items-center rounded-lg px-2.5 text-sm transition-colors duration-150 disabled:cursor-not-allowed disabled:opacity-35 ${
+        danger
+          ? "text-clay-700 hover:bg-clay-100"
+          : active
+            ? "bg-sage-100 text-sage-800"
+            : "text-ink-muted hover:bg-surface hover:text-ink"
+      }`}
+    >
+      {children}
+    </button>
+  );
+}
+
+// ─── Table size picker ──────────────────────────────────────────────────────
+
+const PICKER_COLS = 8;
+const PICKER_ROWS = 8;
+
+function TablePicker({ editor, close }: { editor: Editor; close: () => void }) {
+  const [size, setSize] = useState({ rows: 3, cols: 3 });
+  const [withHeader, setWithHeader] = useState(true);
+
+  const insert = (rows: number, cols: number) => {
+    editor.chain().focus().insertTable({ rows, cols, withHeaderRow: withHeader }).run();
+    close();
+  };
+
+  return (
+    <div>
+      <p className="flex items-baseline justify-between text-sm">
+        <span className="font-medium text-ink">Tablo boyutu</span>
+        <span className="tabular-nums text-ink-muted" aria-live="polite">
+          {size.rows} satır × {size.cols} sütun
+        </span>
+      </p>
+      <div
+        className="mt-3 grid gap-1"
+        style={{ gridTemplateColumns: `repeat(${PICKER_COLS}, minmax(0, 1fr))` }}
+      >
+        {Array.from({ length: PICKER_ROWS * PICKER_COLS }, (_, i) => {
+          const r = Math.floor(i / PICKER_COLS) + 1;
+          const c = (i % PICKER_COLS) + 1;
+          const on = r <= size.rows && c <= size.cols;
+          return (
+            <button
+              key={i}
+              type="button"
+              aria-label={`${r} satır, ${c} sütunluk tablo ekle`}
+              onMouseEnter={() => setSize({ rows: r, cols: c })}
+              onFocus={() => setSize({ rows: r, cols: c })}
+              onClick={() => insert(r, c)}
+              className={`aspect-square rounded-[4px] border transition-colors duration-75 ${
+                on ? "border-sage-700 bg-sage-100" : "border-line-strong bg-surface hover:border-ink-muted"
+              }`}
+            />
+          );
+        })}
+      </div>
+      <label className="mt-3 flex cursor-pointer items-center gap-2 text-sm text-ink">
+        <input
+          type="checkbox"
+          checked={withHeader}
+          onChange={(e) => setWithHeader(e.target.checked)}
+          className="size-4 accent-sage-700"
+        />
+        İlk satır başlık olsun
+      </label>
+      <p className="mt-2 text-xs leading-relaxed text-ink-muted">
+        Kareleri üzerine gelerek seçin ve tıklayın. Tabloya tıkladığınızda satır/sütun
+        ekleme seçenekleri araç çubuğunun altında görünür.
+      </p>
     </div>
   );
 }

@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { AppointmentForm } from "@/components/appointment-form";
 import { HeroLine } from "@/components/hero-line";
-import { WhatsAppIcon } from "@/components/page-ui";
+import { MapLink, WhatsAppIcon } from "@/components/page-ui";
 import { credentials, steps } from "@/lib/content";
 import { servicePages, site, type ServiceSlug } from "@/lib/site";
 
@@ -120,7 +120,7 @@ const faqJsonLd = {
 const sessionFormats = [
   {
     label: "Yüz yüze",
-    detail: `${site.address.locality}, ${site.address.region}`,
+    detail: <MapLink />,
   },
   { label: "Online", detail: "Türkiye’nin her yerinden" },
   { label: "Bireysel · Çift · Aile", detail: "İlişki odaklı seanslar" },
@@ -244,7 +244,7 @@ export default function Home() {
                   aria-hidden="true"
                   className="size-1.5 rounded-full bg-sage-700"
                 />
-                {site.address.locality}, {site.address.region}
+                <MapLink />
               </span>
             </figcaption>
           </figure>

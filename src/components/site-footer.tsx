@@ -75,8 +75,11 @@ export function SiteFooter() {
                 {site.email}
               </a>
             </p>
-            <p className="flex min-h-11 items-center text-ink">
-              {site.address.locality}, {site.address.region}
+            <p>
+              <a href={site.address.maps} target="_blank" rel="noopener noreferrer" className={linkClass}>
+                {site.address.locality}, {site.address.region}
+                <span className="sr-only"> (Google Haritalar’da, yeni sekmede açılır)</span>
+              </a>
             </p>
           </address>
           <h2 className="mt-8 text-xs font-medium uppercase tracking-[0.18em] text-ink-muted">

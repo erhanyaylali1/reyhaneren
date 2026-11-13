@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/metadata";
 import type { ReactNode } from "react";
 import { AppointmentForm } from "@/components/appointment-form";
-import { JsonLd, PageHero, WhatsAppIcon, bodyText, eyebrow, h2Class } from "@/components/page-ui";
+import { JsonLd, MapLink, PageHero, WhatsAppIcon, bodyText, eyebrow, h2Class } from "@/components/page-ui";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
@@ -62,7 +62,9 @@ const channels: Channel[] = [
   {
     label: "Konum",
     value: `${site.address.locality}, ${site.address.region}`,
-    note: "Yüz yüze seanslar İzmir Bayraklı’da.",
+    note: "Yüz yüze seanslar İzmir Bayraklı’da. Konumu Google Haritalar’da görün.",
+    href: site.address.maps,
+    external: true,
     tone: "bg-clay-100 text-clay-700",
     icon: (
       <svg {...iconProps}>
@@ -162,7 +164,7 @@ export default function ContactPage() {
               <div>
                 <dt className="font-serif text-xl text-ink">Yüz yüze</dt>
                 <dd className="mt-1 text-sm text-ink-muted">
-                  {site.address.locality}, {site.address.region}
+                  <MapLink />
                 </dd>
               </div>
               <div>

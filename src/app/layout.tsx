@@ -110,6 +110,7 @@ const structuredData = {
         })),
       ],
       knowsLanguage: "tr",
+      hasMap: site.address.maps,
       founder: { "@id": personId },
       employee: { "@id": personId },
       sameAs,
