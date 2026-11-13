@@ -18,13 +18,13 @@ const newsreader = Newsreader({
   display: "swap",
 });
 
-const defaultTitle = "İzmir Aile Danışmanlığı | Reyhan Eren — Bayraklı, İzmir";
+const defaultTitle = "Aile Danışmanı Reyhan Eren | İzmir Aile Danışmanlığı ve Çift Terapisi";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
     default: defaultTitle,
-    template: "%s | Reyhan Eren · İzmir Aile Danışmanı",
+    template: "%s | Aile Danışmanı Reyhan Eren",
   },
   description: site.description,
   applicationName: site.name,
@@ -85,7 +85,8 @@ const structuredData = {
       "@type": ["LocalBusiness", "MedicalClinic"],
       "@id": businessId,
       name: site.name,
-      alternateName: `${site.person} — İzmir Aile Danışmanı`,
+      // Previous profile name kept so older mentions still map to this business.
+      alternateName: ["Reyhan Eren Aile Danışmanlığı", `${site.person} — İzmir Aile Danışmanı`],
       description: site.description,
       url: site.url,
       telephone: site.phone.e164,
@@ -113,7 +114,8 @@ const structuredData = {
       hasMap: site.address.maps,
       founder: { "@id": personId },
       employee: { "@id": personId },
-      sameAs,
+      // Google Business Profile listed too, so Google links the site to it.
+      sameAs: [...sameAs, site.address.maps],
     },
     {
       "@type": "Person",

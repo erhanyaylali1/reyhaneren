@@ -6,7 +6,7 @@ import { JsonLd, MapLink, PageHero, WhatsAppIcon, bodyText, eyebrow, h2Class } f
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
-  title: "İletişim ve Randevu — Reyhan Eren Aile Danışmanlığı | Bayraklı, İzmir",
+  title: "İletişim ve Randevu — Aile Danışmanı Reyhan Eren | Bayraklı, İzmir",
   description: `Randevu ve bilgi için ${site.phone.display} numaralı telefondan arayın, WhatsApp’tan yazın ya da formu doldurun. Bayraklı, İzmir’de yüz yüze ve online aile danışmanlığı.`,
   path: "/iletisim",
 });

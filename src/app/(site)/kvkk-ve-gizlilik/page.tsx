@@ -11,9 +11,9 @@ import { site } from "@/lib/site";
 // and update it whenever a new service (analytics, booking tool…) is added.
 
 export const metadata: Metadata = pageMetadata({
-  title: "KVKK Aydınlatma Metni ve Gizlilik Politikası | Reyhan Eren",
+  title: "KVKK Aydınlatma Metni ve Gizlilik Politikası | Aile Danışmanı Reyhan Eren",
   description:
-    "Reyhan Eren Aile Danışmanlığı kişisel verilerin korunması (6698 sayılı KVKK) aydınlatma metni ve gizlilik politikası: hangi veriler, hangi amaçla işlenir, haklarınız nelerdir.",
+    "Aile Danışmanı Reyhan Eren kişisel verilerin korunması (6698 sayılı KVKK) aydınlatma metni ve gizlilik politikası: hangi veriler, hangi amaçla işlenir, haklarınız nelerdir.",
   path: "/kvkk-ve-gizlilik",
 });
 

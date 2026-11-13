@@ -7,7 +7,7 @@ const ogImage = {
   url: "/opengraph-image",
   width: 1200,
   height: 630,
-  alt: "Reyhan Eren — İzmir Aile Danışmanlığı ve Çift Terapisi",
+  alt: "Aile Danışmanı Reyhan Eren — İzmir Aile Danışmanlığı ve Çift Terapisi",
 };
 
 export function pageMetadata({

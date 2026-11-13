@@ -6,7 +6,7 @@ import { site } from "@/lib/site";
 // Social preview (WhatsApp, X, LinkedIn, Facebook…) for every page that
 // doesn't define its own. Rendered once at build time.
 
-export const alt = "Reyhan Eren — İzmir Aile Danışmanlığı ve Çift Terapisi";
+export const alt = "Aile Danışmanı Reyhan Eren — İzmir Aile Danışmanlığı ve Çift Terapisi";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

@@ -6,7 +6,8 @@ export const site = {
   // Live domain (Vercel). www.reyhaneren.com.tr 301s here. NOT reyhaneren.com
   // — that domain belongs to someone else (a parked lander page).
   url: "https://reyhaneren.com.tr",
-  name: "Reyhan Eren Aile Danışmanlığı",
+  // Must match the Google Business Profile name exactly (renamed 2026-11-13).
+  name: "Aile Danışmanı Reyhan Eren",
   person: "Reyhan Eren",
   title: "Aile Danışmanı",
   description:
@@ -26,8 +27,11 @@ export const site = {
     locality: "Bayraklı",
     region: "İzmir",
     country: "TR",
-    // Google Business Profile ("Reyhan Eren Aile Danışmanlığı") on Google Maps.
-    maps: "https://maps.app.goo.gl/rBWDDddpLQ4T4Jfk9",
+    // Google Business Profile ("Aile Danışmanı Reyhan Eren") on Google Maps.
+    // CID link: permanent and name-free, so it always opens the profile under
+    // its current name (the maps.app.goo.gl short link redirects to a URL
+    // with the old name baked in).
+    maps: "https://www.google.com/maps?cid=11213107979394627265",
   },
   social: [
     { label: "Instagram", href: "https://www.instagram.com/basicsociology/" },

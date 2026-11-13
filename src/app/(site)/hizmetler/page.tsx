@@ -6,7 +6,7 @@ import { ServiceMark } from "@/components/service-mark";
 import { onlinePage, servicePages } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Hizmetler — İzmir Aile Danışmanlığı ve Çift Terapisi | Reyhan Eren",
+  title: "Hizmetler — İzmir Aile Danışmanlığı ve Çift Terapisi | Aile Danışmanı Reyhan Eren",
   description:
     "Bireysel danışmanlık, çift terapisi, aile danışmanlığı ve kurumsal danışmanlık. İzmir Bayraklı’da yüz yüze, Türkiye genelinde online seanslar.",
   path: "/hizmetler",

@@ -6,7 +6,7 @@ import { pageMetadata } from "@/lib/metadata";
 const content = serviceContent["online-danismanlik"];
 
 export const metadata: Metadata = pageMetadata({
-  title: `${content.metaTitle} | Reyhan Eren`,
+  title: `${content.metaTitle} | Aile Danışmanı Reyhan Eren`,
   description: content.metaDescription,
   path: "/hizmetler/online-danismanlik",
 });

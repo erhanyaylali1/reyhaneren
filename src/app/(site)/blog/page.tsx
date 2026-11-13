@@ -5,7 +5,7 @@ import { PostCard } from "@/components/blog/post-card";
 import { getPublishedPosts } from "@/lib/blog/queries";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Blog — Aile, İlişkiler ve Çift Terapisi Üzerine Yazılar | Reyhan Eren",
+  title: "Blog — Aile, İlişkiler ve Çift Terapisi Üzerine Yazılar | Aile Danışmanı Reyhan Eren",
   description:
     "Aile Danışmanı Reyhan Eren’den ilişkiler, ebeveynlik, iletişim ve çift terapisi üzerine yazılar.",
   path: "/blog",
